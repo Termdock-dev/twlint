@@ -86,7 +86,7 @@ graph TD
 ### 初始設定
 ```bash
 # 1. 複製專案
-git clone https://github.com/HCYT/twlint.git
+git clone https://github.com/Termdock-dev/twlint.git
 cd twlint
 
 # 2. 安裝依賴
@@ -503,7 +503,7 @@ if (errorType === 'file-not-found') {
 ## 📞 技術支援
 
 ### 開發者資源
-- **GitHub Issues**：https://github.com/HCYT/twlint/issues
+- **GitHub Issues**：https://github.com/Termdock-dev/twlint/issues
 - **技術討論**：GitHub Discussions
 - **程式碼審查**：Pull Request 流程
 

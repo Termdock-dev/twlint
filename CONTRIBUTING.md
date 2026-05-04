@@ -189,8 +189,8 @@ A:
 
 ## 📞 需要幫助？
 
-- **討論區**：[GitHub Discussions](https://github.com/HCYT/twlint/discussions)
-- **問題回報**：[GitHub Issues](https://github.com/HCYT/twlint/issues)
+- **討論區**：[GitHub Discussions](https://github.com/Termdock-dev/twlint/discussions)
+- **問題回報**：[GitHub Issues](https://github.com/Termdock-dev/twlint/issues)
 - **即時討論**：加入我們的開發者社群
 
 ---

@@ -321,7 +321,7 @@ twlint check file.md --dict core academic
 
 ### 本機開發
 ```bash
-git clone https://github.com/HCYT/twlint.git
+git clone https://github.com/Termdock-dev/twlint.git
 cd twlint
 npm install
 npm run build
