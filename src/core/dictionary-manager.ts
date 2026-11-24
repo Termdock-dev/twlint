@@ -8,6 +8,18 @@ import { LRUCache } from './lru-cache.js'
 import { isMatchableTerm } from './matchable-term.js'
 import { parseCSV, compileRows, buildDictionary, findCSVProblems } from './dictionary-compiler.js'
 
+// 中文沒有空格分詞，用 ICU 的詞語切分（Node 內建 Intl.Segmenter）找出詞邊界的位置
+const segmenter = new Intl.Segmenter('zh-Hant', { granularity: 'word' })
+
+function wordBoundaries(text: string): Set<number> {
+  const boundaries = new Set<number>([0, text.length])
+  for (const { index, segment } of segmenter.segment(text)) {
+    boundaries.add(index)
+    boundaries.add(index + segment.length)
+  }
+  return boundaries
+}
+
 // 建議詞包含原詞時（終端→終端機），命中位置周圍的文字可能已經是建議詞。
 // 原詞等於建議詞的保護詞條不在此列：它們要留下來，在去重時蓋掉較短的命中。
 function readsAsReplacement(text: string, start: number, term: string, replacement: string): boolean {
@@ -145,6 +157,12 @@ export class DictionaryManager {
         }
       }
     }
+
+    // 0. 只留下頭尾都在詞邊界上的命中，避免「判斷點」裡的「斷點」這類跨詞命中
+    const boundaries = wordBoundaries(text)
+    const wholeWordMatches = allMatches.filter(match => boundaries.has(match.start) && boundaries.has(match.end))
+    allMatches.length = 0
+    allMatches.push(...wholeWordMatches)
 
     // 1. 排序：優先長度，其次信心度，最後位置
     // Sort logic: Longest length > Higher confidence > Earlier position
