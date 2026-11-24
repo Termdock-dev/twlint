@@ -5,6 +5,29 @@ All notable changes to TWLint will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.0] - 2026-11-24
+
+### Added
+- `twlint check` 可以傳資料夾：展開成資料夾內有設定區塊涵蓋的檔案（預設 `*.md`、`*.txt`），並套用所有忽略規則（#3）
+- 參數展開後沒有任何檔案時，在 stderr 印出警告（結束碼不變）
+- `dict:build` 與 `dict:validate` 會擋下單字詞條，以及同一詞條在不同 CSV 設定不一致的情況
+
+### Changed
+- `--fix` 與檢查使用同一份檔案清單：帶引號的 glob 會展開，被忽略的檔案即使明確指定也不再修改
+- 工作目錄內的絕對路徑、`./`、`../` 路徑，套用的設定與忽略規則跟一般相對路徑相同（#5）
+- `simplified-chars`：本身也是正體字的字（里、岩、托、游、占）只在同一行有確定簡體字時才回報；詞組層級的用字差異（家具／傢俱、周年／週年）不再回報
+- 一般用詞（故事、評論、事務、調查等 42 個詞）在領域詞庫改為依語境判斷，不自動修正
+- 詞庫版本改由 `package.json` 決定
+
+### Fixed
+- 建議詞包含原詞的詞條（終端→終端機、子網→子網路）會把正確用語也報出來，`--fix` 會產生「終端機機」
+- JSON 輸出經管線超過 64KB 時被截斷（#2）
+- `dict:build` 遇到領域或學術詞庫編譯錯誤時仍以 exit 0 結束
+- `dict:validate` 指向不存在的腳本
+
+### Removed
+- 21 筆單字詞條（執行期本來就不比對）與沒有被建置讀取的 `core/plus.csv`
+
 ## [1.3.0] - 2026-03-30
 
 ### Changed
