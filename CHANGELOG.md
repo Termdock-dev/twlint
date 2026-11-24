@@ -5,6 +5,17 @@ All notable changes to TWLint will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0] - 2026-11-24
+
+### Added
+- 設定檔 `customDictionaries`：載入自己的 CSV 詞表（格式同內建詞庫），同一個詞以自訂詞表為準，對應到自己等於允許。只能寫在不帶 `files` 的區塊，詞表有任何問題時整個指令失敗（#15）
+- `tools/eval-precision.ts`：用語料量測詞條的誤判與召回（#18）
+
+### Changed
+- 比對只接受頭尾落在詞邊界上的命中，「判斷點」不再報「斷點」、「不變量」不再報「變量」（#17）
+- 內建詞庫改為保守立場：數據、用戶、集群、回報、腳本、激活等 25 個台灣也常用的詞，只在領域語境才報，且不自動修正。台灣人寫的文件誤判從 2,135 筆降到約 490 筆，維基 zh-cn 的真實差異沒有少抓（#16）
+- `dict:validate` 與自訂詞表共用同一份 CSV 檢查，必填欄位多了 `china_traditional` 與 `reason`
+
 ## [1.4.1] - 2026-11-24
 
 ### Changed
