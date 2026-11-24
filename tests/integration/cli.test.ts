@@ -176,8 +176,13 @@ describe('CLI Integration Tests', () => {
       expect(stdout).toContain('No problems found')
     })
 
-    it('applies path-prefixed .gitignore rules to a directory argument', async () => {
-      expect(await listFiles('docs')).toEqual(['docs/a.md'])
+    it('does not fix an explicitly named file that .twlintignore excludes', async () => {
+      await mkdir(join(projectDir, 'drafts'), { recursive: true })
+      await writeFile(join(projectDir, '.twlintignore'), 'drafts/\n', 'utf-8')
+      await writeFile(join(projectDir, 'drafts', 'd.md'), '这是简体字', 'utf-8')
+
+      await execAsync(`node ${cliPath} check drafts/d.md --fix`, { cwd: projectDir })
+      expect(await readFile(join(projectDir, 'drafts', 'd.md'), 'utf-8')).toBe('这是简体字')
     })
 
     it('matches config "files" patterns for an absolute directory argument', async () => {
