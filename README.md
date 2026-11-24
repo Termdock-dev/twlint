@@ -230,7 +230,7 @@ twlint init [--force]  產生 twlint.config.js
 
 ```bash
 # 指定詞庫
-twlint check docs/ --dict core business-finance
+twlint check "docs/**/*.md" --dict core business-finance
 
 # 載入所有詞庫
 twlint check README.md --deep
