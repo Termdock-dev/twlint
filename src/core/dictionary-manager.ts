@@ -5,6 +5,7 @@ import type { CompiledDict, MatchResult, DictLookupEntry } from '../types.js'
 import { formatError } from '../utils/error-utils.js'
 import { MatchStrategyRegistry } from './matching/match-strategies.js'
 import { LRUCache } from './lru-cache.js'
+import { isMatchableTerm } from './matchable-term.js'
 
 export class DictionaryManager {
   private cache = new LRUCache<string, CompiledDict>(20) // 限制快取 20 個詞庫
@@ -48,7 +49,7 @@ export class DictionaryManager {
     for (const dict of this.cache.values()) {
       // 先處理所有基本詞彙匹配
       const basicTerms = Object.keys(dict.lookup).filter(term =>
-        !term.includes('_') && !this.isSingleCharacterTerm(term)
+        !term.includes('_') && isMatchableTerm(term)
       )
       const contextVariants = Object.keys(dict.lookup).filter(term => {
         if (!term.includes('_')) {
@@ -56,7 +57,7 @@ export class DictionaryManager {
         }
 
         const [baseTerm] = term.split('_', 1)
-        return !this.isSingleCharacterTerm(baseTerm)
+        return isMatchableTerm(baseTerm)
       })
 
       // 處理基本詞彙
@@ -193,10 +194,6 @@ export class DictionaryManager {
       rule: `${dictName}-${entry.match_type || 'exact'}${isVariant ? '-variant' : ''}`,
       autofix_safe: entry.autofix_safe || false
     })
-  }
-
-  private isSingleCharacterTerm(term: string): boolean {
-    return [...term].length === 1
   }
 
   async scanAvailableDictionaries(): Promise<string[]> {

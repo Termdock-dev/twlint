@@ -2,6 +2,18 @@
 import { describe, it, expect, beforeEach } from 'vitest'
 import { DictionaryManager } from '../../src/core/dictionary-manager'
 import { MainlandTermsRule } from '../../src/core/rules/mainland-terms'
+import { findUnmatchableRows } from '../../src/core/matchable-term'
+
+describe('Single character dictionary rows', () => {
+    it('reports rows whose simplified or traditional form is one character', () => {
+        const rows = [
+            { id: 'package', china_simplified: '包', china_traditional: '包' },
+            { id: 'stack', china_simplified: '栈道', china_traditional: '棧' },
+            { id: 'software', china_simplified: '软件', china_traditional: '軟件' }
+        ]
+        expect(findUnmatchableRows(rows)).toEqual(['package', 'stack'])
+    })
+})
 
 describe('Single Character Hazards (Issue #4)', () => {
     let rule: MainlandTermsRule

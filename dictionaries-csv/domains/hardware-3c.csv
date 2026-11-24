@@ -14,7 +14,6 @@ drive,磁碟機,驱动器,驅動器,drive,0.90,mainland-term,台灣儲存設備�
 motherboard,主機板,主板,主板,motherboard,0.90,mainland-term,台灣電腦組件標準,tech,exact,,,,true
 chipset,晶片組,芯片组,芯片組,chipset,0.90,mainland-term,台灣晶片技術標準,tech,exact,,,,true
 chip,晶片,芯片,芯片,chip,0.95,mainland-term,台灣半導體標準,tech,exact,,,,true
-silicon,矽,硅,硅,silicon,0.95,mainland-term,台灣半導體材料,tech,exact,,,,true
 bios,基本輸入輸出系統,基本输入输出系统,基本輸入輸出系統,BIOS,0.90,mainland-term,台灣韌體標準,tech,exact,,,,true
 uefi,統一可延伸韌體介面,统一可扩展固件接口,統一可擴展固件接口,UEFI,0.90,mainland-term,台灣韌體標準,tech,exact,,,,true
 usb,通用序列匯流排,通用串行总线,通用串行總線,USB,0.90,mainland-term,台灣介面標準,tech,exact,,,,true
@@ -51,7 +50,6 @@ register,暫存器,寄存器,寄存器,register,0.90,mainland-term,台灣計算�
 bus,匯流排,总线,總線,bus,0.90,mainland-term,台灣電腦架構標準,tech,exact,,,,true
 bandwidth,頻寬,带宽,帶寬,bandwidth,0.95,mainland-term,台灣網路技術標準,tech,exact,,,,true
 storage,儲存體,存储,存儲,storage,0.90,mainland-term,台灣儲存技術標準,tech,exact,,,,true
-volume,磁碟區,卷,卷,volume,0.85,mainland-term,台灣儲存管理標準,tech,exact,,,,true
 raid,磁碟陣列,磁盘阵列,磁盤陣列,RAID,0.90,mainland-term,台灣儲存技術標準,tech,exact,,,,true
 nas,網路附接儲存,网络附加存储,網絡附加存儲,NAS,0.90,mainland-term,台灣儲存設備標準,tech,exact,,,,true
 laser,雷射,激光,激光,laser,0.95,mainland-term,台灣光學技術標準,tech,exact,,,,true

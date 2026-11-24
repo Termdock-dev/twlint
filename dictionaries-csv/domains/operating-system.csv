@@ -41,7 +41,6 @@ administrator,系統管理員,管理员,管理員,administrator,0.90,mainland-te
 root,根使用者,根用户,根用戶,root,0.90,mainland-term,台灣系統最高權限,tech,exact,,,,true
 guest,訪客,访客,訪客,guest,0.85,mainland-term,台灣使用者權限,tech,exact,,,,true
 user,使用者,用户,用戶,user,0.85,mainland-term,台灣使用者介面標準,tech,exact,,,,true
-group,群組,组,組,group,0.85,mainland-term,台灣使用者管理術語,tech,exact,,,,true
 mount,掛載,挂载,掛載,mount,0.90,mainland-term,台灣系統操作術語,tech,exact,,,,true
 unmount,卸載,卸载,卸載,unmount,0.90,mainland-term,台灣系統操作術語,tech,exact,,,,true
 partition,分割區,分区,分區,partition,0.90,mainland-term,台灣磁碟管理術語,tech,exact,,,,true
@@ -63,7 +62,6 @@ kernel-panic,核心錯誤,内核恐慌,內核恐慌,kernel panic,0.90,mainland-t
 core-dump,核心傾印,核心转储,核心轉儲,core dump,0.90,mainland-term,台灣除錯技術術語,tech,exact,,,,true
 stack-trace,堆疊追蹤,堆栈跟踪,堆棧跟蹤,stack trace,0.90,mainland-term,台灣除錯技術術語,tech,exact,,,,true
 system-call,系統呼叫,系统调用,系統調用,system call,0.90,mainland-term,台灣系統程式設計,tech,exact,,,,true
-library-os,函式庫,库,庫,library,0.85,mainland-term,台灣系統程式元件,tech,exact,,,,true
 dynamic-library,動態函式庫,动态库,動態庫,dynamic library,0.90,mainland-term,台灣系統程式元件,tech,exact,,,,true
 static-library,靜態函式庫,静态库,靜態庫,static library,0.90,mainland-term,台灣系統程式元件,tech,exact,,,,true
 dll,動態連結程式庫,动态链接库,動態鏈接庫,DLL,0.90,mainland-term,台灣Windows系統元件,tech,exact,,,,true

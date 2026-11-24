@@ -13,7 +13,6 @@ cache,快取,缓存,緩存,cache,0.90,mainland-term,台灣系統效能標準,tec
 call,呼叫,调用,調用,call,0.90,mainland-term,台灣程式設計標準,tech,exact,,,,true
 callback,回呼,回调,回調,callback,0.85,mainland-term,台灣非同步程式設計,tech,exact,,,,true
 character,字元,字符,字符,character,0.90,mainland-term,台灣文字處理標準,tech,exact,,,,true
-class,類別,类,類,class,0.95,mainland-term,台灣物件導向標準,tech,exact,,,,true
 code,程式碼,代码,代碼,code,0.95,mainland-term,台灣軟體開發標準,tech,exact,,,,true
 compile,編譯,编译,編譯,compile,0.95,mainland-term,台灣程式語言標準,tech,exact,,,,true
 compiler,編譯器,编译器,編譯器,compiler,0.95,mainland-term,台灣程式語言工具,tech,exact,,,,true
@@ -29,7 +28,6 @@ function,函式,函数,函數,function,0.95,mainland-term,台灣程式設計標�
 global,全域,全局,全局,global,0.90,mainland-term,台灣程式設計標準,tech,exact,,,,true
 handler,處理器,处理器,處理器,handler,0.85,mainland-term,台灣程式設計標準,tech,exact,,,,true
 hash,雜湊,哈希,哈希,hash,0.90,mainland-term,台灣密碼學標準,tech,exact,,,,true
-heap,堆積,堆,堆,heap,0.90,mainland-term,台灣記憶體管理標準,tech,exact,,,,true
 implement,實作,实现,實現,implement,0.90,mainland-term,台灣軟體開發標準,tech,context_sensitive,"功能,介面,API,程式,模組,函式,方法,class,元件,架構",,"夢想,目標,願景,理想",false
 import,匯入,导入,導入,import,0.90,mainland-term,台灣程式開發標準,tech,exact,,,,true
 inheritance,繼承,继承,繼承,inheritance,0.85,mainland-term,台灣物件導向標準,tech,exact,,,,true
@@ -42,7 +40,6 @@ loop,迴圈,循环,循環,loop,0.90,mainland-term,台灣程式設計標準,tech,
 module,模組,模块,模塊,module,0.90,mainland-term,台灣軟體架構標準,tech,exact,,,,true
 optimize,最佳化,优化,優化,optimize,0.90,mainland-term,台灣效能調校標準,tech,context_sensitive,"效能,演算法,查詢,編譯,記憶體,CPU,資料庫,回應時間,程式,系統",,"保養,膚質,身體,飲食,生活,流程",false
 overflow,溢位,溢出,溢出,overflow,0.85,mainland-term,台灣程式錯誤處理,tech,exact,,,,true
-package,套件,包,包,package,0.85,mainland-term,台灣軟體發布標準,tech,exact,,,,true
 parameter,參數,参数,參數,parameter,0.85,mainland-term,台灣程式設計標準,tech,exact,,,,true
 pointer,指標,指针,指針,pointer,0.90,mainland-term,台灣程式設計標準,tech,exact,,,,true
 polymorphism,多型,多态,多態,polymorphism,0.90,mainland-term,台灣物件導向概念,tech,exact,,,,true
@@ -52,7 +49,6 @@ queue,佇列,队列,隊列,queue,0.95,mainland-term,台灣資料結構標準,tec
 recursion,遞迴,递归,遞歸,recursion,0.90,mainland-term,台灣程式設計技巧,tech,exact,,,,true
 refactor,重構,重构,重構,refactor,0.90,mainland-term,台灣程式改進標準,tech,exact,,,,true
 runtime,執行時期,运行时,運行時,runtime,0.85,mainland-term,台灣程式執行標準,tech,exact,,,,true
-stack,堆疊,栈,棧,stack,0.90,mainland-term,台灣資料結構標準,tech,exact,,,,true
 string,字串,字符串,字符串,string,0.95,mainland-term,台灣程式設計標準,tech,exact,,,,true
 thread,執行緒,线程,線程,thread,0.95,mainland-term,台灣平行處理標準,tech,exact,,,,true
 type,型別,类型,類型,type,0.90,mainland-term,台灣程式語言標準,tech,context_sensitive,"函式,参数,參數,變數,字面量,泛型,MIME,enum,列舉,回傳,返回,型別",,,true
@@ -68,7 +64,6 @@ unit-test,單元測試,单元测试,單元測試,unit test,0.90,mainland-term,�
 integration-test,整合測試,集成测试,集成測試,integration test,0.90,mainland-term,台灣測試標準,tech,exact,,,,true
 regression-test,迴歸測試,回归测试,回歸測試,regression test,0.90,mainland-term,台灣測試標準,tech,exact,,,,true
 mock,模擬,模拟,模擬,mock,0.85,mainland-term,台灣測試技術標準,tech,exact,,,,true
-stub,樁,桩,樁,stub,0.90,mainland-term,台灣測試技術標準,tech,exact,,,,true
 debugger,除錯器,调试器,調試器,debugger,0.90,mainland-term,台灣開發工具標準,tech,exact,,,,true
 benchmark,基準測試,基准测试,基準測試,benchmark,0.90,mainland-term,台灣效能評測標準,tech,exact,,,,true
 deadlock,死結,死锁,死鎖,deadlock,0.90,mainland-term,台灣並行程式標準,tech,exact,,,,true

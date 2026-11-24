@@ -7,6 +7,7 @@ import { readFile, writeFile, readdir, mkdir } from 'fs/promises'
 import { join, basename } from 'path'
 import Papa from 'papaparse'
 import type { DictEntry, CompiledDict, DictLookupEntry } from '../src/types.js'
+import { findUnmatchableRows, MIN_TERM_LENGTH } from '../src/core/matchable-term.js'
 
 interface CSVRow {
   id: string
@@ -60,7 +61,6 @@ class DictBuilder {
     const coreDir = join(this.csvDir, 'core')
     const csvFiles = await this.findCSVFiles(coreDir)
 
-    // 只載入 core.csv，不包含 plus.csv（plus.csv 已經分拆到領域詞庫）
     const coreFiles = csvFiles.filter(file => basename(file) === 'core.csv')
 
     if (coreFiles.length === 0) {
@@ -237,6 +237,12 @@ class DictBuilder {
       })
 
       const validRows = data.filter(row => this.validateCSVRow(row))
+      const unmatchable = findUnmatchableRows(validRows)
+      if (unmatchable.length > 0) {
+        throw new Error(
+          `${csvFile} 含有單一個字的詞條（詞庫只收 ${MIN_TERM_LENGTH} 個字以上）: ${unmatchable.join(', ')}`
+        )
+      }
       const processedEntries = validRows.map(row => this.createDictEntry(row))
       entries.push(...processedEntries)
     }
