@@ -87,8 +87,9 @@ describe('CLI Integration Tests', () => {
       const content = '授權協議與合作協議已更新，這次檢驗結果異常需要複查。'
       await writeFile(testFile, content, 'utf-8')
 
-      const result = await execAsync(`node ${cliPath} check ${testFile} --deep`)
-      expect(result.stdout).toContain('No problems found')
+      // 用 JSON 檢查：stylish 在只有 info 時也印 No problems found
+      const result = await execAsync(`node ${cliPath} check ${testFile} --deep --format json`)
+      expect(JSON.parse(result.stdout)[0].messages).toEqual([])
 
       await execAsync(`node ${cliPath} check ${testFile} --deep --fix`)
       expect(await readFile(testFile, 'utf-8')).toBe(content)
