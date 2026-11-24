@@ -360,12 +360,12 @@ describe('CLI Integration Tests', () => {
       await writeFile(join(projectDir, 'package.json'), '{ "type": "module" }\n', 'utf-8')
       await writeFile(join(projectDir, 'terms.csv'), [
         HEADER,
-        // 內建詞庫是「數據→資料」，自訂詞表改成「數值」
-        'data-override,數值,数据,數據,data,0.95,mainland-term,團隊用語,tech,exact,,,,true',
+        // 內建詞庫是「軟件→軟體」（exact），自訂詞表改成「軟體程式」
+        'software-override,軟體程式,软件,軟件,software,0.95,mainland-term,團隊用語,tech,exact,,,,true',
         // 內建詞庫沒有的詞
         'fetch,取得,获取,獲取,fetch,0.95,mainland-term,團隊用語,tech,exact,,,,true',
-        // 原詞→原詞：允許這個詞，蓋過內建的「腳本→指令碼」；信心度刻意低於內建詞條，只靠自訂優先
-        'allow-script,腳本,脚本,腳本,script,0.5,allowed-term,團隊允許,tech,exact,,,,false'
+        // 原詞→原詞：允許這個詞，蓋過內建的「網絡→網路」（exact）；信心度刻意低於內建詞條，只靠自訂優先
+        'allow-network,網絡,网络,網絡,network,0.5,allowed-term,團隊允許,tech,exact,,,,false'
       ].join('\n'), 'utf-8')
       await writeConfig('terms.csv')
     })
@@ -374,11 +374,19 @@ describe('CLI Integration Tests', () => {
       await rm(projectDir, { recursive: true, force: true })
     })
 
-    it('uses the custom replacement over the built-in one for the same term', async () => {
-      await writeFile(join(projectDir, 'a.md'), '這份數據很完整', 'utf-8')
+    // 優先權測試的前提：內建詞條本身會命中這些句子，否則拿掉「自訂優先」測試也會通過
+    it('has built-in matches for the precedence cases when no custom dictionary is set', async () => {
+      await writeFile(join(projectDir, 'twlint.config.js'), 'export default [{ files: ["**/*.md"], rules: { "mainland-terms": "warning" } }]\n', 'utf-8')
+      await writeFile(join(projectDir, 'a.md'), '這個軟件很好用，網絡也穩定', 'utf-8')
       const suggestions = (await messages('a.md')).flatMap(m => m.suggestions ?? [])
-      expect(suggestions).toContain('數值')
-      expect(suggestions).not.toContain('資料')
+      expect(suggestions).toEqual(expect.arrayContaining(['軟體', '網路']))
+    })
+
+    it('uses the custom replacement over the built-in one for the same term', async () => {
+      await writeFile(join(projectDir, 'a.md'), '這個軟件很好用', 'utf-8')
+      const suggestions = (await messages('a.md')).flatMap(m => m.suggestions ?? [])
+      expect(suggestions).toContain('軟體程式')
+      expect(suggestions).not.toContain('軟體')
     })
 
     it('adds terms the built-in dictionaries do not have', async () => {
@@ -387,8 +395,8 @@ describe('CLI Integration Tests', () => {
     })
 
     it('treats a term mapped to itself as allowed', async () => {
-      await writeFile(join(projectDir, 'a.md'), '執行部署腳本', 'utf-8')
-      expect((await messages('a.md')).filter(m => m.message.includes('腳本'))).toEqual([])
+      await writeFile(join(projectDir, 'a.md'), '網絡也穩定', 'utf-8')
+      expect((await messages('a.md')).filter(m => m.message.includes('網絡'))).toEqual([])
     })
 
     it('fails the whole run when a configured dictionary cannot be read', async () => {
