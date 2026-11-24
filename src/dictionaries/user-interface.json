@@ -868,32 +868,80 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣編輯操作標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "查找",
+          "尋找",
+          "搜尋",
+          "Ctrl",
+          "Cmd",
+          "快捷鍵",
+          "編輯器",
+          "全部"
+        ]
+      }
     },
     "替换_replace": {
       "taiwan": "取代",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣編輯操作標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "查找",
+          "尋找",
+          "搜尋",
+          "Ctrl",
+          "Cmd",
+          "快捷鍵",
+          "編輯器",
+          "全部"
+        ]
+      }
     },
     "替換": {
       "taiwan": "取代",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣編輯操作標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "查找",
+          "尋找",
+          "搜尋",
+          "Ctrl",
+          "Cmd",
+          "快捷鍵",
+          "編輯器",
+          "全部"
+        ]
+      }
     },
     "替換_replace": {
       "taiwan": "取代",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣編輯操作標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "查找",
+          "尋找",
+          "搜尋",
+          "Ctrl",
+          "Cmd",
+          "快捷鍵",
+          "編輯器",
+          "全部"
+        ]
+      }
     },
     "刷新": {
       "taiwan": "重新整理",
