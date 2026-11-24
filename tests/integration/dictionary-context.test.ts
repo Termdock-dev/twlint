@@ -68,7 +68,11 @@ describe('Conservative context for general-usage terms (all built-in dictionarie
     ['研究人機交互的設計', '互動'],
     // README 的程式碼範例：檢查的是大陸寫法的文字，語境關鍵字要包含軟件、程序這類寫法
     ['這個軟件用於處理用戶數據', '使用者'],
-    ['這個軟件用於處理用戶數據', '資料']
+    ['這個軟件用於處理用戶數據', '資料'],
+    // 大陸寫法的技術文字：語境關鍵字要認得大陸寫法（文件、內存、服務器、函數）
+    ['把這個文件設為只讀', '唯讀'],
+    ['在服務器上部署三個節點的集群', '叢集'],
+    ['函數裡用斷言檢查返回值', '宣告']
   ])('still flags the domain sense: %s', async (text, replacement) => {
     expect(await replacementsIn(text)).toContain(replacement)
   })
