@@ -11,3 +11,7 @@ declare module 'opencc-js' {
   export function Converter(options: ConverterOptions): Converter
   export default function OpenCC(options: ConverterOptions): Converter
 }
+declare module 'opencc-js/dict/*' {
+  const dictionary: string
+  export default dictionary
+}
