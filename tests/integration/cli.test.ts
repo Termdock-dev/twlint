@@ -414,7 +414,10 @@ describe('CLI Integration Tests', () => {
     it.each([
       ['a wrong header', 'id,taiwan\nx,y'],
       ['a non-numeric confidence', `${HEADER}\nd,數值,数据,數據,data,high,mainland-term,x,tech,exact,,,,true`],
-      ['no entries', HEADER]
+      ['no entries', HEADER],
+      // 缺 china_traditional 欄位時曾建出 'undefined' 詞條，把程式碼裡的 undefined 改掉
+      ['no china_traditional column', 'id,taiwan,china_simplified,english,confidence,category,reason,domain\nfetch,取得,获取,fetch,0.95,mainland-term,x,tech'],
+      ['an empty reason', `${HEADER}\nfetch,取得,获取,獲取,fetch,0.95,mainland-term,,tech,exact,,,,true`]
     ])('fails when the custom dictionary has %s', async (_label, csv) => {
       await writeFile(join(projectDir, 'terms.csv'), csv, 'utf-8')
       await writeFile(join(projectDir, 'a.md'), '這份數據很完整', 'utf-8')
