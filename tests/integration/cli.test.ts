@@ -199,6 +199,15 @@ describe('CLI Integration Tests', () => {
         .toEqual(['docs/a.md', 'src/x.ts'])
     })
 
+    it('runs the configured rules on an explicit absolute file path inside the project', async () => {
+      try {
+        await execAsync(`node ${cliPath} check ${join(projectDir, 'src', 'x.ts')} --format json`, { cwd: projectDir })
+        expect.fail('Should have exited with error code')
+      } catch (error: any) {
+        expect(JSON.parse(error.stdout)[0].messages.length).toBeGreaterThan(0)
+      }
+    })
+
     it('runs the configured rules on files reached through an absolute directory', async () => {
       try {
         await execAsync(`node ${cliPath} check ${projectDir} --format json`, { cwd: projectDir })
