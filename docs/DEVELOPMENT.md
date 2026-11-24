@@ -406,10 +406,10 @@ node --inspect dist/cli.js check large-file.md
 
 發布到 npm 由 GitHub Actions（`.github/workflows/publish.yml`）處理，不要手動 `npm publish`：手動發布後再建立 Release，同一個版本會被發布兩次而失敗。
 
-1. 開一個 PR 更新版本號與 CHANGELOG：
+1. 開一個 PR 更新版本號與 CHANGELOG。`patch` 依變更改成 `minor` 或 `major`；`--no-git-tag-version` 讓 npm 不建 commit 和 tag，tag 留給 Release：
 
    ```bash
-   npm version patch|minor|major --no-git-tag-version
+   npm version patch --no-git-tag-version
    npm run dict:build   # 詞庫版本跟著 package.json
    ```
 
@@ -419,7 +419,7 @@ node --inspect dist/cli.js check large-file.md
 
 3. Release 發布後，Actions 會：
    - 檢查 tag 與 `package.json` 版本一致，不一致就失敗
-   - 執行 `npm ci`、`npm run build`、`npx vitest run`
+   - 執行 `npm ci`、`npm run dict:validate`、`npm run build`、`npx vitest run`
    - 以 npm Trusted Publishing（OIDC）執行 `npm publish`，不需要 npm token 或一次性密碼
 
 npmjs.com 的 Trusted Publisher 設定：`Termdock-dev` / `twlint` / `publish.yml`，允許 `npm publish`。

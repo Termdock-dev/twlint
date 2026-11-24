@@ -34,6 +34,8 @@ jobs:
           fi
 
       - run: npm ci
+      # dict:build 會略過格式錯誤的列，發布前另外驗證所有 CSV
+      - run: npm run dict:validate
       - run: npm run build
       - run: npx vitest run
       - run: npm publish
