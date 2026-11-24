@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest'
-import { writeFile, readFile, unlink, mkdir, rmdir } from 'fs/promises'
+import { writeFile, readFile, unlink, mkdir, rmdir, rm } from 'fs/promises'
 import { join } from 'path'
 import { exec } from 'child_process'
 import { promisify } from 'util'
@@ -122,6 +122,40 @@ describe('CLI Integration Tests', () => {
         expect(error.stdout).not.toContain('file-read-error')
         expect(error.stdout).toContain('simplified-chars')
       }
+    })
+  })
+
+  describe('directory arguments (#3)', () => {
+    const docsDir = join(testDir, 'docs-dir')
+
+    beforeEach(async () => {
+      await mkdir(join(docsDir, 'sub'), { recursive: true })
+      await writeFile(join(docsDir, 'sub', 'guide.md'), '这是简体字', 'utf-8')
+      await writeFile(join(docsDir, 'script.sh'), 'echo 这是简体字', 'utf-8')
+    })
+
+    afterEach(async () => {
+      await rm(docsDir, { recursive: true, force: true })
+    })
+
+    it('checks the files under a directory that the config covers', async () => {
+      try {
+        await execAsync(`node ${cliPath} check ${docsDir} --format json`)
+        expect.fail('Should have exited with error code')
+      } catch (error: any) {
+        expect(error.code).toBe(1)
+        const results = JSON.parse(error.stdout)
+        expect(results.map((result: { filePath: string }) => result.filePath))
+          .toEqual([join(docsDir, 'sub', 'guide.md')])
+        expect(results[0].messages.length).toBeGreaterThan(0)
+      }
+    })
+
+    it('fixes the files under a directory', async () => {
+      await execAsync(`node ${cliPath} check ${docsDir} --fix`)
+
+      expect(await readFile(join(docsDir, 'sub', 'guide.md'), 'utf-8')).toBe('這是簡體字')
+      expect(await readFile(join(docsDir, 'script.sh'), 'utf-8')).toBe('echo 这是简体字')
     })
   })
 
