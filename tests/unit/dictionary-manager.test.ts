@@ -22,6 +22,12 @@ describe('DictionaryManager', () => {
       expect(dict1).toBe(dict2) // 應該是同一個物件引用
     })
 
+    it('loads the legacy name "extended" as the academic dictionary (#9)', async () => {
+      const extended = await dictManager.loadDictionary('extended')
+      const academic = await new DictionaryManager().loadDictionary('academic')
+      expect(extended.lookup).toEqual(academic.lookup)
+    })
+
     it('should throw error for non-existent dictionary', async () => {
       await expect(dictManager.loadDictionary('non-existent')).rejects.toThrow()
     })
