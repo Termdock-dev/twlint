@@ -14,7 +14,7 @@ describe('Risk Assessment (Issue #4 Follow-up)', () => {
         // Load business-finance if needed, but core should cover most.
         try {
             await manager.loadDictionary('business-finance')
-        } catch (e) {
+        } catch {
             // Ignore if not found or error
         }
         rule = new MainlandTermsRule(manager)
@@ -80,11 +80,8 @@ describe('Risk Assessment (Issue #4 Follow-up)', () => {
         const text = '請安裝客戶端軟體。'
         const issues = await rule.check(text)
 
-        // If it matches, we acknowledge it. If we want to fix it later, we can.
-        // For now, just logging expectation.
-        // User said it IS currently matching (mapped to 用戶端 or similar).
+        // 1.3.0 起詞庫不收「客戶端→用戶端」，台灣也通用「客戶端」
         const match = issues.find(i => i.message.includes('用戶端') || i.message.includes('客戶端'))
-        // Expecting it to match currently (based on user report)
-        // If we want to CHANGE policy, we would assert .toBeUndefined()
+        expect(match).toBeUndefined()
     })
 })

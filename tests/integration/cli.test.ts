@@ -7,6 +7,13 @@ import { promisify } from 'util'
 
 const execAsync = promisify(exec)
 
+// execAsync 在非零結束時丟出的錯誤帶有結束碼與輸出
+interface ExecFailure {
+  code: number
+  stdout: string
+  stderr: string
+}
+
 describe('CLI Integration Tests', () => {
   // 放在工作目錄外：repo 自己的 .twlintignore 會忽略 test-temp/
   const testDir = join(tmpdir(), `twlint-cli-test-${process.pid}`)
@@ -31,7 +38,8 @@ describe('CLI Integration Tests', () => {
       try {
         await execAsync(`node ${cliPath} check ${testFile}`)
         expect.fail('Should have exited with error code')
-      } catch (error: any) {
+      } catch (caught) {
+        const error = caught as ExecFailure
         expect(error.code).toBe(1)
         expect(error.stdout).toContain('simplified-chars')
         expect(error.stdout).toContain('mainland-terms')
@@ -46,7 +54,8 @@ describe('CLI Integration Tests', () => {
       try {
         await execAsync(`node ${cliPath} check ${testFile} --format json`)
         expect.fail('Should have exited with error code')
-      } catch (error: any) {
+      } catch (caught) {
+        const error = caught as ExecFailure
         expect(error.code).toBe(1)
         expect(() => JSON.parse(error.stdout)).not.toThrow()
 
@@ -65,7 +74,8 @@ describe('CLI Integration Tests', () => {
       try {
         await execAsync(`node ${cliPath} check ${testFile} --format json`, { maxBuffer: 10 * 1024 * 1024 })
         expect.fail('Should have exited with error code')
-      } catch (error: any) {
+      } catch (caught) {
+        const error = caught as ExecFailure
         expect(error.code).toBe(1)
         expect(Buffer.byteLength(error.stdout)).toBeGreaterThan(65536)
         expect(JSON.parse(error.stdout)[0].messages.length).toBeGreaterThan(1000)
@@ -79,7 +89,8 @@ describe('CLI Integration Tests', () => {
       try {
         await execAsync(`node ${cliPath} check ${testFile}`)
         expect.fail('Should have exited with error code')
-      } catch (error: any) {
+      } catch (caught) {
+        const error = caught as ExecFailure
         expect(error.code).toBe(1)
       }
     })
@@ -113,7 +124,8 @@ describe('CLI Integration Tests', () => {
       try {
         await execAsync(`node ${cliPath} check ${nestedDir} ${testFile}`)
         expect.fail('Should have exited with error code')
-      } catch (error: any) {
+      } catch (caught) {
+        const error = caught as ExecFailure
         expect(error.code).toBe(1)
         expect(error.stdout).not.toContain('file-read-error')
         expect(error.stdout).toContain('simplified-chars')
@@ -128,7 +140,8 @@ describe('CLI Integration Tests', () => {
       try {
         const { stdout } = await execAsync(`node ${cliPath} check ${arg} --format json`, { cwd: projectDir })
         return JSON.parse(stdout).map((result: { filePath: string }) => result.filePath)
-      } catch (error: any) {
+      } catch (caught) {
+        const error = caught as ExecFailure
         return JSON.parse(error.stdout).map((result: { filePath: string }) => result.filePath)
       }
     }
@@ -156,7 +169,8 @@ describe('CLI Integration Tests', () => {
       try {
         await execAsync(`node ${cliPath} check docs --format json`, { cwd: projectDir })
         expect.fail('Should have exited with error code')
-      } catch (error: any) {
+      } catch (caught) {
+        const error = caught as ExecFailure
         expect(error.code).toBe(1)
         const results = JSON.parse(error.stdout)
         expect(results.map((result: { filePath: string }) => result.filePath)).toEqual(['docs/a.md'])
@@ -203,7 +217,8 @@ describe('CLI Integration Tests', () => {
       try {
         await execAsync(`node ${cliPath} check ./src/x.ts --format json`, { cwd: projectDir })
         expect.fail('Should have exited with error code')
-      } catch (error: any) {
+      } catch (caught) {
+        const error = caught as ExecFailure
         expect(JSON.parse(error.stdout)[0].messages.length).toBeGreaterThan(0)
       }
     })
@@ -214,7 +229,8 @@ describe('CLI Integration Tests', () => {
       try {
         await execAsync(`node ${cliPath} check ../top.md --format json`, { cwd: join(projectDir, 'docs') })
         expect.fail('Should have exited with error code')
-      } catch (error: any) {
+      } catch (caught) {
+        const error = caught as ExecFailure
         expect(JSON.parse(error.stdout)[0].messages.length).toBeGreaterThan(0)
       }
     })
@@ -223,7 +239,8 @@ describe('CLI Integration Tests', () => {
       try {
         await execAsync(`node ${cliPath} check ${join(projectDir, 'src', 'x.ts')} --format json`, { cwd: projectDir })
         expect.fail('Should have exited with error code')
-      } catch (error: any) {
+      } catch (caught) {
+        const error = caught as ExecFailure
         expect(JSON.parse(error.stdout)[0].messages.length).toBeGreaterThan(0)
       }
     })
@@ -232,7 +249,8 @@ describe('CLI Integration Tests', () => {
       try {
         await execAsync(`node ${cliPath} check ${projectDir} --format json`, { cwd: projectDir })
         expect.fail('Should have exited with error code')
-      } catch (error: any) {
+      } catch (caught) {
+        const error = caught as ExecFailure
         const results: Array<{ filePath: string; messages: unknown[] }> = JSON.parse(error.stdout)
         expect(results.every(result => result.messages.length > 0)).toBe(true)
       }
@@ -314,7 +332,8 @@ describe('CLI Integration Tests', () => {
       try {
         await execAsync(`node ${cliPath} check non-existent-file.md`)
         expect.fail('Should have exited with error code')
-      } catch (error: any) {
+      } catch (caught) {
+        const error = caught as ExecFailure
         expect(error.code).toBe(1)
         // 檢查是否包含檔案讀取錯誤的信息
         expect(error.stdout).toContain('Failed to read file')
@@ -325,7 +344,8 @@ describe('CLI Integration Tests', () => {
       try {
         await execAsync(`node ${cliPath} check ${testFile} --invalid-option`)
         expect.fail('Should have thrown an error')
-      } catch (error: any) {
+      } catch (caught) {
+        const error = caught as ExecFailure
         expect(error.code).toBe(1)
       }
     })
@@ -341,7 +361,8 @@ describe('CLI Integration Tests', () => {
       try {
         await execAsync(`node ${cliPath} check a.md`, { cwd: projectDir })
         expect.fail('Should have exited with error code')
-      } catch (error: any) {
+      } catch (caught) {
+        const error = caught as ExecFailure
         expect(error.code).toBe(1)
         expect(error.stderr).toContain(stderrText)
       }
@@ -350,7 +371,8 @@ describe('CLI Integration Tests', () => {
       try {
         const { stdout } = await execAsync(`node ${cliPath} check ${file} --format json`, { cwd: projectDir })
         return JSON.parse(stdout)[0].messages
-      } catch (error: any) {
+      } catch (caught) {
+        const error = caught as ExecFailure
         return JSON.parse(error.stdout)[0].messages
       }
     }
@@ -405,7 +427,8 @@ describe('CLI Integration Tests', () => {
       try {
         await execAsync(`node ${cliPath} check a.md`, { cwd: projectDir })
         expect.fail('Should have exited with error code')
-      } catch (error: any) {
+      } catch (caught) {
+        const error = caught as ExecFailure
         expect(error.code).toBe(1)
         expect(error.stderr).toContain('Failed to load custom dictionary "missing.csv"')
         expect(error.stdout).not.toContain('file-read-error')
@@ -439,7 +462,8 @@ describe('CLI Integration Tests', () => {
       try {
         await execAsync(`node ${cliPath} check a.md`, { cwd: projectDir })
         expect.fail('Should have exited with error code')
-      } catch (error: any) {
+      } catch (caught) {
+        const error = caught as ExecFailure
         expect(error.stderr).toContain('單一個字')
       }
     })

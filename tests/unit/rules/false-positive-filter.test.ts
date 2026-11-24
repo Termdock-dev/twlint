@@ -25,7 +25,7 @@ function setupContainer(config) {
 }`
 
     // 模擬詞庫匹配：設定、容器都是假陽性（簡繁轉換後相同）
-    dictManager.findMatches = (text) => [
+    dictManager.findMatches = () => [
       { term: '配置', replacement: '配置', start: 7, end: 9, confidence: 0.9, rule: 'core-exact', autofix_safe: true },
       { term: '容器', replacement: '容器', start: 17, end: 19, confidence: 0.8, rule: 'core-exact', autofix_safe: true },
       { term: '配置', replacement: '配置', start: 43, end: 45, confidence: 0.9, rule: 'core-exact', autofix_safe: true },
@@ -63,7 +63,7 @@ function setupContainer(config) {
 當認證失敗時，服務器會返回 401 狀態碼。`
 
     // 模擬真實匹配：用戶→用戶(假陽性)、接口→介面、認證→驗證、訪問→存取
-    dictManager.findMatches = (text) => [
+    dictManager.findMatches = () => [
       { term: '用戶', replacement: '用戶', start: 3, end: 5, confidence: 0.9, rule: 'core-exact', autofix_safe: true },
       { term: '認證', replacement: '驗證', start: 5, end: 7, confidence: 0.9, rule: 'core-exact', autofix_safe: true },
       { term: '接口', replacement: '介面', start: 7, end: 9, confidence: 0.95, rule: 'core-exact', autofix_safe: true },

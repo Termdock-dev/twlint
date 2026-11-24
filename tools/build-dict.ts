@@ -205,7 +205,7 @@ class DictBuilder {
           entries: dict.metadata?.entries || 0
         })
       }
-    } catch (error) {
+    } catch {
       console.warn('Warning: Failed to scan dictionary files')
     }
 

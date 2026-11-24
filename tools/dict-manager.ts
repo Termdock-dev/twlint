@@ -11,16 +11,17 @@ import chalk from 'chalk'
 import { findCSVProblems, parseCSV } from '../src/core/dictionary-compiler.js'
 import { findInconsistentEntries, type ConsistencyRow } from './dict-consistency.js'
 
-interface DictEntry {
-  id: string
-  taiwan: string
-  china_simplified: string
-  china_traditional: string
+// 使用者提供的任意 CSV：欄名不固定，convert / merge 再自動對應到標準欄位
+type RawRow = Record<string, string>
+
+interface FieldMapping {
+  taiwan?: string
+  china?: string
+  china_traditional?: string
   english?: string
-  confidence: number
-  category: string
-  reason: string
-  domain: string
+  confidence?: string
+  category?: string
+  reason?: string
 }
 
 interface CSVRow {
@@ -42,7 +43,7 @@ class DictManager {
     console.log(chalk.blue(`🔄 轉換 CSV: ${inputPath} → 領域: ${domain}`))
 
     const content = await readFile(inputPath, 'utf-8')
-    const { data, errors } = Papa.parse<any>(content, {
+    const { data, errors } = Papa.parse<RawRow>(content, {
       header: true,
       skipEmptyLines: true
     })
@@ -70,7 +71,7 @@ class DictManager {
     console.log(chalk.dim(`   共 ${converted.length} 條目`))
   }
 
-  private autoConvertToStandard(data: any[], domain: string): CSVRow[] {
+  private autoConvertToStandard(data: RawRow[], domain: string): CSVRow[] {
     const converted: CSVRow[] = []
     let idCounter = 1
 
@@ -84,7 +85,7 @@ class DictManager {
     return converted
   }
 
-  private detectAndConvert(row: any, domain: string, id: number): CSVRow | null {
+  private detectAndConvert(row: RawRow, domain: string, id: number): CSVRow | null {
     // 嘗試自動檢測欄位映射
     const mapping = this.detectFieldMapping(row)
     if (!mapping.taiwan || !mapping.china) {
@@ -105,9 +106,9 @@ class DictManager {
     }
   }
 
-  private detectFieldMapping(row: any): any {
+  private detectFieldMapping(row: RawRow): FieldMapping {
     const keys = Object.keys(row).map(k => k.toLowerCase())
-    const mapping: any = {}
+    const mapping: FieldMapping = {}
 
     // 台灣用語檢測
     const taiwanFields = ['taiwan', 'tw', '台灣', '繁體', '正體', 'traditional']
@@ -140,7 +141,7 @@ class DictManager {
     return mapping
   }
 
-  private findField(row: any, keys: string[], candidates: string[]): string | undefined {
+  private findField(row: RawRow, keys: string[], candidates: string[]): string | undefined {
     for (const candidate of candidates) {
       const key = keys.find(k => k.includes(candidate.toLowerCase()))
       if (key) {
@@ -208,7 +209,7 @@ ${domain}-003,演算法,算法,算法,algorithm,0.95,mainland-term,台灣學術�
           console.log(`  - ${file} (${data.length} 條目)`)
         }
       }
-    } catch (error) {
+    } catch {
       console.error(chalk.red('❌ 無法讀取詞庫目錄'))
     }
   }
@@ -222,7 +223,7 @@ ${domain}-003,演算法,算法,算法,algorithm,0.95,mainland-term,台灣學術�
     for (const file of inputFiles) {
       console.log(chalk.dim(`  處理: ${file}`))
       const content = await readFile(file, 'utf-8')
-      const { data } = Papa.parse<any>(content, { header: true, skipEmptyLines: true })
+      const { data } = Papa.parse<RawRow>(content, { header: true, skipEmptyLines: true })
 
       for (const row of data) {
         const entry = this.detectAndConvert(row, domain, idCounter++)
@@ -328,6 +329,6 @@ async function main() {
 if (import.meta.url.endsWith(process.argv[1])) {
   main().catch(error => {
     console.error(chalk.red('❌ 執行錯誤:'), error.message)
-    process.exit(1)
+    process.exitCode = 1
   })
 }
