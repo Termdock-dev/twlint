@@ -110,7 +110,7 @@ describe('CLI Integration Tests', () => {
       expect(await readFile(testFile, 'utf-8')).toBe(content)
     })
 
-    it('should skip directory inputs instead of reporting file read errors', async () => {
+    it('should not report file read errors for directory inputs', async () => {
       const content = '简体字测试'
       await writeFile(testFile, content, 'utf-8')
 
@@ -149,6 +149,12 @@ describe('CLI Integration Tests', () => {
           .toEqual([join(docsDir, 'sub', 'guide.md')])
         expect(results[0].messages.length).toBeGreaterThan(0)
       }
+    })
+
+    it('warns on stderr when nothing is left to check, keeping exit 0', async () => {
+      const { stdout, stderr } = await execAsync(`node ${cliPath} check "${docsDir}/**/*.none"`)
+      expect(stderr).toContain('No files to check')
+      expect(stdout).toContain('No problems found')
     })
 
     it('fixes the files under a directory', async () => {

@@ -20,6 +20,11 @@ export interface CLIOptions {
   verbose?: boolean
 }
 
+// 參數都被忽略規則排除、或沒有設定區塊涵蓋時，讓使用者知道其實什麼都沒檢查
+function warnNoFiles(patterns: string[]): void {
+  console.error(chalk.yellow(`⚠ No files to check in: ${patterns.join(', ')} (all ignored or not covered by the config "files" patterns)`))
+}
+
 async function performCheck(linter: TWLinter, files: string[], options: CLIOptions): Promise<number> {
   // 檢查是否找到任何檔案
   if (files.length === 0) {
@@ -28,6 +33,7 @@ async function performCheck(linter: TWLinter, files: string[], options: CLIOptio
   }
 
   const results = await linter.lintFiles(files)
+  if (results.length === 0) warnNoFiles(files)
 
   const formatter = options.format === 'json'
     ? new JsonFormatter()
@@ -65,9 +71,12 @@ async function performCheck(linter: TWLinter, files: string[], options: CLIOptio
   return 0
 }
 
-async function performAutoFix(linter: TWLinter, files: string[], options: CLIOptions): Promise<void> {
+async function performAutoFix(linter: TWLinter, patterns: string[], options: CLIOptions): Promise<void> {
   const { readFile } = await import('fs/promises')
   let totalFixed = 0
+
+  const files = await linter.resolveFiles(patterns)
+  if (files.length === 0) warnNoFiles(patterns)
 
   for (const filePath of files) {
     try {

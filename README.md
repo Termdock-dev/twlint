@@ -28,6 +28,7 @@ npm install -g @termdock/twlint
 # 檢查（預設只檢查，不修改檔案）
 twlint check README.md
 twlint check "docs/**/*.md"
+twlint check docs/
 
 # 自動修復（需明確加 --fix）
 twlint check README.md --fix
@@ -207,6 +208,8 @@ twlint check <files...> [options]
 
 twlint init [--force]  產生 twlint.config.js
 ```
+
+`<files...>` 可以是檔案、glob 或資料夾。資料夾會展開成裡面有設定區塊涵蓋的檔案（預設設定是 `*.md`、`*.txt`），並套用所有忽略規則。參數展開後一個檔案都沒有時，會在 stderr 印出警告，結束碼不變。
 
 領域詞庫從設定檔的 `domains` 指定。`--dict` 只取代設定檔的 `dictionaries`：檔案符合的設定區塊有 `domains` 時，以 `domains` 為準，`--dict` 不生效（`twlint init` 產生的設定檔就有 `domains`）。要不受設定檔影響，用 `--deep` 載入所有詞庫。
 
