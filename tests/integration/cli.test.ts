@@ -137,6 +137,8 @@ describe('CLI Integration Tests', () => {
       await mkdir(join(projectDir, 'docs', 'generated'), { recursive: true })
       await mkdir(join(projectDir, 'src'), { recursive: true })
       await writeFile(join(projectDir, '.gitignore'), 'docs/generated/\n', 'utf-8')
+      // twlint.config.js 用 export default；Node 18 不會自動判斷 ESM，需要 type: module
+      await writeFile(join(projectDir, 'package.json'), '{ "type": "module" }\n', 'utf-8')
       await writeFile(join(projectDir, 'twlint.config.js'),
         'export default [{ files: ["**/*.md"], rules: { "simplified-chars": "error" } }, ' +
         '{ files: ["src/**/*.ts"], rules: { "simplified-chars": "error" } }]\n', 'utf-8')
@@ -174,6 +176,13 @@ describe('CLI Integration Tests', () => {
       const { stdout, stderr } = await execAsync(`node ${cliPath} check "docs/**/*.none"`, { cwd: projectDir })
       expect(stderr).toContain('No files to check')
       expect(stdout).toContain('No problems found')
+    })
+
+    it('fixes files matched by a quoted glob and skips ignored ones', async () => {
+      await execAsync(`node ${cliPath} check "docs/**/*.md" --fix`, { cwd: projectDir })
+
+      expect(await readFile(join(projectDir, 'docs', 'a.md'), 'utf-8')).toBe('這是簡體字')
+      expect(await readFile(join(projectDir, 'docs', 'generated', 'g.md'), 'utf-8')).toBe('这是简体字')
     })
 
     it('does not fix an explicitly named file that .twlintignore excludes', async () => {
