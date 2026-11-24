@@ -170,14 +170,16 @@ export class ConfigMatcher {
     return [...new Set(domains)] // 去重
   }
 
-  getAllCustomDictionaries(): string[] {
+  /**
+   * 自訂詞表套用到所有檔案（比對時用的是已載入的全部詞庫），所以只能寫在不帶 files 的區塊；
+   * 寫在帶 files 的區塊會讓人以為有範圍限制，直接報錯。
+   */
+  getCustomDictionaries(): string[] {
     const configArray = Array.isArray(this.configs) ? this.configs : [this.configs]
+    if (configArray.some(config => config.files && config.customDictionaries)) {
+      throw new Error('customDictionaries 套用到所有檔案，請寫在不帶 files 的設定區塊')
+    }
     return [...new Set(configArray.flatMap(config => config.customDictionaries ?? []))]
-  }
-
-  getCustomDictionariesForFile(filePath: string): string[] {
-    const paths = this.blocksForFile(filePath).flatMap(config => config.customDictionaries ?? [])
-    return [...new Set(paths)]
   }
 
   /**
