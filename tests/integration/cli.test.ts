@@ -165,6 +165,44 @@ describe('CLI Integration Tests', () => {
     })
   })
 
+  describe('directory arguments inside a project (#3)', () => {
+    // 獨立專案：自己的 .gitignore 與設定檔，CLI 從專案根目錄執行
+    const projectDir = join(testDir, 'project')
+    const listFiles = async (arg: string): Promise<string[]> => {
+      try {
+        const { stdout } = await execAsync(`node ${cliPath} check ${arg} --format json`, { cwd: projectDir })
+        return JSON.parse(stdout).map((result: { filePath: string }) => result.filePath)
+      } catch (error: any) {
+        return JSON.parse(error.stdout).map((result: { filePath: string }) => result.filePath)
+      }
+    }
+
+    beforeEach(async () => {
+      await mkdir(join(projectDir, 'docs', 'generated'), { recursive: true })
+      await mkdir(join(projectDir, 'src'), { recursive: true })
+      await writeFile(join(projectDir, '.gitignore'), 'docs/generated/\n', 'utf-8')
+      await writeFile(join(projectDir, 'twlint.config.js'),
+        'export default [{ files: ["**/*.md"], rules: { "simplified-chars": "error" } }, ' +
+        '{ files: ["src/**/*.ts"], rules: { "simplified-chars": "error" } }]\n', 'utf-8')
+      await writeFile(join(projectDir, 'docs', 'a.md'), '这是简体字', 'utf-8')
+      await writeFile(join(projectDir, 'docs', 'generated', 'g.md'), '这是简体字', 'utf-8')
+      await writeFile(join(projectDir, 'src', 'x.ts'), '// 这是简体字', 'utf-8')
+    })
+
+    afterEach(async () => {
+      await rm(projectDir, { recursive: true, force: true })
+    })
+
+    it('applies path-prefixed .gitignore rules to a directory argument', async () => {
+      expect(await listFiles('docs')).toEqual(['docs/a.md'])
+    })
+
+    it('matches config "files" patterns for an absolute directory argument', async () => {
+      expect((await listFiles(projectDir)).map(file => file.replace(`${projectDir}/`, '')).sort())
+        .toEqual(['docs/a.md', 'src/x.ts'])
+    })
+  })
+
   describe('fix command', () => {
     it('should fix simplified characters automatically', async () => {
       const originalContent = '# 测试文档\n\n这是简体字测试。'
