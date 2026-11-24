@@ -41,8 +41,10 @@ export function findCSVProblems(content: string): string[] {
     if (!row.id) problems.push(`${line}: 缺少 id`)
     if (!row.taiwan) problems.push(`${line}: 缺少 taiwan`)
     if (!row.china_simplified) problems.push(`${line}: 缺少 china_simplified`)
+    if (!row.china_traditional) problems.push(`${line}: 缺少 china_traditional`)
     if (!row.confidence || isNaN(Number(row.confidence))) problems.push(`${line}: confidence 必須是數字`)
     if (!row.category) problems.push(`${line}: 缺少 category`)
+    if (!row.reason) problems.push(`${line}: 缺少 reason`)
     if (!row.domain) problems.push(`${line}: 缺少 domain`)
   })
 
@@ -148,7 +150,7 @@ function optimizeForLookup(entries: DictEntry[]): Record<string, DictLookupEntry
     lookup[uniqueKey] = entryData
 
     // 如果有不同的繁體寫法，也加入查找表
-    if (entry.china_traditional !== entry.china_simplified) {
+    if (entry.china_traditional && entry.china_traditional !== entry.china_simplified) {
       const traditionalKey = entry.china_traditional
       const traditionalUniqueKey = `${traditionalKey}_${entry.id.replace(/[^a-zA-Z0-9]/g, '_')}`
 
