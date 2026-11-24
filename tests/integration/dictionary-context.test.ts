@@ -53,7 +53,11 @@ describe('Conservative context for general-usage terms (all built-in dictionarie
     // 「交互」本身是一個詞（交互作用會被詞邊界擋掉，驗證不到語境規則）
     ['兩種酸類可以交互使用', '互動'],
     ['我用螢幕截圖給你看', '擷圖'],
-    ['電腦的電源要接好', '電源供應器']
+    ['電腦的電源要接好', '電源供應器'],
+    // 語境關鍵字本身是台灣常用詞時（產品、文件、條件）會把一般文章拉回來
+    ['激活黑色素細胞的產品', '啟用'],
+    ['這份文件引用的數據', '資料'],
+    ['在證據不足的條件下，不能斷言因果關係', '宣告']
   ])('does not flag general usage: %s', async (text, replacement) => {
     expect(await replacementsIn(text)).not.toContain(replacement)
   })
