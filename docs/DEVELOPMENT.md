@@ -10,7 +10,7 @@ TWLint 是一款**去中國化專用工具**，採用 TypeScript + Node.js 架�
 - **"好品味" (Good Taste)**：消除特殊情況，統一抽象層
 - **Never Break Terminal**：絕不破壞現有工作流程
 - **實用主義**：解決真實問題，不過度設計
-- **簡潔執念**：避免超過 3 層縮進的複雜邏輯
+- **簡潔執念**：避免超過 3 層縮排的複雜邏輯
 
 ## 技術架構
 
@@ -37,7 +37,7 @@ src/
 │   ├── stylish.ts          # 類似 ESLint 的格式
 │   ├── json.ts             # JSON 格式輸出
 │   └── summary.ts          # 摘要格式
-└── utils/                   # 工具函數
+└── utils/                   # 工具函式
     ├── file-utils.ts
     ├── error-utils.ts
     └── text-utils.ts
@@ -61,7 +61,7 @@ tests/                      # 測試檔案
 └── fixtures/               # 測試資料
 ```
 
-### 核心數據流
+### 核心資料流
 
 ```mermaid
 graph TD
@@ -147,7 +147,7 @@ export class TWLinter {
 
 ### 2. 詞庫管理器 (`src/core/dictionary-manager.ts`)
 
-**職責**：高效的詞庫載入、查找和快取管理
+**職責**：高效的詞庫載入、查詢和快取管理
 
 ```typescript
 export class DictionaryManager {
@@ -212,7 +212,7 @@ npm run dict:build
 # tools/build-dict.ts 執行:
 # - 讀取 CSV 檔案
 # - 驗證詞條格式
-# - 編譯為 JSON 查找表
+# - 編譯為 JSON 查詢表
 # - 生成詞庫索引
 
 # 3. 輸出 JSON 檔案
