@@ -54,10 +54,15 @@ export class TWLinter {
 
   /**
    * 把 CLI 參數（檔案、glob、資料夾）展開成要處理的檔案清單，套用所有忽略規則。
-   * 檢查與修復都從這裡取得檔案。
+   * 檢查與修復都從這裡取得檔案，也在這裡預先載入設定檔指定的自訂詞表。
    */
   async resolveFiles(patterns: string[]): Promise<string[]> {
     await this.loadTwlintignore()
+    // 自訂詞表在處理任何檔案前先載入：路徑或格式錯誤時整個指令失敗，
+    // 不會變成每個檔案各一筆讀檔錯誤
+    for (const path of this.configMatcher.getAllCustomDictionaries()) {
+      await this.dictManager.loadCustomDictionary(path)
+    }
     return this.expandFilePatterns(patterns)
   }
 
@@ -244,6 +249,7 @@ export class TWLinter {
           ErrorHandler.handle(error, `Failed to load dictionary "${name}"`)
         }
       }
+      await this.loadCustomDictionariesForFile(filePath)
       return
     }
 
@@ -267,6 +273,15 @@ export class TWLinter {
       } catch (error) {
         ErrorHandler.handle(error, `Failed to load dictionary "${name}"`)
       }
+    }
+    await this.loadCustomDictionariesForFile(filePath)
+  }
+
+  // 自訂詞表是設定檔明確指定的，讀不到就讓錯誤往上丟，不降級成警告
+  private async loadCustomDictionariesForFile(filePath?: string): Promise<void> {
+    if (!filePath) return
+    for (const path of this.configMatcher.getCustomDictionariesForFile(filePath)) {
+      await this.dictManager.loadCustomDictionary(path)
     }
   }
 
