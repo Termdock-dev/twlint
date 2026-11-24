@@ -208,7 +208,7 @@ twlint check <files...> [options]
 twlint init [--force]  產生 twlint.config.js
 ```
 
-領域詞庫從設定檔的 `domains` 指定；CLI 上可用 `--dict` 指定詞庫名稱。
+領域詞庫從設定檔的 `domains` 指定。`--dict` 只取代設定檔的 `dictionaries`：檔案符合的設定區塊有 `domains` 時，以 `domains` 為準，`--dict` 不生效（`twlint init` 產生的設定檔就有 `domains`）。要不受設定檔影響，用 `--deep` 載入所有詞庫。
 
 ## 詞庫
 
@@ -229,7 +229,7 @@ twlint init [--force]  產生 twlint.config.js
 | extended | 擴充用語（舊版詞庫） |
 
 ```bash
-# 指定詞庫
+# 指定詞庫（設定檔沒有 domains 時）
 twlint check "docs/**/*.md" --dict core business-finance
 
 # 載入所有詞庫

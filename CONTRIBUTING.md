@@ -122,8 +122,8 @@ npm run dict:build
 
 # 4. 用實際文字試跑
 npm run build
-./bin/twlint check test-file.md --dict core software-development
-./bin/twlint check test-file.md --dict core software-development --fix
+./bin/twlint check test-file.md --deep
+./bin/twlint check test-file.md --deep --fix
 
 # 5. 型別檢查、lint、測試
 npx tsc --noEmit
