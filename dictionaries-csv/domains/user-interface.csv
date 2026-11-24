@@ -24,7 +24,7 @@ cut,剪下,剪切,剪切,cut,0.90,mainland-term,台灣編輯操作標準,tech,ex
 copy,複製,拷贝,拷貝,copy,0.85,mainland-term,台灣檔案操作標準,tech,exact,,,,true
 undo,復原,撤销,撤銷,undo,0.90,mainland-term,台灣編輯操作標準,tech,context_sensitive,"編輯,操作,按鈕,快捷鍵,Ctrl,Cmd,上一步",,,false
 find,尋找,查找,查找,find,0.90,mainland-term,台灣編輯操作標準,tech,exact,,,,true
-replace,取代,替换,替換,replace,0.90,mainland-term,台灣編輯操作標準,tech,exact,,,,true
+replace,取代,替换,替換,replace,0.90,mainland-term,台灣編輯操作標準,tech,context_sensitive,"查找,尋找,搜尋,Ctrl,Cmd,快捷鍵,編輯器,全部",,,false
 refresh,重新整理,刷新,刷新,refresh,0.90,mainland-term,台灣瀏覽器操作,tech,context_sensitive,"頁面,網頁,瀏覽器,畫面,F5,按鈕,快取",,"刷新紀錄,刷新個人",false
 reload,重新載入,重新加载,重新加載,reload,0.90,mainland-term,台灣瀏覽器操作,tech,exact,,,,true
 bookmark,書籤,收藏夹,收藏夾,bookmark,0.90,mainland-term,台灣瀏覽器功能,tech,exact,,,,true
