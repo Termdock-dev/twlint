@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest'
-import { writeFile, unlink, mkdir, rmdir } from 'fs/promises'
+import { writeFile, readFile, unlink, mkdir, rmdir } from 'fs/promises'
 import { join } from 'path'
 import { exec } from 'child_process'
 import { promisify } from 'util'
@@ -80,6 +80,18 @@ describe('CLI Integration Tests', () => {
       const result = await execAsync(`node ${cliPath} check ${testFile}`)
       // 當沒有錯誤時，應該顯示成功訊息
       expect(result.stdout).toContain('✓ No problems found!')
+    })
+
+    it('should not flag general words in --deep mode when a domain dictionary repeats them', async () => {
+      // 協議、異常在 core.csv 要看語境，領域詞庫曾是 exact，--deep 時照樣誤報
+      const content = '授權協議與合作協議已更新，這次檢驗結果異常需要複查。'
+      await writeFile(testFile, content, 'utf-8')
+
+      const result = await execAsync(`node ${cliPath} check ${testFile} --deep`)
+      expect(result.stdout).toContain('No problems found')
+
+      await execAsync(`node ${cliPath} check ${testFile} --deep --fix`)
+      expect(await readFile(testFile, 'utf-8')).toBe(content)
     })
 
     it('should skip directory inputs instead of reporting file read errors', async () => {
