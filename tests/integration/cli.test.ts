@@ -334,8 +334,18 @@ describe('CLI Integration Tests', () => {
   describe('custom dictionaries', () => {
     const projectDir = join(testDir, 'custom-dict-project')
     const HEADER = 'id,taiwan,china_simplified,china_traditional,english,confidence,category,reason,domain,match_type,context_before,context_after,context_exclude,autofix_safe'
+    // customDictionaries 套用到所有檔案，寫在不帶 files 的區塊
     const writeConfig = (dictPath: string) => writeFile(join(projectDir, 'twlint.config.js'),
-      `export default [{ files: ["**/*.md"], customDictionaries: ["${dictPath}"], rules: { "mainland-terms": "warning" } }]\n`, 'utf-8')
+      `export default [{ customDictionaries: ["${dictPath}"] }, { files: ["**/*.md"], rules: { "mainland-terms": "warning" } }]\n`, 'utf-8')
+    const expectRunToFail = async (stderrText: string) => {
+      try {
+        await execAsync(`node ${cliPath} check a.md`, { cwd: projectDir })
+        expect.fail('Should have exited with error code')
+      } catch (error: any) {
+        expect(error.code).toBe(1)
+        expect(error.stderr).toContain(stderrText)
+      }
+    }
     const messages = async (file: string): Promise<Array<{ message: string; suggestions?: string[] }>> => {
       try {
         const { stdout } = await execAsync(`node ${cliPath} check ${file} --format json`, { cwd: projectDir })
@@ -392,6 +402,23 @@ describe('CLI Integration Tests', () => {
         expect(error.stderr).toContain('Failed to load custom dictionary "missing.csv"')
         expect(error.stdout).not.toContain('file-read-error')
       }
+    })
+
+    it('rejects customDictionaries in a block scoped by files', async () => {
+      await writeFile(join(projectDir, 'twlint.config.js'),
+        'export default [{ files: ["docs/**/*.md"], customDictionaries: ["terms.csv"], rules: { "mainland-terms": "warning" } }]\n', 'utf-8')
+      await writeFile(join(projectDir, 'a.md'), '這份數據很完整', 'utf-8')
+      await expectRunToFail('customDictionaries')
+    })
+
+    it.each([
+      ['a wrong header', 'id,taiwan\nx,y'],
+      ['a non-numeric confidence', `${HEADER}\nd,數值,数据,數據,data,high,mainland-term,x,tech,exact,,,,true`],
+      ['no entries', HEADER]
+    ])('fails when the custom dictionary has %s', async (_label, csv) => {
+      await writeFile(join(projectDir, 'terms.csv'), csv, 'utf-8')
+      await writeFile(join(projectDir, 'a.md'), '這份數據很完整', 'utf-8')
+      await expectRunToFail('Failed to load custom dictionary')
     })
 
     it('rejects single-character terms in a custom dictionary', async () => {
