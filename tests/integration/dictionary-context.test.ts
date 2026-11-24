@@ -50,7 +50,9 @@ describe('Conservative context for general-usage terms (all built-in dictionarie
     ['講經前痘的臨床統計，不能斷言因果鏈', '宣告'],
     ['不擦防曬等於重啟黑色素訊號', '重新啟動'],
     ['判斷是否保留、微調或回復原狀', '回覆'],
-    ['因為靜電交互作用變強了', '互動']
+    ['因為靜電交互作用變強了', '互動'],
+    ['我用螢幕截圖給你看', '擷圖'],
+    ['電腦的電源要接好', '電源供應器']
   ])('does not flag general usage: %s', async (text, replacement) => {
     expect(await replacementsIn(text)).not.toContain(replacement)
   })
@@ -63,7 +65,10 @@ describe('Conservative context for general-usage terms (all built-in dictionarie
     ['輸入產品金鑰激活 Windows', '啟用'],
     ['在單元測試裡用斷言檢查回傳值', '宣告'],
     ['更新後重啟伺服器', '重新啟動'],
-    ['研究人機交互的設計', '互動']
+    ['研究人機交互的設計', '互動'],
+    // README 的程式碼範例：檢查的是大陸寫法的文字，語境關鍵字要包含軟件、程序這類寫法
+    ['這個軟件用於處理用戶數據', '使用者'],
+    ['這個軟件用於處理用戶數據', '資料']
   ])('still flags the domain sense: %s', async (text, replacement) => {
     expect(await replacementsIn(text)).toContain(replacement)
   })

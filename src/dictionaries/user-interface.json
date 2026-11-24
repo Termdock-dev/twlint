@@ -3560,11 +3560,13 @@
       "autofix_safe": false,
       "context": {
         "before": [
-          "螢幕",
           "快捷鍵",
           "PrintScreen",
-          "視窗",
-          "工具"
+          "屏幕",
+          "截屏"
+        ],
+        "exclude": [
+          "螢幕截圖"
         ]
       }
     },
@@ -3577,11 +3579,13 @@
       "autofix_safe": false,
       "context": {
         "before": [
-          "螢幕",
           "快捷鍵",
           "PrintScreen",
-          "視窗",
-          "工具"
+          "屏幕",
+          "截屏"
+        ],
+        "exclude": [
+          "螢幕截圖"
         ]
       }
     },
@@ -3594,11 +3598,13 @@
       "autofix_safe": false,
       "context": {
         "before": [
-          "螢幕",
           "快捷鍵",
           "PrintScreen",
-          "視窗",
-          "工具"
+          "屏幕",
+          "截屏"
+        ],
+        "exclude": [
+          "螢幕截圖"
         ]
       }
     },
@@ -3611,11 +3617,13 @@
       "autofix_safe": false,
       "context": {
         "before": [
-          "螢幕",
           "快捷鍵",
           "PrintScreen",
-          "視窗",
-          "工具"
+          "屏幕",
+          "截屏"
+        ],
+        "exclude": [
+          "螢幕截圖"
         ]
       }
     }
