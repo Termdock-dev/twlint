@@ -98,7 +98,7 @@ export default [
 // 使用方式:
 // twlint check **/*.md                // 檢查檔案
 // twlint check **/*.md --fix          // 自動修復
-// twlint check src/ --dict core software-development  // 指定領域
+// twlint check "src/**/*.ts" --dict core software-development  // 指定領域
 
 // 推薦 npm script 整合 (加入 package.json):
 // {

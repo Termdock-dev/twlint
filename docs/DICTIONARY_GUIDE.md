@@ -124,13 +124,13 @@ npm run dict:test 新領域名
 ### 指定領域詞庫
 ```bash
 # 軟體開發專案
-twlint check src/ --dict core software-development user-interface
+twlint check "src/**/*.ts" --dict core software-development user-interface
 
 # 商業文件
-twlint check docs/ --dict core business-finance
+twlint check "docs/**/*.md" --dict core business-finance
 
 # AI 技術文檔
-twlint check papers/ --dict core ai-emerging-tech network-cloud
+twlint check "papers/**/*.md" --dict core ai-emerging-tech network-cloud
 
 # 深度模式（載入所有詞庫）
 twlint check *.md --deep
