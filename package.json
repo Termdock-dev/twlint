@@ -18,7 +18,7 @@
     "dict:check": "tsx tools/dict-manager.ts validate",
     "dict:list": "tsx tools/dict-manager.ts list",
     "dict:merge": "tsx tools/dict-manager.ts merge",
-    "lint": "eslint \"src/**/*.ts\" --fix",
+    "lint": "eslint \"src/**/*.ts\" \"tests/**/*.ts\" \"tools/**/*.ts\" --fix",
     "format": "prettier --write src/",
     "prepublishOnly": "npm run build"
   },
