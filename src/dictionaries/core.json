@@ -2,7 +2,7 @@
   "metadata": {
     "name": "core",
     "version": "1.3.0",
-    "entries": 147
+    "entries": 139
   },
   "lookup": {
     "访问": {
@@ -793,38 +793,6 @@
       "match_type": "exact",
       "autofix_safe": true
     },
-    "类": {
-      "taiwan": "類別",
-      "confidence": 0.95,
-      "category": "mainland-term",
-      "reason": "台灣物件導向標準",
-      "match_type": "exact",
-      "autofix_safe": true
-    },
-    "类_class": {
-      "taiwan": "類別",
-      "confidence": 0.95,
-      "category": "mainland-term",
-      "reason": "台灣物件導向標準",
-      "match_type": "exact",
-      "autofix_safe": true
-    },
-    "類": {
-      "taiwan": "類別",
-      "confidence": 0.95,
-      "category": "mainland-term",
-      "reason": "台灣物件導向標準",
-      "match_type": "exact",
-      "autofix_safe": true
-    },
-    "類_class": {
-      "taiwan": "類別",
-      "confidence": 0.95,
-      "category": "mainland-term",
-      "reason": "台灣物件導向標準",
-      "match_type": "exact",
-      "autofix_safe": true
-    },
     "克隆": {
       "taiwan": "複製",
       "confidence": 0.85,
@@ -838,38 +806,6 @@
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣版本控制標準",
-      "match_type": "exact",
-      "autofix_safe": true
-    },
-    "云": {
-      "taiwan": "雲端",
-      "confidence": 0.95,
-      "category": "mainland-term",
-      "reason": "台灣雲端運算標準",
-      "match_type": "exact",
-      "autofix_safe": true
-    },
-    "云_cloud": {
-      "taiwan": "雲端",
-      "confidence": 0.95,
-      "category": "mainland-term",
-      "reason": "台灣雲端運算標準",
-      "match_type": "exact",
-      "autofix_safe": true
-    },
-    "雲": {
-      "taiwan": "雲端",
-      "confidence": 0.95,
-      "category": "mainland-term",
-      "reason": "台灣雲端運算標準",
-      "match_type": "exact",
-      "autofix_safe": true
-    },
-    "雲_cloud": {
-      "taiwan": "雲端",
-      "confidence": 0.95,
-      "category": "mainland-term",
-      "reason": "台灣雲端運算標準",
       "match_type": "exact",
       "autofix_safe": true
     },
@@ -1661,22 +1597,6 @@
       "match_type": "exact",
       "autofix_safe": true
     },
-    "域": {
-      "taiwan": "網域",
-      "confidence": 0.9,
-      "category": "mainland-term",
-      "reason": "台灣網路技術標準",
-      "match_type": "exact",
-      "autofix_safe": true
-    },
-    "域_domain": {
-      "taiwan": "網域",
-      "confidence": 0.9,
-      "category": "mainland-term",
-      "reason": "台灣網路技術標準",
-      "match_type": "exact",
-      "autofix_safe": true
-    },
     "下载": {
       "taiwan": "下載",
       "confidence": 0.8,
@@ -2326,22 +2246,6 @@
           "header"
         ]
       }
-    },
-    "堆": {
-      "taiwan": "堆積",
-      "confidence": 0.9,
-      "category": "mainland-term",
-      "reason": "台灣記憶體管理標準",
-      "match_type": "exact",
-      "autofix_safe": true
-    },
-    "堆_heap": {
-      "taiwan": "堆積",
-      "confidence": 0.9,
-      "category": "mainland-term",
-      "reason": "台灣記憶體管理標準",
-      "match_type": "exact",
-      "autofix_safe": true
     },
     "图标": {
       "taiwan": "圖示",
@@ -3563,22 +3467,6 @@
       "match_type": "exact",
       "autofix_safe": true
     },
-    "包": {
-      "taiwan": "套件",
-      "confidence": 0.85,
-      "category": "mainland-term",
-      "reason": "台灣軟體發布標準",
-      "match_type": "exact",
-      "autofix_safe": true
-    },
-    "包_package": {
-      "taiwan": "套件",
-      "confidence": 0.85,
-      "category": "mainland-term",
-      "reason": "台灣軟體發布標準",
-      "match_type": "exact",
-      "autofix_safe": true
-    },
     "参数": {
       "taiwan": "參數",
       "confidence": 0.85,
@@ -4655,38 +4543,6 @@
       "match_type": "exact",
       "autofix_safe": true
     },
-    "栈": {
-      "taiwan": "堆疊",
-      "confidence": 0.9,
-      "category": "mainland-term",
-      "reason": "台灣資料結構標準",
-      "match_type": "exact",
-      "autofix_safe": true
-    },
-    "栈_stack": {
-      "taiwan": "堆疊",
-      "confidence": 0.9,
-      "category": "mainland-term",
-      "reason": "台灣資料結構標準",
-      "match_type": "exact",
-      "autofix_safe": true
-    },
-    "棧": {
-      "taiwan": "堆疊",
-      "confidence": 0.9,
-      "category": "mainland-term",
-      "reason": "台灣資料結構標準",
-      "match_type": "exact",
-      "autofix_safe": true
-    },
-    "棧_stack": {
-      "taiwan": "堆疊",
-      "confidence": 0.9,
-      "category": "mainland-term",
-      "reason": "台灣資料結構標準",
-      "match_type": "exact",
-      "autofix_safe": true
-    },
     "存储": {
       "taiwan": "儲存體",
       "confidence": 0.9,
@@ -4716,22 +4572,6 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣儲存技術標準",
-      "match_type": "exact",
-      "autofix_safe": true
-    },
-    "流": {
-      "taiwan": "串流",
-      "confidence": 0.85,
-      "category": "mainland-term",
-      "reason": "台灣資料傳輸標準",
-      "match_type": "exact",
-      "autofix_safe": true
-    },
-    "流_stream": {
-      "taiwan": "串流",
-      "confidence": 0.85,
-      "category": "mainland-term",
-      "reason": "台灣資料傳輸標準",
       "match_type": "exact",
       "autofix_safe": true
     },
@@ -5084,22 +4924,6 @@
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣介面設計標準",
-      "match_type": "exact",
-      "autofix_safe": true
-    },
-    "卷": {
-      "taiwan": "磁碟區",
-      "confidence": 0.85,
-      "category": "mainland-term",
-      "reason": "台灣儲存管理標準",
-      "match_type": "exact",
-      "autofix_safe": true
-    },
-    "卷_volume": {
-      "taiwan": "磁碟區",
-      "confidence": 0.85,
-      "category": "mainland-term",
-      "reason": "台灣儲存管理標準",
       "match_type": "exact",
       "autofix_safe": true
     },

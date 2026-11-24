@@ -12,7 +12,7 @@
     "build": "npm run dict:build && tsc && cp -r src/dictionaries dist/",
     "test": "vitest",
     "dict:build": "tsx tools/build-dict.ts",
-    "dict:validate": "tsx tools/validate-dict.ts",
+    "dict:validate": "tsx tools/dict-manager.ts validate dictionaries-csv/core/core.csv dictionaries-csv/domains/*.csv dictionaries-csv/extended/*.csv",
     "dict:convert": "tsx tools/dict-manager.ts convert",
     "dict:template": "tsx tools/dict-manager.ts template",
     "dict:check": "tsx tools/dict-manager.ts validate",

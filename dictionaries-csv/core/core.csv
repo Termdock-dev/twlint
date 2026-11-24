@@ -21,9 +21,7 @@ call,呼叫,调用,調用,call,0.90,mainland-term,台灣程式設計標準,tech,
 callback,回呼,回调,回調,callback,0.85,mainland-term,台灣非同步程式設計 (工程師也常用 callback),tech,exact,,,,true
 certificate,憑證,证书,證書,certificate,0.90,mainland-term,台灣資安認證標準,tech,exact,,,,true
 character,字元,字符,字符,character,0.90,mainland-term,台灣文字處理標準,tech,exact,,,,true
-class,類別,类,類,class,0.95,mainland-term,台灣物件導向標準,tech,exact,,,,true
 clone,複製,克隆,克隆,clone,0.85,mainland-term,台灣版本控制標準,tech,exact,,,,true
-cloud,雲端,云,雲,cloud,0.95,mainland-term,台灣雲端運算標準,tech,exact,,,,true
 code,程式碼,代码,代碼,code,0.95,mainland-term,台灣軟體開發標準,tech,exact,,,,true
 compile,編譯,编译,編譯,compile,0.95,mainland-term,台灣程式語言標準,tech,exact,,,,true
 compiler,編譯器,编译器,編譯器,compiler,0.95,mainland-term,台灣程式語言工具,tech,exact,,,,true
@@ -44,7 +42,6 @@ default,預設,默认,默認,default,0.90,mainland-term,台灣系統設定標準
 definition,定義,定义,定義,definition,0.80,mainland-term,台灣程式語言標準,tech,exact,,,,true
 directory,目錄,目录,目錄,directory,0.85,mainland-term,台灣檔案系統標準,tech,exact,,,,true
 disk,磁碟,磁盘,磁盤,disk,0.90,mainland-term,台灣儲存裝置標準,tech,exact,,,,true
-domain,網域,域,域,domain,0.90,mainland-term,台灣網路技術標準,tech,exact,,,,true
 download,下載,下载,下載,download,0.80,mainland-term,台灣網路傳輸標準,tech,exact,,,,true
 driver,驅動程式,驱动程序,驅動程序,driver,0.90,mainland-term,台灣硬體管理標準,tech,exact,,,,true
 email,電子郵件,电子邮件,電子郵件,email,0.80,mainland-term,台灣網路通訊標準,tech,exact,,,,true
@@ -62,7 +59,6 @@ handler,處理器,处理器,處理器,handler,0.85,mainland-term,台灣程式設
 hardware,硬體,硬件,硬件,hardware,0.95,mainland-term,台灣計算機硬體標準,tech,exact,,,,true
 hash,雜湊,哈希,哈希,hash,0.90,mainland-term,台灣密碼學標準,tech,exact,,,,true
 header,標頭,头部,頭部,header,0.85,mainland-term,台灣網路協定標準,tech,context_sensitive,"HTTP,請求,回應,封包,Content,Accept,Authorization,header",,,false
-heap,堆積,堆,堆,heap,0.90,mainland-term,台灣記憶體管理標準,tech,exact,,,,true
 icon,圖示,图标,圖標,icon,0.85,mainland-term,台灣介面設計標準,tech,exact,,,,true
 image,影像,图像,圖像,image,0.85,mainland-term,台灣多媒體標準,tech,exact,,,,true
 implement,實作,实现,實現,implement,0.90,mainland-term,台灣軟體開發標準,tech,context_sensitive,"功能,介面,API,程式,模組,函式,方法,class,元件,架構",,"夢想,目標,願景,理想",false
@@ -89,7 +85,6 @@ network,網路,网络,網絡,network,0.95,mainland-term,台灣網路技術標準
 online,線上,在线,在線,online,0.85,mainland-term,台灣網路服務標準,tech,exact,,,,true
 optimize,最佳化,优化,優化,optimize,0.90,mainland-term,台灣效能調校標準,tech,context_sensitive,"效能,演算法,查詢,編譯,記憶體,CPU,資料庫,回應時間,程式,系統",,"保養,膚質,身體,飲食,生活,流程",false
 overflow,溢位,溢出,溢出,overflow,0.85,mainland-term,台灣程式錯誤處理,tech,exact,,,,true
-package,套件,包,包,package,0.85,mainland-term,台灣軟體發布標準,tech,exact,,,,true
 parameter,參數,参数,參數,parameter,0.85,mainland-term,台灣程式設計標準,tech,exact,,,,true
 performance,效能,性能,性能,performance,0.90,mainland-term,台灣系統評測標準,tech,context_sensitive,"效能,系統,CPU,記憶體,瓶頸,基準測試,負載,延遲,吞吐",,"汽車,引擎,馬力,車輛,產品",false
 plugin,外掛程式,插件,插件,plugin,0.90,mainland-term,台灣軟體擴充標準,tech,exact,,,,true
@@ -113,9 +108,7 @@ search,搜尋,搜索,搜索,search,0.85,mainland-term,台灣資料查找標準,t
 server,伺服器,服务器,服務器,server,0.95,mainland-term,台灣網路服務標準,tech,exact,,,,true
 session,工作階段,会话,會話,session,0.90,mainland-term,台灣網路連線標準,tech,exact,,,,true
 software,軟體,软件,軟件,software,0.95,mainland-term,台灣技術標準用語,tech,exact,,,,true
-stack,堆疊,栈,棧,stack,0.90,mainland-term,台灣資料結構標準,tech,exact,,,,true
 storage,儲存體,存储,存儲,storage,0.90,mainland-term,台灣儲存技術標準,tech,exact,,,,true
-stream,串流,流,流,stream,0.85,mainland-term,台灣資料傳輸標準,tech,exact,,,,true
 string,字串,字符串,字符串,string,0.95,mainland-term,台灣程式設計標準,tech,exact,,,,true
 system,系統,系统,系統,system,0.80,mainland-term,台灣計算機技術標準,tech,exact,,,,true
 thread,執行緒,线程,線程,thread,0.95,mainland-term,台灣平行處理標準,tech,exact,,,,true
@@ -126,7 +119,6 @@ user,使用者,用户,用戶,user,0.85,mainland-term,台灣使用者介面標準
 variable,變數,变量,變量,variable,0.90,mainland-term,台灣程式設計標準,tech,exact,,,,true
 video,影片,视频,視頻,video,0.90,mainland-term,台灣多媒體標準,tech,exact,,,,true
 view,檢視,视图,視圖,view,0.85,mainland-term,台灣介面設計標準,tech,exact,,,,true
-volume,磁碟區,卷,卷,volume,0.85,mainland-term,台灣儲存管理標準,tech,exact,,,,true
 window,視窗,窗口,窗口,window,0.90,mainland-term,台灣介面設計標準,tech,context_sensitive,"彈出,對話,應用,瀏覽器,作業系統,最小化,最大化,視窗",,"服務,售票,掛號",false
 write,寫入,写入,寫入,write,0.80,mainland-term,台灣檔案操作標準,tech,exact,,,,true
 contain,包含,包含,包含,contain,1.0,fixed-term,避免 '包' 被錯誤匹配,general,exact,,,,false

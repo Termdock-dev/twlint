@@ -2,7 +2,6 @@ id,taiwan,china_simplified,china_traditional,english,confidence,category,reason,
 network,網路,网络,網絡,network,0.95,mainland-term,台灣網路技術標準,tech,exact,,,,true
 internet,網際網路,互联网,互聯網,internet,0.90,mainland-term,台灣網路技術標準,tech,exact,,,,true
 server,伺服器,服务器,服務器,server,0.95,mainland-term,台灣網路服務標準,tech,exact,,,,true
-cloud,雲端,云,雲,cloud,0.95,mainland-term,台灣雲端運算標準,tech,exact,,,,true
 virtualization,虛擬化,虚拟化,虛擬化,virtualization,0.95,mainland-term,台灣雲端技術標準,tech,exact,,,,true
 docker,Docker,Docker,Docker,Docker,0.85,mainland-term,台灣容器技術標準,tech,exact,,,,true
 kubernetes,Kubernetes,Kubernetes,Kubernetes,K8s,0.85,mainland-term,台灣容器編排標準,tech,exact,,,,true
@@ -77,7 +76,6 @@ linkerd,Linkerd,Linkerd,Linkerd,Linkerd,0.80,mainland-term,台灣服務網格工
 envoy,Envoy,Envoy,Envoy,Envoy,0.80,mainland-term,台灣邊緣代理,tech,exact,,,,true
 protocol,協定,协议,協議,protocol,0.90,mainland-term,台灣網路通訊標準,tech,exact,,,,true
 packet,封包,数据包,數據包,packet,0.90,mainland-term,台灣網路傳輸單位,tech,exact,,,,true
-frame,訊框,帧,幀,frame,0.90,mainland-term,台灣網路傳輸單位,tech,exact,,,,true
 latency,延遲,延迟,延遲,latency,0.85,mainland-term,台灣網路效能指標,tech,exact,,,,true
 throughput,吞吐量,吞吐量,吞吐量,throughput,0.85,mainland-term,台灣效能指標標準,tech,exact,,,,true
 bottleneck,瓶頸,瓶颈,瓶頸,bottleneck,0.85,mainland-term,台灣效能分析標準,tech,exact,,,,true
@@ -97,7 +95,6 @@ ssl-certificate,SSL憑證,SSL证书,SSL證書,SSL certificate,0.90,mainland-term
 tls,傳輸層安全性,传输层安全,傳輸層安全,TLS,0.90,mainland-term,台灣網路協定標準,tech,exact,,,,true
 encryption,加密,加密,加密,encryption,0.80,mainland-term,台灣資安技術標準,tech,exact,,,,true
 decryption,解密,解密,解密,decryption,0.80,mainland-term,台灣資安技術標準,tech,exact,,,,true
-domain,網域,域,域,domain,0.90,mainland-term,台灣網路技術標準,tech,exact,,,,true
 link,連結,链接,鏈接,link,0.85,mainland-term,台灣網路技術標準,tech,exact,,,,true
 connect,連線,连接,連接,connect,0.90,mainland-term,台灣網路連接標準,tech,exact,,,,true
 download,下載,下载,下載,download,0.80,mainland-term,台灣網路傳輸標準,tech,exact,,,,true

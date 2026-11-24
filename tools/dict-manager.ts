@@ -8,6 +8,7 @@ import { join, dirname, basename, extname } from 'path'
 import Papa from 'papaparse'
 import { Command } from 'commander'
 import chalk from 'chalk'
+import { findUnmatchableRows, MIN_TERM_LENGTH } from '../src/core/matchable-term.js'
 
 interface DictEntry {
   id: string
@@ -197,6 +198,10 @@ ${domain}-003,演算法,算法,算法,algorithm,0.95,mainland-term,台灣學術�
         if (!row.domain) issues.push(`第 ${index + 2} 行: 缺少 domain`)
       })
 
+      for (const id of findUnmatchableRows(data)) {
+        issues.push(`${id}: 單一個字的詞條不收（至少 ${MIN_TERM_LENGTH} 個字）`)
+      }
+
       if (issues.length > 0) {
         console.error(chalk.red(`❌ 發現 ${issues.length} 個問題:`))
         issues.forEach(issue => console.error(`  - ${issue}`))
@@ -307,9 +312,11 @@ async function main() {
   program
     .command('validate')
     .description('驗證 CSV 格式')
-    .argument('<file>', 'CSV 檔案路徑')
-    .action(async (file) => {
-      await dictManager.validateCSV(file)
+    .argument('<files...>', 'CSV 檔案路徑')
+    .action(async (files: string[]) => {
+      for (const file of files) {
+        if (!(await dictManager.validateCSV(file))) process.exitCode = 1
+      }
     })
 
   program
