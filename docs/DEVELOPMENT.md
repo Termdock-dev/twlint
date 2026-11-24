@@ -404,53 +404,25 @@ node --inspect dist/cli.js check large-file.md
 
 ## 發佈流程
 
-### 版本發佈檢查清單
+發布到 npm 由 GitHub Actions（`.github/workflows/publish.yml`）處理，不要手動 `npm publish`：手動發布後再建立 Release，同一個版本會被發布兩次而失敗。
 
-```bash
-# 1. 確保所有測試通過
-npm test
+1. 開一個 PR 更新版本號與 CHANGELOG：
 
-# 2. 建構專案
-npm run build
+   ```bash
+   npm version patch|minor|major --no-git-tag-version
+   npm run dict:build   # 詞庫版本跟著 package.json
+   ```
 
-# 3. 驗證詞庫
-npm run dict:validate
+   在 `CHANGELOG.md` 加上新版本的條目，PR 合併進 main。
 
-# 4. 更新版本號
-npm version patch|minor|major
+2. 在 GitHub 建立 Release，tag 用 `v` 加上 `package.json` 的版本（例如 `v1.4.1`），target 選 main。
 
-# 5. 發佈到 npm
-npm publish
+3. Release 發布後，Actions 會：
+   - 檢查 tag 與 `package.json` 版本一致，不一致就失敗
+   - 執行 `npm ci`、`npm run build`、`npx vitest run`
+   - 以 npm Trusted Publishing（OIDC）執行 `npm publish`，不需要 npm token 或一次性密碼
 
-# 6. 建立 Git tag
-git tag -a v1.x.x -m "Release v1.x.x"
-git push origin --tags
-```
-
-### CI/CD 整合
-
-```yaml
-# .github/workflows/test.yml
-name: Test
-on: [push, pull_request]
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-      - name: Install dependencies
-        run: npm install
-      - name: Build dictionaries
-        run: npm run dict:build
-      - name: Run tests
-        run: npm test
-      - name: Build project
-        run: npm run build
-```
+npmjs.com 的 Trusted Publisher 設定：`Termdock-dev` / `twlint` / `publish.yml`，允許 `npm publish`。
 
 ## 貢獻指南
 
