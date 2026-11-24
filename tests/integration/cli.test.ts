@@ -327,6 +327,40 @@ describe('CLI Integration Tests', () => {
     })
   })
 
+  describe('--config (#22)', () => {
+    const configDir = join(testDir, 'config-dir')
+    const runDir = join(testDir, 'run-dir')
+
+    beforeEach(async () => {
+      await mkdir(configDir, { recursive: true })
+      await mkdir(runDir, { recursive: true })
+      await writeFile(join(configDir, 'package.json'), '{ "type": "module" }\n', 'utf-8')
+      await writeFile(join(runDir, 'a.md'), '這個軟件', 'utf-8')
+    })
+
+    it('loads a config given as an absolute path outside the working directory', async () => {
+      // 預設設定會報「軟件」；這份設定關掉 mainland-terms，有載入就沒有問題
+      const config = join(configDir, 'twlint.config.js')
+      await writeFile(config, 'export default [{ files: ["**/*.md"], rules: { "mainland-terms": "off" } }]\n', 'utf-8')
+      const { stdout, stderr } = await execAsync(`node ${cliPath} check a.md --config ${config} --format json`, { cwd: runDir })
+      expect(stderr).not.toContain('unable to import')
+      expect(JSON.parse(stdout)[0].messages).toEqual([])
+    })
+
+    it('fails when an explicitly named config cannot be imported', async () => {
+      const config = join(configDir, 'broken.config.js')
+      await writeFile(config, 'export default [{ files: [\n', 'utf-8')
+      try {
+        await execAsync(`node ${cliPath} check a.md --config ${config}`, { cwd: runDir })
+        expect.fail('Should have exited with error code')
+      } catch (caught) {
+        const error = caught as ExecFailure
+        expect(error.code).toBe(1)
+        expect(error.stderr).toContain(`Failed to load config from "${config}"`)
+      }
+    })
+  })
+
   describe('error handling', () => {
     it('should handle non-existent files gracefully', async () => {
       try {
