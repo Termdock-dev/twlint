@@ -8,6 +8,7 @@ import { join, basename } from 'path'
 import Papa from 'papaparse'
 import type { DictEntry, CompiledDict, DictLookupEntry } from '../src/types.js'
 import { findUnmatchableRows, MIN_TERM_LENGTH } from '../src/core/matchable-term.js'
+import { findInconsistentEntries } from './dict-consistency.js'
 
 interface CSVRow {
   id: string
@@ -26,6 +27,14 @@ interface CSVRow {
   autofix_safe?: string
 }
 
+async function readCSVRows(file: string): Promise<CSVRow[]> {
+  const { data } = Papa.parse<CSVRow>(await readFile(file, 'utf-8'), {
+    header: true,
+    skipEmptyLines: true
+  })
+  return data
+}
+
 class DictBuilder {
   private readonly csvDir = join(process.cwd(), 'dictionaries-csv')
   private readonly domainsDir = join(process.cwd(), 'dictionaries-csv', 'domains')
@@ -33,6 +42,8 @@ class DictBuilder {
 
   async buildAll(): Promise<void> {
     console.log('🔨 開始建構 TWLint 詞庫...')
+
+    await this.checkConsistency()
 
     // 確保輸出目錄存在
     await mkdir(this.outputDir, { recursive: true })
@@ -53,6 +64,24 @@ class DictBuilder {
     await this.generateIndex()
 
     console.log('✅ 詞庫建構完成！')
+  }
+
+  private async checkConsistency(): Promise<void> {
+    const files = [
+      join(this.csvDir, 'core', 'core.csv'),
+      ...await this.findCSVFiles(this.domainsDir),
+      ...await this.findCSVFiles(join(this.csvDir, 'extended'))
+    ]
+    const rows = []
+    for (const file of files) {
+      const fileName = basename(file)
+      rows.push(...(await readCSVRows(file)).map(row => ({ ...row, file: fileName })))
+    }
+
+    const inconsistent = findInconsistentEntries(rows)
+    if (inconsistent.length > 0) {
+      throw new Error(`同一詞條在不同 CSV 的比對設定不一致:\n  ${inconsistent.join('\n  ')}`)
+    }
   }
 
   async buildCoreDict(): Promise<void> {
@@ -230,13 +259,7 @@ class DictBuilder {
     const entries: DictEntry[] = []
 
     for (const csvFile of csvFiles) {
-      const content = await readFile(csvFile, 'utf-8')
-      const { data } = Papa.parse<CSVRow>(content, {
-        header: true,
-        skipEmptyLines: true
-      })
-
-      const validRows = data.filter(row => this.validateCSVRow(row))
+      const validRows = (await readCSVRows(csvFile)).filter(row => this.validateCSVRow(row))
       const unmatchable = findUnmatchableRows(validRows)
       if (unmatchable.length > 0) {
         throw new Error(

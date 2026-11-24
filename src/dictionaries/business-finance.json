@@ -74,32 +74,148 @@
       "confidence": 0.95,
       "category": "mainland-term",
       "reason": "台灣商業術語標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "程式",
+          "程式碼",
+          "軟體",
+          "系統",
+          "伺服器",
+          "資料庫",
+          "API",
+          "電腦",
+          "應用程式",
+          "App",
+          "檔案",
+          "函式",
+          "變數",
+          "類別",
+          "物件",
+          "開發",
+          "編譯",
+          "部署",
+          "雲端",
+          "Git",
+          "npm",
+          "Linux",
+          "Windows",
+          "macOS",
+          "原始碼"
+        ]
+      }
     },
     "项目_project": {
       "taiwan": "專案",
       "confidence": 0.95,
       "category": "mainland-term",
       "reason": "台灣商業術語標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "程式",
+          "程式碼",
+          "軟體",
+          "系統",
+          "伺服器",
+          "資料庫",
+          "API",
+          "電腦",
+          "應用程式",
+          "App",
+          "檔案",
+          "函式",
+          "變數",
+          "類別",
+          "物件",
+          "開發",
+          "編譯",
+          "部署",
+          "雲端",
+          "Git",
+          "npm",
+          "Linux",
+          "Windows",
+          "macOS",
+          "原始碼"
+        ]
+      }
     },
     "項目": {
       "taiwan": "專案",
       "confidence": 0.95,
       "category": "mainland-term",
       "reason": "台灣商業術語標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "程式",
+          "程式碼",
+          "軟體",
+          "系統",
+          "伺服器",
+          "資料庫",
+          "API",
+          "電腦",
+          "應用程式",
+          "App",
+          "檔案",
+          "函式",
+          "變數",
+          "類別",
+          "物件",
+          "開發",
+          "編譯",
+          "部署",
+          "雲端",
+          "Git",
+          "npm",
+          "Linux",
+          "Windows",
+          "macOS",
+          "原始碼"
+        ]
+      }
     },
     "項目_project": {
       "taiwan": "專案",
       "confidence": 0.95,
       "category": "mainland-term",
       "reason": "台灣商業術語標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "程式",
+          "程式碼",
+          "軟體",
+          "系統",
+          "伺服器",
+          "資料庫",
+          "API",
+          "電腦",
+          "應用程式",
+          "App",
+          "檔案",
+          "函式",
+          "變數",
+          "類別",
+          "物件",
+          "開發",
+          "編譯",
+          "部署",
+          "雲端",
+          "Git",
+          "npm",
+          "Linux",
+          "Windows",
+          "macOS",
+          "原始碼"
+        ]
+      }
     },
     "可交付成果": {
       "taiwan": "交付項目",
@@ -186,16 +302,36 @@
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣財務術語標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "財報",
+          "營業",
+          "季度",
+          "年度",
+          "EPS",
+          "毛利"
+        ]
+      }
     },
     "收入_revenue": {
       "taiwan": "營收",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣財務術語標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "財報",
+          "營業",
+          "季度",
+          "年度",
+          "EPS",
+          "毛利"
+        ]
+      }
     },
     "利润": {
       "taiwan": "利潤",
@@ -730,48 +866,114 @@
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣企業管理術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "企業",
+          "董事會",
+          "股東",
+          "ESG",
+          "上市"
+        ],
+        "exclude": [
+          "公司治理",
+          "政治理"
+        ]
+      }
     },
     "治理_governance": {
       "taiwan": "公司治理",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣企業管理術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "企業",
+          "董事會",
+          "股東",
+          "ESG",
+          "上市"
+        ],
+        "exclude": [
+          "公司治理",
+          "政治理"
+        ]
+      }
     },
     "战略": {
       "taiwan": "策略",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣企業規劃術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "企業",
+          "公司",
+          "商業",
+          "市場",
+          "行銷",
+          "品牌"
+        ]
+      }
     },
     "战略_strategy": {
       "taiwan": "策略",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣企業規劃術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "企業",
+          "公司",
+          "商業",
+          "市場",
+          "行銷",
+          "品牌"
+        ]
+      }
     },
     "戰略": {
       "taiwan": "策略",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣企業規劃術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "企業",
+          "公司",
+          "商業",
+          "市場",
+          "行銷",
+          "品牌"
+        ]
+      }
     },
     "戰略_strategy": {
       "taiwan": "策略",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣企業規劃術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "企業",
+          "公司",
+          "商業",
+          "市場",
+          "行銷",
+          "品牌"
+        ]
+      }
     },
     "战术": {
       "taiwan": "戰術",
@@ -1802,32 +2004,68 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣人資發展術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "員工",
+          "公司",
+          "企業",
+          "課程",
+          "講師"
+        ]
+      }
     },
     "培训_training": {
       "taiwan": "訓練",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣人資發展術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "員工",
+          "公司",
+          "企業",
+          "課程",
+          "講師"
+        ]
+      }
     },
     "培訓": {
       "taiwan": "訓練",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣人資發展術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "員工",
+          "公司",
+          "企業",
+          "課程",
+          "講師"
+        ]
+      }
     },
     "培訓_training": {
       "taiwan": "訓練",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣人資發展術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "員工",
+          "公司",
+          "企業",
+          "課程",
+          "講師"
+        ]
+      }
     },
     "绩效评估": {
       "taiwan": "績效考核",
@@ -1962,32 +2200,68 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣人事異動術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "員工",
+          "公司",
+          "企業",
+          "主管",
+          "人資"
+        ]
+      }
     },
     "辞职_resignation": {
       "taiwan": "離職",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣人事異動術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "員工",
+          "公司",
+          "企業",
+          "主管",
+          "人資"
+        ]
+      }
     },
     "辭職": {
       "taiwan": "離職",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣人事異動術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "員工",
+          "公司",
+          "企業",
+          "主管",
+          "人資"
+        ]
+      }
     },
     "辭職_resignation": {
       "taiwan": "離職",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣人事異動術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "員工",
+          "公司",
+          "企業",
+          "主管",
+          "人資"
+        ]
+      }
     },
     "解雇": {
       "taiwan": "解僱",
@@ -2602,32 +2876,104 @@
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣資料庫標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "資料庫",
+          "SQL",
+          "commit",
+          "rollback",
+          "回滾",
+          "鎖定",
+          "ACID",
+          "隔離等級"
+        ],
+        "exclude": [
+          "事務所",
+          "外交事務",
+          "日常事務",
+          "公共事務"
+        ]
+      }
     },
     "事务_transaction": {
       "taiwan": "交易",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣資料庫標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "資料庫",
+          "SQL",
+          "commit",
+          "rollback",
+          "回滾",
+          "鎖定",
+          "ACID",
+          "隔離等級"
+        ],
+        "exclude": [
+          "事務所",
+          "外交事務",
+          "日常事務",
+          "公共事務"
+        ]
+      }
     },
     "事務": {
       "taiwan": "交易",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣資料庫標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "資料庫",
+          "SQL",
+          "commit",
+          "rollback",
+          "回滾",
+          "鎖定",
+          "ACID",
+          "隔離等級"
+        ],
+        "exclude": [
+          "事務所",
+          "外交事務",
+          "日常事務",
+          "公共事務"
+        ]
+      }
     },
     "事務_transaction": {
       "taiwan": "交易",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣資料庫標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "資料庫",
+          "SQL",
+          "commit",
+          "rollback",
+          "回滾",
+          "鎖定",
+          "ACID",
+          "隔離等級"
+        ],
+        "exclude": [
+          "事務所",
+          "外交事務",
+          "日常事務",
+          "公共事務"
+        ]
+      }
     },
     "发票": {
       "taiwan": "發票",
@@ -2906,32 +3252,84 @@
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣市場研究術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "線上",
+          "填寫",
+          "表單",
+          "Google"
+        ],
+        "exclude": [
+          "問卷調查",
+          "調查局",
+          "調查人口"
+        ]
+      }
     },
     "调查_survey": {
       "taiwan": "問卷",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣市場研究術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "線上",
+          "填寫",
+          "表單",
+          "Google"
+        ],
+        "exclude": [
+          "問卷調查",
+          "調查局",
+          "調查人口"
+        ]
+      }
     },
     "調查": {
       "taiwan": "問卷",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣市場研究術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "線上",
+          "填寫",
+          "表單",
+          "Google"
+        ],
+        "exclude": [
+          "問卷調查",
+          "調查局",
+          "調查人口"
+        ]
+      }
     },
     "調查_survey": {
       "taiwan": "問卷",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣市場研究術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "線上",
+          "填寫",
+          "表單",
+          "Google"
+        ],
+        "exclude": [
+          "問卷調查",
+          "調查局",
+          "調查人口"
+        ]
+      }
     },
     "演示": {
       "taiwan": "簡報",

@@ -14,10 +14,10 @@ scalability,擴充性,可扩展性,可擴展性,scalability,0.85,mainland-term,�
 high-availability,高可用性,高可用性,高可用性,high availability,0.85,mainland-term,台灣系統架構標準,tech,exact,,,,true
 failover,故障轉移,故障转移,故障轉移,failover,0.90,mainland-term,台灣容錯技術標準,tech,exact,,,,true
 backup,備份,备份,備份,backup,0.85,mainland-term,台灣資料保護標準,tech,exact,,,,true
-restore,復原,恢复,恢復,restore,0.85,mainland-term,台灣資料救援標準,tech,exact,,,,true
+restore,復原,恢复,恢復,restore,0.85,mainland-term,台灣資料救援標準,tech,context_sensitive,"程式,程式碼,軟體,系統,伺服器,資料庫,API,電腦,應用程式,App,檔案,函式,變數,類別,物件,開發,編譯,部署,雲端,Git,npm,Linux,Windows,macOS,原始碼,備份,快照,磁碟",,,false
 migration,遷移,迁移,遷移,migration,0.85,mainland-term,台灣系統升級標準,tech,exact,,,,true
 clustering,叢集,集群,集群,clustering,0.90,mainland-term,台灣分散式系統,tech,exact,,,,true
-replication,複寫,复制,複製,replication,0.85,mainland-term,台灣資料同步標準,tech,exact,,,,true
+replication,複寫,复制,複製,replication,0.85,mainland-term,台灣資料同步標準,tech,context_sensitive,"程式,程式碼,軟體,系統,伺服器,資料庫,API,電腦,應用程式,App,檔案,函式,變數,類別,物件,開發,編譯,部署,雲端,Git,npm,Linux,Windows,macOS,原始碼,資料庫,節點,主從,備援",,複製品,false
 sharding,分片,分片,分片,sharding,0.85,mainland-term,台灣資料庫擴展,tech,exact,,,,true
 caching,快取機制,缓存机制,緩存機制,caching,0.90,mainland-term,台灣效能優化標準,tech,exact,,,,true
 cdn,內容傳遞網路,内容分发网络,內容分發網絡,CDN,0.90,mainland-term,台灣網路服務標準,tech,exact,,,,true
@@ -74,7 +74,7 @@ vault,Vault,Vault,Vault,Vault,0.80,mainland-term,台灣機密管理工具,tech,e
 istio,Istio,Istio,Istio,Istio,0.80,mainland-term,台灣服務網格平台,tech,exact,,,,true
 linkerd,Linkerd,Linkerd,Linkerd,Linkerd,0.80,mainland-term,台灣服務網格工具,tech,exact,,,,true
 envoy,Envoy,Envoy,Envoy,Envoy,0.80,mainland-term,台灣邊緣代理,tech,exact,,,,true
-protocol,協定,协议,協議,protocol,0.90,mainland-term,台灣網路通訊標準,tech,exact,,,,true
+protocol,協定,协议,協議,protocol,0.90,mainland-term,台灣網路通訊標準,tech,context_sensitive,"HTTP,HTTPS,TCP,UDP,IP,file://,javascript:,URL,URI,MCP,DevTools,Chrome,通訊,網路,傳輸,主機,設定",,條款,false
 packet,封包,数据包,數據包,packet,0.90,mainland-term,台灣網路傳輸單位,tech,exact,,,,true
 latency,延遲,延迟,延遲,latency,0.85,mainland-term,台灣網路效能指標,tech,exact,,,,true
 throughput,吞吐量,吞吐量,吞吐量,throughput,0.85,mainland-term,台灣效能指標標準,tech,exact,,,,true
@@ -85,18 +85,18 @@ ping,Ping,Ping,Ping,ping,0.80,mainland-term,台灣網路診斷工具,tech,exact,
 traceroute,路由追蹤,路由跟踪,路由跟蹤,traceroute,0.90,mainland-term,台灣網路診斷工具,tech,exact,,,,true
 dns,網域名稱系統,域名系统,域名系統,DNS,0.90,mainland-term,台灣網路服務系統,tech,exact,,,,true
 dhcp,動態主機設定協定,动态主机配置协议,動態主機配置協議,DHCP,0.90,mainland-term,台灣網路設定協定,tech,exact,,,,true
-subnet,子網路,子网,子網,subnet,0.90,mainland-term,台灣網路架構術語,tech,exact,,,,true
+subnet,子網路,子网,子網,subnet,0.90,mainland-term,台灣網路架構術語,tech,context_sensitive,"網路,IP,TCP,UDP,HTTP,路由,封包,連線,伺服器,VPC,CIDR,遮罩",,,false
 vlan,虛擬區域網路,虚拟局域网,虛擬局域網,VLAN,0.90,mainland-term,台灣網路分割技術,tech,exact,,,,true
 nat,網路位址轉換,网络地址转换,網絡地址轉換,NAT,0.90,mainland-term,台灣網路技術標準,tech,exact,,,,true
 vpn,虛擬私人網路,虚拟专用网,虛擬專用網,VPN,0.90,mainland-term,台灣網路安全標準,tech,exact,,,,true
 firewall,防火牆,防火墙,防火牆,firewall,0.90,mainland-term,台灣網路安全標準,tech,exact,,,,true
-certificate,憑證,证书,證書,certificate,0.90,mainland-term,台灣資安認證標準,tech,exact,,,,true
+certificate,憑證,证书,證書,certificate,0.90,mainland-term,台灣資安認證標準,tech,context_sensitive,"網路,IP,TCP,UDP,HTTP,路由,封包,連線,伺服器,VPC,CIDR,遮罩,SSL,TLS,HTTPS,加密",,,false
 ssl-certificate,SSL憑證,SSL证书,SSL證書,SSL certificate,0.90,mainland-term,台灣網路安全標準,tech,exact,,,,true
 tls,傳輸層安全性,传输层安全,傳輸層安全,TLS,0.90,mainland-term,台灣網路協定標準,tech,exact,,,,true
 encryption,加密,加密,加密,encryption,0.80,mainland-term,台灣資安技術標準,tech,exact,,,,true
 decryption,解密,解密,解密,decryption,0.80,mainland-term,台灣資安技術標準,tech,exact,,,,true
 link,連結,链接,鏈接,link,0.85,mainland-term,台灣網路技術標準,tech,exact,,,,true
-connect,連線,连接,連接,connect,0.90,mainland-term,台灣網路連接標準,tech,exact,,,,true
+connect,連線,连接,連接,connect,0.90,mainland-term,台灣網路連接標準,tech,context_sensitive,"網路,IP,TCP,UDP,HTTP,路由,封包,連線,伺服器,VPC,CIDR,遮罩,資料庫,WiFi,藍牙,USB,VPN,SSH",,"管,道路,橋,零件",false
 download,下載,下载,下載,download,0.80,mainland-term,台灣網路傳輸標準,tech,exact,,,,true
 upload,上傳,上传,上傳,upload,0.80,mainland-term,台灣網路傳輸標準,tech,exact,,,,true
 streaming,串流,流媒体,流媒體,streaming,0.90,mainland-term,台灣數位媒體術語,tech,exact,,,,true

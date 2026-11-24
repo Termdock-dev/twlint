@@ -11,7 +11,7 @@ ssd,固態硬碟,固态硬盘,固態硬盤,SSD,0.90,mainland-term,台灣儲存�
 hdd,傳統硬碟,机械硬盘,機械硬盤,HDD,0.85,mainland-term,台灣儲存裝置標準,tech,exact,,,,true
 disk,磁碟,磁盘,磁盤,disk,0.90,mainland-term,台灣儲存裝置標準,tech,exact,,,,true
 drive,磁碟機,驱动器,驅動器,drive,0.90,mainland-term,台灣儲存設備標準,tech,exact,,,,true
-motherboard,主機板,主板,主板,motherboard,0.90,mainland-term,台灣電腦組件標準,tech,exact,,,,true
+motherboard,主機板,主板,主板,motherboard,0.90,mainland-term,台灣電腦組件標準,tech,context_sensitive,"電腦,CPU,顯示卡,記憶體,插槽,BIOS,硬體",,"交易所主板,主板上市",false
 chipset,晶片組,芯片组,芯片組,chipset,0.90,mainland-term,台灣晶片技術標準,tech,exact,,,,true
 chip,晶片,芯片,芯片,chip,0.95,mainland-term,台灣半導體標準,tech,exact,,,,true
 bios,基本輸入輸出系統,基本输入输出系统,基本輸入輸出系統,BIOS,0.90,mainland-term,台灣韌體標準,tech,exact,,,,true

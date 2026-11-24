@@ -1,8 +1,8 @@
 id,taiwan,china_simplified,china_traditional,english,confidence,category,reason,domain,match_type,context_before,context_after,context_exclude,autofix_safe
 operating-system,作業系統,操作系统,操作系統,OS,0.95,mainland-term,台灣系統術語標準,tech,exact,,,,true
 kernel,核心,内核,內核,kernel,0.90,mainland-term,台灣作業系統核心,tech,exact,,,,true
-shell,命令殼層,外壳,外殼,shell,0.90,mainland-term,台灣系統介面術語,tech,exact,,,,true
-terminal,終端機,终端,終端,terminal,0.90,mainland-term,台灣命令列介面,tech,exact,,,,true
+shell,命令殼層,外壳,外殼,shell,0.90,mainland-term,台灣系統介面術語,tech,context_sensitive,"命令,指令,shell,bash,zsh,SSH,終端機,腳本,Linux,Unix,輸入",,,false
+terminal,終端機,终端,終端,terminal,0.90,mainland-term,台灣命令列介面,tech,context_sensitive,"命令,指令,shell,bash,zsh,SSH,終端機,腳本,Linux,Unix,輸入",,,false
 console,主控台,控制台,控制台,console,0.90,mainland-term,台灣系統管理介面,tech,exact,,,,true
 command-line,命令列,命令行,命令行,command line,0.90,mainland-term,台灣系統操作介面,tech,exact,,,,true
 gui,圖形介面,图形界面,圖形界面,GUI,0.90,mainland-term,台灣使用者介面類型,tech,exact,,,,true
@@ -22,7 +22,7 @@ daemon,常駐程式,守护进程,守護進程,daemon,0.90,mainland-term,台灣�
 scheduler-os,排程器,调度器,調度器,scheduler,0.90,mainland-term,台灣系統資源管理,tech,exact,,,,true
 priority,優先權,优先级,優先級,priority,0.90,mainland-term,台灣系統資源分配,tech,exact,,,,true
 resource,資源,资源,資源,resource,0.85,mainland-term,台灣系統管理術語,tech,exact,,,,true
-allocation,配置,分配,分配,allocation,0.85,mainland-term,台灣資源管理術語,tech,exact,,,,true
+allocation,配置,分配,分配,allocation,0.85,mainland-term,台灣資源管理術語,tech,context_sensitive,"記憶體,malloc,heap,堆積,緩衝區,buffer",,,false
 deallocation,釋放,释放,釋放,deallocation,0.85,mainland-term,台灣資源管理術語,tech,exact,,,,true
 memory-management,記憶體管理,内存管理,內存管理,memory management,0.95,mainland-term,台灣系統管理功能,tech,exact,,,,true
 virtual-memory,虛擬記憶體,虚拟内存,虛擬內存,virtual memory,0.95,mainland-term,台灣記憶體技術,tech,exact,,,,true
@@ -30,7 +30,7 @@ swap,交換空間,交换空间,交換空間,swap,0.85,mainland-term,台灣記憶
 paging,分頁,分页,分頁,paging,0.85,mainland-term,台灣記憶體管理技術,tech,exact,,,,true
 page-fault,分頁錯誤,页面错误,頁面錯誤,page fault,0.90,mainland-term,台灣記憶體錯誤類型,tech,exact,,,,true
 interrupt,中斷,中断,中斷,interrupt,0.85,mainland-term,台灣系統事件處理,tech,exact,,,,true
-exception-os,例外,异常,異常,exception,0.90,mainland-term,台灣系統錯誤處理,tech,exact,,,,true
+exception-os,例外,异常,異常,exception,0.90,mainland-term,台灣系統錯誤處理,tech,context_sensitive,"程式,錯誤,拋出,try,catch,throw,例外,處理,系統,日誌",,"出血,反應,症狀,細胞,檢查,體溫,醫學",false
 signal,信號,信号,信號,signal,0.85,mainland-term,台灣行程間通訊,tech,exact,,,,true
 pipe,管道,管道,管道,pipe,0.80,mainland-term,台灣行程間通訊,tech,exact,,,,true
 socket,通訊端,套接字,套接字,socket,0.90,mainland-term,台灣網路程式設計,tech,exact,,,,true
@@ -43,7 +43,7 @@ guest,訪客,访客,訪客,guest,0.85,mainland-term,台灣使用者權限,tech,e
 user,使用者,用户,用戶,user,0.85,mainland-term,台灣使用者介面標準,tech,exact,,,,true
 mount,掛載,挂载,掛載,mount,0.90,mainland-term,台灣系統操作術語,tech,exact,,,,true
 unmount,卸載,卸载,卸載,unmount,0.90,mainland-term,台灣系統操作術語,tech,exact,,,,true
-partition,分割區,分区,分區,partition,0.90,mainland-term,台灣磁碟管理術語,tech,exact,,,,true
+partition,分割區,分区,分區,partition,0.90,mainland-term,台灣磁碟管理術語,tech,context_sensitive,"磁碟,硬碟,SSD,分割,格式化,掛載,開機,MBR,GPT,fdisk",,,false
 format-disk,格式化,格式化,格式化,format,0.80,mainland-term,台灣磁碟操作術語,tech,exact,,,,true
 defragment,重組,碎片整理,碎片整理,defragment,0.90,mainland-term,台灣磁碟優化術語,tech,exact,,,,true
 registry,登錄檔,注册表,註冊表,registry,0.90,mainland-term,台灣Windows系統術語,tech,exact,,,,true
@@ -54,7 +54,7 @@ log,記錄,日志,日誌,log,0.85,mainland-term,台灣系統監控標準,tech,ex
 event-log,事件記錄,事件日志,事件日誌,event log,0.90,mainland-term,台灣系統監控標準,tech,exact,,,,true
 system-log,系統記錄,系统日志,系統日誌,system log,0.90,mainland-term,台灣系統監控標準,tech,exact,,,,true
 error-log,錯誤記錄,错误日志,錯誤日誌,error log,0.90,mainland-term,台灣系統監控標準,tech,exact,,,,true
-crash,當機,崩溃,崩潰,crash,0.90,mainland-term,台灣系統錯誤類型,tech,exact,,,,true
+crash,當機,崩溃,崩潰,crash,0.90,mainland-term,台灣系統錯誤類型,tech,context_sensitive,"程式,程式碼,軟體,系統,伺服器,資料庫,API,電腦,應用程式,App,檔案,函式,變數,類別,物件,開發,編譯,部署,雲端,Git,npm,Linux,Windows,macOS,原始碼,閃退",,,false
 hang,停止回應,挂起,掛起,hang,0.90,mainland-term,台灣系統錯誤類型,tech,exact,,,,true
 freeze,凍結,冻结,凍結,freeze,0.85,mainland-term,台灣系統錯誤類型,tech,exact,,,,true
 blue-screen,藍色畫面,蓝屏,藍屏,blue screen,0.90,mainland-term,台灣Windows錯誤,tech,exact,,,,true

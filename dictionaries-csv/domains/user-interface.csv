@@ -22,10 +22,10 @@ clipboard,剪貼簿,剪贴板,剪貼板,clipboard,0.90,mainland-term,台灣系�
 paste,貼上,粘贴,粘貼,paste,0.90,mainland-term,台灣編輯操作標準,tech,exact,,,,true
 cut,剪下,剪切,剪切,cut,0.90,mainland-term,台灣編輯操作標準,tech,exact,,,,true
 copy,複製,拷贝,拷貝,copy,0.85,mainland-term,台灣檔案操作標準,tech,exact,,,,true
-undo,復原,撤销,撤銷,undo,0.90,mainland-term,台灣編輯操作標準,tech,exact,,,,true
+undo,復原,撤销,撤銷,undo,0.90,mainland-term,台灣編輯操作標準,tech,context_sensitive,"編輯,操作,按鈕,快捷鍵,Ctrl,Cmd,上一步",,,false
 find,尋找,查找,查找,find,0.90,mainland-term,台灣編輯操作標準,tech,exact,,,,true
 replace,取代,替换,替換,replace,0.90,mainland-term,台灣編輯操作標準,tech,exact,,,,true
-refresh,重新整理,刷新,刷新,refresh,0.90,mainland-term,台灣瀏覽器操作,tech,exact,,,,true
+refresh,重新整理,刷新,刷新,refresh,0.90,mainland-term,台灣瀏覽器操作,tech,context_sensitive,"頁面,網頁,瀏覽器,畫面,F5,按鈕,快取",,"刷新紀錄,刷新個人",false
 reload,重新載入,重新加载,重新加載,reload,0.90,mainland-term,台灣瀏覽器操作,tech,exact,,,,true
 bookmark,書籤,收藏夹,收藏夾,bookmark,0.90,mainland-term,台灣瀏覽器功能,tech,exact,,,,true
 extension-browser,擴充套件,浏览器扩展,瀏覽器擴展,browser extension,0.90,mainland-term,台灣瀏覽器功能,tech,exact,,,,true
@@ -37,7 +37,7 @@ wizard,精靈,向导,嚮導,wizard,0.90,mainland-term,台灣介面設計標準,t
 template,範本,模板,模板,template,0.90,mainland-term,台灣文件標準術語,tech,context_sensitive,"程式,代碼,HTML,CSS,設計,網頁,郵件,專案",,"混凝土,工程,建築,營建",false
 preference,偏好設定,首选项,首選項,preference,0.90,mainland-term,台灣系統設定術語,tech,exact,,,,true
 option,選項,选项,選項,option,0.85,mainland-term,台灣系統設定術語,tech,exact,,,,true
-setting,設定,设置,設置,setting,0.90,mainland-term,台灣系統設定術語,tech,exact,,,,true
+setting,設定,设置,設置,setting,0.90,mainland-term,台灣系統設定術語,tech,context_sensitive,"選單,偏好,應用程式,App,點擊,打開,開啟,頁面,系統",,,false
 profile,設定檔,配置文件,配置文件,profile,0.90,mainland-term,台灣系統設定術語,tech,exact,,,,true
 shortcut,捷徑,快捷方式,快捷方式,shortcut,0.90,mainland-term,台灣系統功能術語,tech,exact,,,,true
 hotkey,快速鍵,热键,熱鍵,hotkey,0.90,mainland-term,台灣鍵盤操作術語,tech,exact,,,,true
@@ -67,10 +67,10 @@ page-number,頁碼,页码,頁碼,page number,0.85,mainland-term,台灣文件結�
 table-of-contents,目錄,目录,目錄,table of contents,0.85,mainland-term,台灣文件結構術語,tech,exact,,,,true
 hyperlink,超連結,超链接,超鏈接,hyperlink,0.90,mainland-term,台灣網頁元件術語,tech,exact,,,,true
 confirm,確認,确认,確認,confirm,0.85,mainland-term,台灣系統訊息術語,tech,exact,,,,true
-save,儲存,保存,保存,save,0.85,mainland-term,台灣檔案操作標準,tech,context_sensitive,"檔案,資料,設定,修改,變更,按鈕,Ctrl,對話方塊,自動",,"食物,紀念,實力,體力",false
+save,儲存,保存,保存,save,0.85,mainland-term,台灣檔案操作標準,tech,context_sensitive,"檔案,資料,設定,修改,變更,按鈕,Ctrl,對話方塊,自動",,"食物,紀念,實力,體力,期限,保存期",false
 load,載入,加载,加載,load,0.90,mainland-term,台灣系統操作標準,tech,exact,,,,true
 export,匯出,导出,導出,export,0.90,mainland-term,台灣資料處理標準,tech,exact,,,,true
-import,匯入,导入,導入,import,0.90,mainland-term,台灣資料處理標準,tech,exact,,,,true
+import,匯入,导入,導入,import,0.90,mainland-term,台灣資料處理標準,tech,context_sensitive,"程式,模組,套件,資料,檔案,函式,CSV,JSON,匯入,Excel",,"精華,離子,皮膚,導入儀,美容,保養",false
 print,列印,打印,打印,print,0.90,mainland-term,台灣週邊裝置標準,tech,exact,,,,true
 preview,預覽,预览,預覽,preview,0.85,mainland-term,台灣顯示功能術語,tech,exact,,,,true
 view,檢視,视图,視圖,view,0.85,mainland-term,台灣介面設計標準,tech,exact,,,,true

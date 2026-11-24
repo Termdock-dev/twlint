@@ -9,6 +9,7 @@ import Papa from 'papaparse'
 import { Command } from 'commander'
 import chalk from 'chalk'
 import { findUnmatchableRows, MIN_TERM_LENGTH } from '../src/core/matchable-term.js'
+import { findInconsistentEntries, type ConsistencyRow } from './dict-consistency.js'
 
 interface DictEntry {
   id: string
@@ -314,8 +315,18 @@ async function main() {
     .description('驗證 CSV 格式')
     .argument('<files...>', 'CSV 檔案路徑')
     .action(async (files: string[]) => {
+      const rows: ConsistencyRow[] = []
       for (const file of files) {
         if (!(await dictManager.validateCSV(file))) process.exitCode = 1
+        const { data } = Papa.parse<CSVRow>(await readFile(file, 'utf-8'), { header: true, skipEmptyLines: true })
+        rows.push(...data.map(row => ({ ...row, file: basename(file) })))
+      }
+
+      const inconsistent = findInconsistentEntries(rows)
+      if (inconsistent.length > 0) {
+        console.error(chalk.red('❌ 同一詞條在不同 CSV 的比對設定不一致:'))
+        inconsistent.forEach(line => console.error(`  - ${line}`))
+        process.exitCode = 1
       }
     })
 

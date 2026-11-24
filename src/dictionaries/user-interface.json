@@ -776,32 +776,76 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣編輯操作標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "編輯",
+          "操作",
+          "按鈕",
+          "快捷鍵",
+          "Ctrl",
+          "Cmd",
+          "上一步"
+        ]
+      }
     },
     "撤销_undo": {
       "taiwan": "復原",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣編輯操作標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "編輯",
+          "操作",
+          "按鈕",
+          "快捷鍵",
+          "Ctrl",
+          "Cmd",
+          "上一步"
+        ]
+      }
     },
     "撤銷": {
       "taiwan": "復原",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣編輯操作標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "編輯",
+          "操作",
+          "按鈕",
+          "快捷鍵",
+          "Ctrl",
+          "Cmd",
+          "上一步"
+        ]
+      }
     },
     "撤銷_undo": {
       "taiwan": "復原",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣編輯操作標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "編輯",
+          "操作",
+          "按鈕",
+          "快捷鍵",
+          "Ctrl",
+          "Cmd",
+          "上一步"
+        ]
+      }
     },
     "查找": {
       "taiwan": "尋找",
@@ -856,16 +900,46 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣瀏覽器操作",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "頁面",
+          "網頁",
+          "瀏覽器",
+          "畫面",
+          "F5",
+          "按鈕",
+          "快取"
+        ],
+        "exclude": [
+          "刷新紀錄",
+          "刷新個人"
+        ]
+      }
     },
     "刷新_refresh": {
       "taiwan": "重新整理",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣瀏覽器操作",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "頁面",
+          "網頁",
+          "瀏覽器",
+          "畫面",
+          "F5",
+          "按鈕",
+          "快取"
+        ],
+        "exclude": [
+          "刷新紀錄",
+          "刷新個人"
+        ]
+      }
     },
     "重新加载": {
       "taiwan": "重新載入",
@@ -1244,32 +1318,84 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣系統設定術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "選單",
+          "偏好",
+          "應用程式",
+          "App",
+          "點擊",
+          "打開",
+          "開啟",
+          "頁面",
+          "系統"
+        ]
+      }
     },
     "设置_setting": {
       "taiwan": "設定",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣系統設定術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "選單",
+          "偏好",
+          "應用程式",
+          "App",
+          "點擊",
+          "打開",
+          "開啟",
+          "頁面",
+          "系統"
+        ]
+      }
     },
     "設置": {
       "taiwan": "設定",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣系統設定術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "選單",
+          "偏好",
+          "應用程式",
+          "App",
+          "點擊",
+          "打開",
+          "開啟",
+          "頁面",
+          "系統"
+        ]
+      }
     },
     "設置_setting": {
       "taiwan": "設定",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣系統設定術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "選單",
+          "偏好",
+          "應用程式",
+          "App",
+          "點擊",
+          "打開",
+          "開啟",
+          "頁面",
+          "系統"
+        ]
+      }
     },
     "配置文件": {
       "taiwan": "設定檔",
@@ -2126,7 +2252,9 @@
           "食物",
           "紀念",
           "實力",
-          "體力"
+          "體力",
+          "期限",
+          "保存期"
         ]
       }
     },
@@ -2153,7 +2281,9 @@
           "食物",
           "紀念",
           "實力",
-          "體力"
+          "體力",
+          "期限",
+          "保存期"
         ]
       }
     },
@@ -2226,32 +2356,120 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣資料處理標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "程式",
+          "模組",
+          "套件",
+          "資料",
+          "檔案",
+          "函式",
+          "CSV",
+          "JSON",
+          "匯入",
+          "Excel"
+        ],
+        "exclude": [
+          "精華",
+          "離子",
+          "皮膚",
+          "導入儀",
+          "美容",
+          "保養"
+        ]
+      }
     },
     "导入_import": {
       "taiwan": "匯入",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣資料處理標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "程式",
+          "模組",
+          "套件",
+          "資料",
+          "檔案",
+          "函式",
+          "CSV",
+          "JSON",
+          "匯入",
+          "Excel"
+        ],
+        "exclude": [
+          "精華",
+          "離子",
+          "皮膚",
+          "導入儀",
+          "美容",
+          "保養"
+        ]
+      }
     },
     "導入": {
       "taiwan": "匯入",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣資料處理標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "程式",
+          "模組",
+          "套件",
+          "資料",
+          "檔案",
+          "函式",
+          "CSV",
+          "JSON",
+          "匯入",
+          "Excel"
+        ],
+        "exclude": [
+          "精華",
+          "離子",
+          "皮膚",
+          "導入儀",
+          "美容",
+          "保養"
+        ]
+      }
     },
     "導入_import": {
       "taiwan": "匯入",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣資料處理標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "程式",
+          "模組",
+          "套件",
+          "資料",
+          "檔案",
+          "函式",
+          "CSV",
+          "JSON",
+          "匯入",
+          "Excel"
+        ],
+        "exclude": [
+          "精華",
+          "離子",
+          "皮膚",
+          "導入儀",
+          "美容",
+          "保養"
+        ]
+      }
     },
     "打印": {
       "taiwan": "列印",

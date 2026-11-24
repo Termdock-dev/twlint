@@ -90,48 +90,192 @@
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣社群內容術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "帳號",
+          "社群",
+          "Facebook",
+          "臉書",
+          "Instagram",
+          "IG",
+          "YouTube",
+          "Twitter",
+          "推特",
+          "Threads",
+          "TikTok",
+          "抖音",
+          "微博",
+          "按讚",
+          "追蹤",
+          "分享",
+          "直播",
+          "網紅",
+          "動態"
+        ]
+      }
     },
     "状态_status": {
       "taiwan": "動態",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣社群內容術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "帳號",
+          "社群",
+          "Facebook",
+          "臉書",
+          "Instagram",
+          "IG",
+          "YouTube",
+          "Twitter",
+          "推特",
+          "Threads",
+          "TikTok",
+          "抖音",
+          "微博",
+          "按讚",
+          "追蹤",
+          "分享",
+          "直播",
+          "網紅",
+          "動態"
+        ]
+      }
     },
     "狀態": {
       "taiwan": "動態",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣社群內容術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "帳號",
+          "社群",
+          "Facebook",
+          "臉書",
+          "Instagram",
+          "IG",
+          "YouTube",
+          "Twitter",
+          "推特",
+          "Threads",
+          "TikTok",
+          "抖音",
+          "微博",
+          "按讚",
+          "追蹤",
+          "分享",
+          "直播",
+          "網紅",
+          "動態"
+        ]
+      }
     },
     "狀態_status": {
       "taiwan": "動態",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣社群內容術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "帳號",
+          "社群",
+          "Facebook",
+          "臉書",
+          "Instagram",
+          "IG",
+          "YouTube",
+          "Twitter",
+          "推特",
+          "Threads",
+          "TikTok",
+          "抖音",
+          "微博",
+          "按讚",
+          "追蹤",
+          "分享",
+          "直播",
+          "網紅",
+          "動態"
+        ]
+      }
     },
     "故事": {
       "taiwan": "限時動態",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣社群功能術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "帳號",
+          "社群",
+          "Facebook",
+          "臉書",
+          "Instagram",
+          "IG",
+          "YouTube",
+          "Twitter",
+          "推特",
+          "Threads",
+          "TikTok",
+          "抖音",
+          "微博",
+          "按讚",
+          "追蹤",
+          "分享",
+          "直播",
+          "網紅",
+          "動態"
+        ]
+      }
     },
     "故事_story": {
       "taiwan": "限時動態",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣社群功能術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "帳號",
+          "社群",
+          "Facebook",
+          "臉書",
+          "Instagram",
+          "IG",
+          "YouTube",
+          "Twitter",
+          "推特",
+          "Threads",
+          "TikTok",
+          "抖音",
+          "微博",
+          "按讚",
+          "追蹤",
+          "分享",
+          "直播",
+          "網紅",
+          "動態"
+        ]
+      }
     },
     "信息流": {
       "taiwan": "動態消息",
@@ -186,96 +330,412 @@
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣社群帳號術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "帳號",
+          "社群",
+          "Facebook",
+          "臉書",
+          "Instagram",
+          "IG",
+          "YouTube",
+          "Twitter",
+          "推特",
+          "Threads",
+          "TikTok",
+          "抖音",
+          "微博",
+          "按讚",
+          "追蹤",
+          "分享",
+          "直播",
+          "網紅",
+          "動態"
+        ],
+        "exclude": [
+          "個人資料保護",
+          "個資"
+        ]
+      }
     },
     "个人资料_profile": {
       "taiwan": "個人檔案",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣社群帳號術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "帳號",
+          "社群",
+          "Facebook",
+          "臉書",
+          "Instagram",
+          "IG",
+          "YouTube",
+          "Twitter",
+          "推特",
+          "Threads",
+          "TikTok",
+          "抖音",
+          "微博",
+          "按讚",
+          "追蹤",
+          "分享",
+          "直播",
+          "網紅",
+          "動態"
+        ],
+        "exclude": [
+          "個人資料保護",
+          "個資"
+        ]
+      }
     },
     "個人資料": {
       "taiwan": "個人檔案",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣社群帳號術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "帳號",
+          "社群",
+          "Facebook",
+          "臉書",
+          "Instagram",
+          "IG",
+          "YouTube",
+          "Twitter",
+          "推特",
+          "Threads",
+          "TikTok",
+          "抖音",
+          "微博",
+          "按讚",
+          "追蹤",
+          "分享",
+          "直播",
+          "網紅",
+          "動態"
+        ],
+        "exclude": [
+          "個人資料保護",
+          "個資"
+        ]
+      }
     },
     "個人資料_profile": {
       "taiwan": "個人檔案",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣社群帳號術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "帳號",
+          "社群",
+          "Facebook",
+          "臉書",
+          "Instagram",
+          "IG",
+          "YouTube",
+          "Twitter",
+          "推特",
+          "Threads",
+          "TikTok",
+          "抖音",
+          "微博",
+          "按讚",
+          "追蹤",
+          "分享",
+          "直播",
+          "網紅",
+          "動態"
+        ],
+        "exclude": [
+          "個人資料保護",
+          "個資"
+        ]
+      }
     },
     "粉丝": {
       "taiwan": "追蹤者",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣社群媒體術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "帳號",
+          "社群",
+          "Facebook",
+          "臉書",
+          "Instagram",
+          "IG",
+          "YouTube",
+          "Twitter",
+          "推特",
+          "Threads",
+          "TikTok",
+          "抖音",
+          "微博",
+          "按讚",
+          "追蹤",
+          "分享",
+          "直播",
+          "網紅",
+          "動態"
+        ],
+        "exclude": [
+          "粉絲見面會"
+        ]
+      }
     },
     "粉丝_follower": {
       "taiwan": "追蹤者",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣社群媒體術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "帳號",
+          "社群",
+          "Facebook",
+          "臉書",
+          "Instagram",
+          "IG",
+          "YouTube",
+          "Twitter",
+          "推特",
+          "Threads",
+          "TikTok",
+          "抖音",
+          "微博",
+          "按讚",
+          "追蹤",
+          "分享",
+          "直播",
+          "網紅",
+          "動態"
+        ],
+        "exclude": [
+          "粉絲見面會"
+        ]
+      }
     },
     "粉絲": {
       "taiwan": "追蹤者",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣社群媒體術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "帳號",
+          "社群",
+          "Facebook",
+          "臉書",
+          "Instagram",
+          "IG",
+          "YouTube",
+          "Twitter",
+          "推特",
+          "Threads",
+          "TikTok",
+          "抖音",
+          "微博",
+          "按讚",
+          "追蹤",
+          "分享",
+          "直播",
+          "網紅",
+          "動態"
+        ],
+        "exclude": [
+          "粉絲見面會"
+        ]
+      }
     },
     "粉絲_follower": {
       "taiwan": "追蹤者",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣社群媒體術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "帳號",
+          "社群",
+          "Facebook",
+          "臉書",
+          "Instagram",
+          "IG",
+          "YouTube",
+          "Twitter",
+          "推特",
+          "Threads",
+          "TikTok",
+          "抖音",
+          "微博",
+          "按讚",
+          "追蹤",
+          "分享",
+          "直播",
+          "網紅",
+          "動態"
+        ],
+        "exclude": [
+          "粉絲見面會"
+        ]
+      }
     },
     "关注": {
       "taiwan": "追蹤中",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣社群媒體術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "帳號",
+          "社群",
+          "Facebook",
+          "臉書",
+          "Instagram",
+          "IG",
+          "YouTube",
+          "Twitter",
+          "推特",
+          "Threads",
+          "TikTok",
+          "抖音",
+          "微博",
+          "按讚",
+          "追蹤",
+          "分享",
+          "直播",
+          "網紅",
+          "動態"
+        ]
+      }
     },
     "关注_following": {
       "taiwan": "追蹤中",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣社群媒體術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "帳號",
+          "社群",
+          "Facebook",
+          "臉書",
+          "Instagram",
+          "IG",
+          "YouTube",
+          "Twitter",
+          "推特",
+          "Threads",
+          "TikTok",
+          "抖音",
+          "微博",
+          "按讚",
+          "追蹤",
+          "分享",
+          "直播",
+          "網紅",
+          "動態"
+        ]
+      }
     },
     "關注": {
       "taiwan": "追蹤中",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣社群媒體術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "帳號",
+          "社群",
+          "Facebook",
+          "臉書",
+          "Instagram",
+          "IG",
+          "YouTube",
+          "Twitter",
+          "推特",
+          "Threads",
+          "TikTok",
+          "抖音",
+          "微博",
+          "按讚",
+          "追蹤",
+          "分享",
+          "直播",
+          "網紅",
+          "動態"
+        ]
+      }
     },
     "關注_following": {
       "taiwan": "追蹤中",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣社群媒體術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "帳號",
+          "社群",
+          "Facebook",
+          "臉書",
+          "Instagram",
+          "IG",
+          "YouTube",
+          "Twitter",
+          "推特",
+          "Threads",
+          "TikTok",
+          "抖音",
+          "微博",
+          "按讚",
+          "追蹤",
+          "分享",
+          "直播",
+          "網紅",
+          "動態"
+        ]
+      }
     },
     "点赞": {
       "taiwan": "按讚",
@@ -314,32 +774,144 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣社群互動術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "帳號",
+          "社群",
+          "Facebook",
+          "臉書",
+          "Instagram",
+          "IG",
+          "YouTube",
+          "Twitter",
+          "推特",
+          "Threads",
+          "TikTok",
+          "抖音",
+          "微博",
+          "按讚",
+          "追蹤",
+          "分享",
+          "直播",
+          "網紅",
+          "動態"
+        ],
+        "exclude": [
+          "評論家",
+          "評論界"
+        ]
+      }
     },
     "评论_comment": {
       "taiwan": "留言",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣社群互動術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "帳號",
+          "社群",
+          "Facebook",
+          "臉書",
+          "Instagram",
+          "IG",
+          "YouTube",
+          "Twitter",
+          "推特",
+          "Threads",
+          "TikTok",
+          "抖音",
+          "微博",
+          "按讚",
+          "追蹤",
+          "分享",
+          "直播",
+          "網紅",
+          "動態"
+        ],
+        "exclude": [
+          "評論家",
+          "評論界"
+        ]
+      }
     },
     "評論": {
       "taiwan": "留言",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣社群互動術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "帳號",
+          "社群",
+          "Facebook",
+          "臉書",
+          "Instagram",
+          "IG",
+          "YouTube",
+          "Twitter",
+          "推特",
+          "Threads",
+          "TikTok",
+          "抖音",
+          "微博",
+          "按讚",
+          "追蹤",
+          "分享",
+          "直播",
+          "網紅",
+          "動態"
+        ],
+        "exclude": [
+          "評論家",
+          "評論界"
+        ]
+      }
     },
     "評論_comment": {
       "taiwan": "留言",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣社群互動術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "帳號",
+          "社群",
+          "Facebook",
+          "臉書",
+          "Instagram",
+          "IG",
+          "YouTube",
+          "Twitter",
+          "推特",
+          "Threads",
+          "TikTok",
+          "抖音",
+          "微博",
+          "按讚",
+          "追蹤",
+          "分享",
+          "直播",
+          "網紅",
+          "動態"
+        ],
+        "exclude": [
+          "評論家",
+          "評論界"
+        ]
+      }
     },
     "回复": {
       "taiwan": "回覆",
@@ -698,16 +1270,72 @@
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣數位表達術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "帳號",
+          "社群",
+          "Facebook",
+          "臉書",
+          "Instagram",
+          "IG",
+          "YouTube",
+          "Twitter",
+          "推特",
+          "Threads",
+          "TikTok",
+          "抖音",
+          "微博",
+          "按讚",
+          "追蹤",
+          "分享",
+          "直播",
+          "網紅",
+          "動態",
+          "訊息",
+          "聊天",
+          "LINE",
+          "輸入"
+        ]
+      }
     },
     "表情_emoticon": {
       "taiwan": "表情符號",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣數位表達術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "帳號",
+          "社群",
+          "Facebook",
+          "臉書",
+          "Instagram",
+          "IG",
+          "YouTube",
+          "Twitter",
+          "推特",
+          "Threads",
+          "TikTok",
+          "抖音",
+          "微博",
+          "按讚",
+          "追蹤",
+          "分享",
+          "直播",
+          "網紅",
+          "動態",
+          "訊息",
+          "聊天",
+          "LINE",
+          "輸入"
+        ]
+      }
     },
     "贴纸": {
       "taiwan": "貼圖",
@@ -1290,16 +1918,80 @@
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣廣告術語標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "帳號",
+          "社群",
+          "Facebook",
+          "臉書",
+          "Instagram",
+          "IG",
+          "YouTube",
+          "Twitter",
+          "推特",
+          "Threads",
+          "TikTok",
+          "抖音",
+          "微博",
+          "按讚",
+          "追蹤",
+          "分享",
+          "直播",
+          "網紅",
+          "動態",
+          "廣告",
+          "觸及",
+          "點擊"
+        ],
+        "exclude": [
+          "刻板印象",
+          "印象派",
+          "印象深刻"
+        ]
+      }
     },
     "印象_impression": {
       "taiwan": "曝光",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣廣告術語標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "帳號",
+          "社群",
+          "Facebook",
+          "臉書",
+          "Instagram",
+          "IG",
+          "YouTube",
+          "Twitter",
+          "推特",
+          "Threads",
+          "TikTok",
+          "抖音",
+          "微博",
+          "按讚",
+          "追蹤",
+          "分享",
+          "直播",
+          "網紅",
+          "動態",
+          "廣告",
+          "觸及",
+          "點擊"
+        ],
+        "exclude": [
+          "刻板印象",
+          "印象派",
+          "印象深刻"
+        ]
+      }
     },
     "洞察": {
       "taiwan": "洞察報告",
@@ -1722,32 +2414,164 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣網路群體術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "帳號",
+          "社群",
+          "Facebook",
+          "臉書",
+          "Instagram",
+          "IG",
+          "YouTube",
+          "Twitter",
+          "推特",
+          "Threads",
+          "TikTok",
+          "抖音",
+          "微博",
+          "按讚",
+          "追蹤",
+          "分享",
+          "直播",
+          "網紅",
+          "動態",
+          "開源",
+          "GitHub",
+          "Discord",
+          "論壇",
+          "開發者"
+        ],
+        "exclude": [
+          "社區大學",
+          "社區營造"
+        ]
+      }
     },
     "社区_community": {
       "taiwan": "社群",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣網路群體術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "帳號",
+          "社群",
+          "Facebook",
+          "臉書",
+          "Instagram",
+          "IG",
+          "YouTube",
+          "Twitter",
+          "推特",
+          "Threads",
+          "TikTok",
+          "抖音",
+          "微博",
+          "按讚",
+          "追蹤",
+          "分享",
+          "直播",
+          "網紅",
+          "動態",
+          "開源",
+          "GitHub",
+          "Discord",
+          "論壇",
+          "開發者"
+        ],
+        "exclude": [
+          "社區大學",
+          "社區營造"
+        ]
+      }
     },
     "社區": {
       "taiwan": "社群",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣網路群體術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "帳號",
+          "社群",
+          "Facebook",
+          "臉書",
+          "Instagram",
+          "IG",
+          "YouTube",
+          "Twitter",
+          "推特",
+          "Threads",
+          "TikTok",
+          "抖音",
+          "微博",
+          "按讚",
+          "追蹤",
+          "分享",
+          "直播",
+          "網紅",
+          "動態",
+          "開源",
+          "GitHub",
+          "Discord",
+          "論壇",
+          "開發者"
+        ],
+        "exclude": [
+          "社區大學",
+          "社區營造"
+        ]
+      }
     },
     "社區_community": {
       "taiwan": "社群",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣網路群體術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "帳號",
+          "社群",
+          "Facebook",
+          "臉書",
+          "Instagram",
+          "IG",
+          "YouTube",
+          "Twitter",
+          "推特",
+          "Threads",
+          "TikTok",
+          "抖音",
+          "微博",
+          "按讚",
+          "追蹤",
+          "分享",
+          "直播",
+          "網紅",
+          "動態",
+          "開源",
+          "GitHub",
+          "Discord",
+          "論壇",
+          "開發者"
+        ],
+        "exclude": [
+          "社區大學",
+          "社區營造"
+        ]
+      }
     },
     "群组": {
       "taiwan": "群組",
@@ -2106,16 +2930,78 @@
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣社群功能術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "帳號",
+          "社群",
+          "Facebook",
+          "臉書",
+          "Instagram",
+          "IG",
+          "YouTube",
+          "Twitter",
+          "推特",
+          "Threads",
+          "TikTok",
+          "抖音",
+          "微博",
+          "按讚",
+          "追蹤",
+          "分享",
+          "直播",
+          "網紅",
+          "動態",
+          "書籤",
+          "瀏覽器"
+        ],
+        "exclude": [
+          "收藏家",
+          "收藏品",
+          "典藏"
+        ]
+      }
     },
     "收藏_saved": {
       "taiwan": "已儲存",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣社群功能術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "帳號",
+          "社群",
+          "Facebook",
+          "臉書",
+          "Instagram",
+          "IG",
+          "YouTube",
+          "Twitter",
+          "推特",
+          "Threads",
+          "TikTok",
+          "抖音",
+          "微博",
+          "按讚",
+          "追蹤",
+          "分享",
+          "直播",
+          "網紅",
+          "動態",
+          "書籤",
+          "瀏覽器"
+        ],
+        "exclude": [
+          "收藏家",
+          "收藏品",
+          "典藏"
+        ]
+      }
     },
     "书签": {
       "taiwan": "書籤",
