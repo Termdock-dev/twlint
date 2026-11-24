@@ -107,43 +107,39 @@ class DictBuilder {
   async buildAcademicDict(): Promise<void> {
     console.log('🎓 建構學術詞庫...')
 
-    const academicFile = join(this.csvDir, 'extended', 'academic.csv')
+    const academicFiles = (await this.findCSVFiles(join(this.csvDir, 'extended')))
+      .filter(file => basename(file) === 'academic.csv')
 
-    try {
-      await readFile(academicFile, 'utf-8')
-      const dict = await this.compileDict([academicFile], 'academic')
-      await this.saveDict(dict, 'academic')
-      console.log(`✅ 學術詞庫建構完成 (${dict.metadata.entries} 條目)`)
-    } catch {
+    if (academicFiles.length === 0) {
       console.log('ℹ️  未找到學術詞庫，跳過')
+      return
     }
+
+    const dict = await this.compileDict(academicFiles, 'academic')
+    await this.saveDict(dict, 'academic')
+    console.log(`✅ 學術詞庫建構完成 (${dict.metadata.entries} 條目)`)
   }
 
   async buildDomainDictionaries(): Promise<void> {
     console.log('🌐 建構領域詞庫...')
 
-    try {
-      const domainFiles = await this.findCSVFiles(this.domainsDir)
-
-      if (domainFiles.length === 0) {
-        console.log('ℹ️  未找到領域詞庫，跳過')
-        return
-      }
-
-      for (const domainFile of domainFiles) {
-        const domainName = basename(domainFile, '.csv')
-        console.log(`  📂 建構領域: ${domainName}`)
-
-        const dict = await this.compileDict([domainFile], domainName)
-        await this.saveDict(dict, domainName)
-
-        console.log(`  ✅ ${domainName} 完成 (${dict.metadata.entries} 條目)`)
-      }
-
-      console.log(`✅ 所有領域詞庫建構完成`)
-    } catch (error) {
-      console.log('ℹ️  領域詞庫目錄不存在，跳過')
+    const domainFiles = await this.findCSVFiles(this.domainsDir)
+    if (domainFiles.length === 0) {
+      console.log('ℹ️  未找到領域詞庫，跳過')
+      return
     }
+
+    for (const domainFile of domainFiles) {
+      const domainName = basename(domainFile, '.csv')
+      console.log(`  📂 建構領域: ${domainName}`)
+
+      const dict = await this.compileDict([domainFile], domainName)
+      await this.saveDict(dict, domainName)
+
+      console.log(`  ✅ ${domainName} 完成 (${dict.metadata.entries} 條目)`)
+    }
+
+    console.log(`✅ 所有領域詞庫建構完成`)
   }
 
   async buildExtendedDict(): Promise<void> {
