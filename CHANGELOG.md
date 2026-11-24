@@ -5,6 +5,14 @@ All notable changes to TWLint will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.1] - 2026-11-24
+
+### Fixed
+- `--config` 給絕對路徑時，設定檔被靜默換成預設設定；明確指定的 `--config` 載入失敗時，現在整個指令失敗（#22）
+
+### Changed
+- `npm run lint` 也檢查 `tests/` 與 `tools/`（#20，不影響發布的套件內容）
+
 ## [1.5.0] - 2026-11-24
 
 ### Added
