@@ -197,11 +197,11 @@ async function main() {
         } else {
           // 檢查模式
           const exitCode = await performCheck(linter, files, options)
-          process.exit(exitCode)
+          process.exitCode = exitCode
         }
       } catch (error) {
         console.error(chalk.red('Error:'), formatError(error))
-        process.exit(1)
+        process.exitCode = 1
       }
     })
 
@@ -214,7 +214,7 @@ async function main() {
         await performInit(options.force)
       } catch (error) {
         console.error(chalk.red('Error:'), formatError(error))
-        process.exit(1)
+        process.exitCode = 1
       }
     })
 
@@ -229,6 +229,6 @@ if (import.meta.url === `file://${process.argv[1]}` ||
     process.argv[1]?.endsWith('cli.js')) {
   main().catch(error => {
     console.error(chalk.red('Fatal error:'), formatError(error))
-    process.exit(1)
+    process.exitCode = 1
   })
 }
