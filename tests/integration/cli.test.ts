@@ -199,6 +199,26 @@ describe('CLI Integration Tests', () => {
         .toEqual(['docs/a.md', 'src/x.ts'])
     })
 
+    it('runs the configured rules on a ./-prefixed path (#5)', async () => {
+      try {
+        await execAsync(`node ${cliPath} check ./src/x.ts --format json`, { cwd: projectDir })
+        expect.fail('Should have exited with error code')
+      } catch (error: any) {
+        expect(JSON.parse(error.stdout)[0].messages.length).toBeGreaterThan(0)
+      }
+    })
+
+    it('checks a ../ path from a subdirectory like any file outside the working directory (#5)', async () => {
+      // docs/ 沒有設定檔，用預設設定（**/*.md）
+      await writeFile(join(projectDir, 'top.md'), '这是简体字', 'utf-8')
+      try {
+        await execAsync(`node ${cliPath} check ../top.md --format json`, { cwd: join(projectDir, 'docs') })
+        expect.fail('Should have exited with error code')
+      } catch (error: any) {
+        expect(JSON.parse(error.stdout)[0].messages.length).toBeGreaterThan(0)
+      }
+    })
+
     it('runs the configured rules on an explicit absolute file path inside the project', async () => {
       try {
         await execAsync(`node ${cliPath} check ${join(projectDir, 'src', 'x.ts')} --format json`, { cwd: projectDir })
