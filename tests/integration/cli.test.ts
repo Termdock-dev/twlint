@@ -61,6 +61,21 @@ describe('CLI Integration Tests', () => {
       }
     })
 
+    it('should write the full JSON output when stdout is a pipe (#2)', async () => {
+      // 300 行 × 6 個簡體字，JSON 約 300KB，超過管線的 64KB 緩衝
+      const content = Array.from({ length: 300 }, () => '这个软件开发项目').join('\n')
+      await writeFile(testFile, content, 'utf-8')
+
+      try {
+        await execAsync(`node ${cliPath} check ${testFile} --format json`, { maxBuffer: 10 * 1024 * 1024 })
+        expect.fail('Should have exited with error code')
+      } catch (error: any) {
+        expect(error.code).toBe(1)
+        expect(Buffer.byteLength(error.stdout)).toBeGreaterThan(65536)
+        expect(JSON.parse(error.stdout)[0].messages.length).toBeGreaterThan(1000)
+      }
+    })
+
     it('should exit with error code when issues found', async () => {
       const content = '简体字测试'
       await writeFile(testFile, content, 'utf-8')
