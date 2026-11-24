@@ -60,7 +60,7 @@ export class TWLinter {
     await this.loadTwlintignore()
     // 自訂詞表在處理任何檔案前先載入：路徑或格式錯誤時整個指令失敗，
     // 不會變成每個檔案各一筆讀檔錯誤
-    for (const path of this.configMatcher.getAllCustomDictionaries()) {
+    for (const path of this.configMatcher.getCustomDictionaries()) {
       await this.dictManager.loadCustomDictionary(path)
     }
     return this.expandFilePatterns(patterns)
@@ -249,7 +249,6 @@ export class TWLinter {
           ErrorHandler.handle(error, `Failed to load dictionary "${name}"`)
         }
       }
-      await this.loadCustomDictionariesForFile(filePath)
       return
     }
 
@@ -273,15 +272,6 @@ export class TWLinter {
       } catch (error) {
         ErrorHandler.handle(error, `Failed to load dictionary "${name}"`)
       }
-    }
-    await this.loadCustomDictionariesForFile(filePath)
-  }
-
-  // 自訂詞表是設定檔明確指定的，讀不到就讓錯誤往上丟，不降級成警告
-  private async loadCustomDictionariesForFile(filePath?: string): Promise<void> {
-    if (!filePath) return
-    for (const path of this.configMatcher.getCustomDictionariesForFile(filePath)) {
-      await this.dictManager.loadCustomDictionary(path)
     }
   }
 

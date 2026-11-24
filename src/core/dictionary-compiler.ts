@@ -27,6 +27,33 @@ export function parseCSV(content: string): CSVRow[] {
 }
 
 /**
+ * 檢查詞表 CSV：解析錯誤、必填欄位、confidence 是否為數字、單字詞條、沒有任何詞條。
+ * dict:validate 與自訂詞表共用這份檢查；回傳空陣列表示沒有問題。
+ */
+export function findCSVProblems(content: string): string[] {
+  const { data, errors } = Papa.parse<CSVRow>(content, { header: true, skipEmptyLines: true })
+  const problems = errors.map(error => `CSV 格式錯誤（第 ${(error.row ?? 0) + 2} 行）: ${error.message}`)
+
+  if (data.length === 0) problems.push('沒有任何詞條')
+
+  data.forEach((row, index) => {
+    const line = `第 ${index + 2} 行`
+    if (!row.id) problems.push(`${line}: 缺少 id`)
+    if (!row.taiwan) problems.push(`${line}: 缺少 taiwan`)
+    if (!row.china_simplified) problems.push(`${line}: 缺少 china_simplified`)
+    if (!row.confidence || isNaN(Number(row.confidence))) problems.push(`${line}: confidence 必須是數字`)
+    if (!row.category) problems.push(`${line}: 缺少 category`)
+    if (!row.domain) problems.push(`${line}: 缺少 domain`)
+  })
+
+  for (const id of findUnmatchableRows(data)) {
+    problems.push(`${id}: 單一個字的詞條不收（至少 ${MIN_TERM_LENGTH} 個字）`)
+  }
+
+  return problems
+}
+
+/**
  * 編譯一組 CSV 列。缺必要欄位的列略過（格式檢查交給 dict:validate），
  * 單一個字的詞條直接丟錯。
  */

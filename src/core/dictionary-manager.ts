@@ -6,7 +6,7 @@ import { formatError } from '../utils/error-utils.js'
 import { MatchStrategyRegistry } from './matching/match-strategies.js'
 import { LRUCache } from './lru-cache.js'
 import { isMatchableTerm } from './matchable-term.js'
-import { parseCSV, compileRows, buildDictionary } from './dictionary-compiler.js'
+import { parseCSV, compileRows, buildDictionary, findCSVProblems } from './dictionary-compiler.js'
 
 // 建議詞包含原詞時（終端→終端機），命中位置周圍的文字可能已經是建議詞。
 // 原詞等於建議詞的保護詞條不在此列：它們要留下來，在去重時蓋掉較短的命中。
@@ -61,7 +61,7 @@ export class DictionaryManager {
 
   /**
    * 載入使用者的自訂詞表（CSV，格式同 dictionaries-csv/），執行時編譯。
-   * 讀不到或格式錯誤直接丟錯：設定檔明確指定的詞表不能靜默略過。
+   * 讀不到或有任何格式問題直接丟錯：設定檔明確指定的詞表不能靜默略過或只載入一部分。
    */
   async loadCustomDictionary(path: string): Promise<CompiledDict> {
     const absolutePath = resolve(path)
@@ -70,7 +70,13 @@ export class DictionaryManager {
     if (cached) return cached
 
     try {
-      const entries = compileRows(parseCSV(await readFile(absolutePath, 'utf-8')), path)
+      const content = await readFile(absolutePath, 'utf-8')
+      const problems = findCSVProblems(content)
+      if (problems.length > 0) {
+        const shown = problems.slice(0, 5).join('; ')
+        throw new Error(problems.length > 5 ? `${shown}; 另有 ${problems.length - 5} 個問題` : shown)
+      }
+      const entries = compileRows(parseCSV(content), path)
       const dict = buildDictionary(entries, key, 'custom')
       dict.metadata.custom = true
       this.cache.set(key, dict)
