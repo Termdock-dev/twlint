@@ -105,6 +105,7 @@ describe('Issue #3 Reproduction: Longest Match First', () => {
         // Text: "ABCDE"
         // Case 1: "ABCD" (4) vs "BCDE" (4). If length same, check confidence.
         // Let's test Length wins first.
+        // 比對只接受落在詞邊界上的命中，所以用分詞器會逐字切開的字當佔位：A=壹 B=貳 C=參 D=肆 E=伍
         // Dict: "ABC" (3), "BCDE" (4)
         // Text: "ABCDE"
         // "ABC" matches [0, 3], "BCDE" matches [1, 5]
@@ -115,20 +116,20 @@ describe('Issue #3 Reproduction: Longest Match First', () => {
         const mockDict = {
             metadata: { name: 'partial-overlap', version: '1.0' },
             lookup: {
-                'ABC': { taiwan: 'ABC_TW', confidence: 0.9 },
-                'BCDE': { taiwan: 'BCDE_TW', confidence: 0.9 }
+                '壹貳參': { taiwan: '壹貳參_TW', confidence: 0.9 },
+                '貳參肆伍': { taiwan: '貳參肆伍_TW', confidence: 0.9 }
             }
         }
 
         vi.mocked(readFile).mockResolvedValue(JSON.stringify(mockDict))
         await dictManager.loadDictionary('partial-overlap')
 
-        const text = 'ABCDE'
+        const text = '壹貳參肆伍'
         const matches = dictManager.findMatches(text)
         const terms = matches.map(m => m.term)
 
-        expect(terms).toContain('BCDE') // Longer term
-        expect(terms).not.toContain('ABC') // Short overlapping term discarded
+        expect(terms).toContain('貳參肆伍') // Longer term
+        expect(terms).not.toContain('壹貳參') // Short overlapping term discarded
     })
 
     it('should handle adjacent terms (No overlap)', async () => {
