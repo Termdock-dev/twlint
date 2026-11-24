@@ -1,5 +1,6 @@
 import { readFile, access } from 'fs/promises'
-import { join } from 'path'
+import { resolve } from 'path'
+import { pathToFileURL } from 'url'
 import { validateConfig, DEFAULT_CONFIG } from './config-schema.js'
 import type { TWLintUserConfig } from '../types.js'
 
@@ -25,15 +26,17 @@ export async function loadConfig(configPath?: string): Promise<TWLintUserConfig>
       }
 
       if (path.endsWith('.js') || path.endsWith('.mjs') || path.endsWith('.ts')) {
-        const fullPath = join(process.cwd(), path)
+        // 相對路徑以工作目錄為準，絕對路徑照用（#22）
+        const fileUrl = pathToFileURL(resolve(path)).href
 
         try {
-          const module = await import(fullPath)
+          const module = await import(fileUrl)
           const userConfig = module.default || module
           return validateConfig(userConfig)
         } catch (importError) {
-          // 如果是 ES module 匯入問題，嘗試其他方式
-          if (path.endsWith('.js') || path.endsWith('.mjs')) {
+          // 自動找到的設定檔匯入失敗時維持舊行為：警告後用預設設定。
+          // 使用者用 --config 明確指定的設定檔不能被靜默換掉，交給外層丟錯
+          if (!configPath && (path.endsWith('.js') || path.endsWith('.mjs'))) {
             const content = await readFile(path, 'utf-8')
 
             // 簡單的設定檔案執行（僅支援 export default）
