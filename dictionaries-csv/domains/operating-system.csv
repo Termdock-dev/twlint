@@ -40,7 +40,7 @@ privilege,特權,特权,特權,privilege,0.85,mainland-term,台灣系統安全�
 administrator,系統管理員,管理员,管理員,administrator,0.90,mainland-term,台灣使用者權限,tech,exact,,,,true
 root,根使用者,根用户,根用戶,root,0.90,mainland-term,台灣系統最高權限,tech,exact,,,,true
 guest,訪客,访客,訪客,guest,0.85,mainland-term,台灣使用者權限,tech,exact,,,,true
-user,使用者,用户,用戶,user,0.85,mainland-term,台灣使用者介面標準,tech,context_sensitive,"介面,接口,帳號,登入,權限,App,應用程式,應用程序,軟體,軟件,程序,網站,系統,設定,設置,註冊,數據",,電信用戶,false
+user,使用者,用户,用戶,user,0.85,mainland-term,台灣使用者介面標準,tech,context_sensitive,"介面,接口,帳號,賬號,帳戶,賬戶,登入,登錄,權限,App,應用程式,應用程序,軟體,軟件,程序,網站,系統,設定,設置,註冊,數據",,電信用戶,false
 mount,掛載,挂载,掛載,mount,0.90,mainland-term,台灣系統操作術語,tech,exact,,,,true
 unmount,卸載,卸载,卸載,unmount,0.90,mainland-term,台灣系統操作術語,tech,exact,,,,true
 partition,分割區,分区,分區,partition,0.90,mainland-term,台灣磁碟管理術語,tech,context_sensitive,"磁碟,硬碟,SSD,分割,格式化,掛載,開機,MBR,GPT,fdisk",,,false
