@@ -120,10 +120,10 @@ npm run dict:validate
 # 3. 建置詞庫（CSV 轉 JSON，有錯誤時失敗）
 npm run dict:build
 
-# 4. 用實際文字試跑
+# 4. 用實際文字試跑（檔名不要含 test，.twlintignore 會略過 *test*.md）
 npm run build
-./bin/twlint check test-file.md --deep
-./bin/twlint check test-file.md --deep --fix
+./bin/twlint check sample-lint.md --deep
+./bin/twlint check sample-lint.md --deep --fix
 
 # 5. 型別檢查、lint、測試
 npx tsc --noEmit
