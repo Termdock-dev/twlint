@@ -1,5 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest'
-import { writeFile, readFile, unlink, mkdir, rmdir, rm } from 'fs/promises'
+import { writeFile, readFile, mkdir, rm } from 'fs/promises'
+import { tmpdir } from 'os'
 import { join } from 'path'
 import { exec } from 'child_process'
 import { promisify } from 'util'
@@ -7,7 +8,8 @@ import { promisify } from 'util'
 const execAsync = promisify(exec)
 
 describe('CLI Integration Tests', () => {
-  const testDir = join(process.cwd(), 'test-temp')
+  // 放在工作目錄外：repo 自己的 .twlintignore 會忽略 test-temp/
+  const testDir = join(tmpdir(), `twlint-cli-test-${process.pid}`)
   const testFile = join(testDir, 'sample.md')
   const nestedDir = join(testDir, 'nested')
   const cliPath = join(process.cwd(), 'dist', 'cli.js')
@@ -18,13 +20,7 @@ describe('CLI Integration Tests', () => {
   })
 
   afterEach(async () => {
-    try {
-      await unlink(testFile)
-      await rmdir(nestedDir)
-      await rmdir(testDir)
-    } catch {
-      // Ignore cleanup errors
-    }
+    await rm(testDir, { recursive: true, force: true })
   })
 
   describe('check command', () => {

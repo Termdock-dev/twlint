@@ -1,6 +1,7 @@
 import { glob, escape } from 'glob'
 import { readFile, stat } from 'fs/promises'
-import { join, relative } from 'path'
+import { join } from 'path'
+import { toCwdRelativePath } from './cwd-path.js'
 import { DictionaryManager } from './dictionary-manager.js'
 import { SimplifiedCharsRule } from './rules/simplified-chars.js'
 import { MainlandTermsRule } from './rules/mainland-terms.js'
@@ -179,12 +180,11 @@ export class TWLinter {
     return matches.filter(file => !this.configMatcher.isIgnored(file))
   }
 
-  // 同 ESLint：資料夾只展開成有設定區塊涵蓋的檔案（預設是 *.md、*.txt）。
-  // 設定檔的 files 是相對路徑樣式，絕對路徑要先轉成相對於工作目錄才對得上 src/**/*.ts。
+  // 同 ESLint：資料夾只展開成有設定區塊涵蓋的檔案（預設是 *.md、*.txt）
   private async expandDirectory(dir: string, baseIgnorePatterns: string[]): Promise<string[]> {
-    const files = await this.globFiles(join(escape(dir), '**/*'), baseIgnorePatterns)
+    const files = await this.globFiles(join(escape(toCwdRelativePath(dir)), '**/*'), baseIgnorePatterns)
     return files
-      .filter(file => Object.keys(this.configMatcher.getRulesForFile(relative(process.cwd(), file))).length > 0)
+      .filter(file => Object.keys(this.configMatcher.getRulesForFile(file)).length > 0)
       .sort()
   }
 

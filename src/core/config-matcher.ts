@@ -1,4 +1,5 @@
 import { minimatch } from 'minimatch'
+import { toCwdRelativePath } from './cwd-path.js'
 import type { TWLintConfigRule } from './config-schema.js'
 
 /**
@@ -264,7 +265,7 @@ export class ConfigMatcher {
    * 使用 minimatch 進行 glob 匹配
    */
   private matchPattern(filePath: string, pattern: string): boolean {
-    return minimatch(filePath, pattern, {
+    return minimatch(toCwdRelativePath(filePath), pattern, {
       dot: true,           // 匹配 .gitignore 等隱藏檔案
       matchBase: true,     // 允許不加 **/ 的模式匹配子目錄
     })
