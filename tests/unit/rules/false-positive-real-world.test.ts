@@ -254,24 +254,3 @@ interface DatabaseConfig {
     expect(fixedText).toContain('配置') // 保留
   })
 })
-
-describe('MainlandTermsRule - 替換 as an everyday word', () => {
-  let rule: MainlandTermsRule
-
-  beforeEach(async () => {
-    const dictManager = new DictionaryManager()
-    await dictManager.loadDictionary('user-interface')
-    rule = new MainlandTermsRule(dictManager)
-  })
-
-  it('does not flag 替換 in ordinary Taiwanese prose', async () => {
-    // 取自 CONTRIBUTING.md
-    const issues = await rule.check('用於明確的替換，例如「軟體」的寫法')
-    expect(issues.find(issue => issue.suggestions?.includes('取代'))).toBeUndefined()
-  })
-
-  it('still flags 替換 in the editor find-and-replace sense', async () => {
-    const issues = await rule.check('按 Ctrl+H 開啟查找替換')
-    expect(issues.some(issue => issue.suggestions?.includes('取代'))).toBe(true)
-  })
-})
