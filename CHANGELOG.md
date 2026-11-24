@@ -5,6 +5,17 @@ All notable changes to TWLint will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.1] - 2026-11-24
+
+### Changed
+- 「替換」只在編輯器語境（查找、尋找、搜尋、Ctrl、快捷鍵等）才建議改成「取代」，且不自動修正
+- 發布改由 GitHub Release 觸發 GitHub Actions，以 npm Trusted Publishing 發布
+
+### Fixed
+- 移除沒有來源 CSV 的 `extended` 詞庫；`--dict extended` 改載入 `academic`（內容相同）（#9）
+- 建置先清空 `dist/`，已刪除原始碼的編譯結果不再被打包（#10）
+- 建置結果固定：`index.json` 不再寫入建置時間
+
 ## [1.4.0] - 2026-11-24
 
 ### Added
