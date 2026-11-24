@@ -634,16 +634,44 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣分散式系統",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "伺服器",
+          "節點",
+          "Kubernetes",
+          "K8s",
+          "容器",
+          "部署",
+          "雲端",
+          "運算",
+          "資料庫",
+          "Redis"
+        ]
+      }
     },
     "集群_clustering": {
       "taiwan": "叢集",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣分散式系統",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "伺服器",
+          "節點",
+          "Kubernetes",
+          "K8s",
+          "容器",
+          "部署",
+          "雲端",
+          "運算",
+          "資料庫",
+          "Redis"
+        ]
+      }
     },
     "复制": {
       "taiwan": "複寫",

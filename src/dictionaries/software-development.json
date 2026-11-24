@@ -4558,32 +4558,76 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣程式設計標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "測試",
+          "assert",
+          "單元測試",
+          "函式",
+          "程式",
+          "例外",
+          "條件"
+        ]
+      }
     },
     "断言_assert": {
       "taiwan": "宣告",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣程式設計標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "測試",
+          "assert",
+          "單元測試",
+          "函式",
+          "程式",
+          "例外",
+          "條件"
+        ]
+      }
     },
     "斷言": {
       "taiwan": "宣告",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣程式設計標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "測試",
+          "assert",
+          "單元測試",
+          "函式",
+          "程式",
+          "例外",
+          "條件"
+        ]
+      }
     },
     "斷言_assert": {
       "taiwan": "宣告",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣程式設計標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "測試",
+          "assert",
+          "單元測試",
+          "函式",
+          "程式",
+          "例外",
+          "條件"
+        ]
+      }
     },
     "基类": {
       "taiwan": "基底類別",
@@ -4686,32 +4730,76 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣程式設計標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "程式",
+          "資料",
+          "變數",
+          "元件",
+          "屬性",
+          "事件",
+          "框架"
+        ]
+      }
     },
     "绑定_bind": {
       "taiwan": "繫結",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣程式設計標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "程式",
+          "資料",
+          "變數",
+          "元件",
+          "屬性",
+          "事件",
+          "框架"
+        ]
+      }
     },
     "綁定": {
       "taiwan": "繫結",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣程式設計標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "程式",
+          "資料",
+          "變數",
+          "元件",
+          "屬性",
+          "事件",
+          "框架"
+        ]
+      }
     },
     "綁定_bind": {
       "taiwan": "繫結",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣程式設計標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "程式",
+          "資料",
+          "變數",
+          "元件",
+          "屬性",
+          "事件",
+          "框架"
+        ]
+      }
     },
     "断点": {
       "taiwan": "中斷點",
@@ -5830,32 +5918,80 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣系統標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "檔案",
+          "權限",
+          "屬性",
+          "模式",
+          "記憶體",
+          "變數",
+          "磁碟",
+          "掛載"
+        ]
+      }
     },
     "只读_read_only": {
       "taiwan": "唯讀",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣系統標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "檔案",
+          "權限",
+          "屬性",
+          "模式",
+          "記憶體",
+          "變數",
+          "磁碟",
+          "掛載"
+        ]
+      }
     },
     "只讀": {
       "taiwan": "唯讀",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣系統標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "檔案",
+          "權限",
+          "屬性",
+          "模式",
+          "記憶體",
+          "變數",
+          "磁碟",
+          "掛載"
+        ]
+      }
     },
     "只讀_read_only": {
       "taiwan": "唯讀",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣系統標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "檔案",
+          "權限",
+          "屬性",
+          "模式",
+          "記憶體",
+          "變數",
+          "磁碟",
+          "掛載"
+        ]
+      }
     },
     "作用域": {
       "taiwan": "有效範圍",
@@ -5910,32 +6046,84 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣程式語言標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "SQL",
+          "程式",
+          "if",
+          "for",
+          "while",
+          "迴圈",
+          "條件",
+          "return",
+          "執行"
+        ]
+      }
     },
     "语句_statement": {
       "taiwan": "敘述",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣程式語言標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "SQL",
+          "程式",
+          "if",
+          "for",
+          "while",
+          "迴圈",
+          "條件",
+          "return",
+          "執行"
+        ]
+      }
     },
     "語句": {
       "taiwan": "敘述",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣程式語言標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "SQL",
+          "程式",
+          "if",
+          "for",
+          "while",
+          "迴圈",
+          "條件",
+          "return",
+          "執行"
+        ]
+      }
     },
     "語句_statement": {
       "taiwan": "敘述",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣程式語言標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "SQL",
+          "程式",
+          "if",
+          "for",
+          "while",
+          "迴圈",
+          "條件",
+          "return",
+          "執行"
+        ]
+      }
     },
     "子类": {
       "taiwan": "子類別",
@@ -6486,16 +6674,44 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣介面設計標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "人機",
+          "程式",
+          "介面",
+          "使用者",
+          "元件",
+          "滑鼠",
+          "點擊"
+        ],
+        "exclude": [
+          "交互作用"
+        ]
+      }
     },
     "交互_interact": {
       "taiwan": "互動",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣介面設計標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "人機",
+          "程式",
+          "介面",
+          "使用者",
+          "元件",
+          "滑鼠",
+          "點擊"
+        ],
+        "exclude": [
+          "交互作用"
+        ]
+      }
     },
     "导航": {
       "taiwan": "導覽",

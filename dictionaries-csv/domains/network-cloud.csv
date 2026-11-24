@@ -16,7 +16,7 @@ failover,故障轉移,故障转移,故障轉移,failover,0.90,mainland-term,台�
 backup,備份,备份,備份,backup,0.85,mainland-term,台灣資料保護標準,tech,exact,,,,true
 restore,復原,恢复,恢復,restore,0.85,mainland-term,台灣資料救援標準,tech,context_sensitive,"程式,程式碼,軟體,系統,伺服器,資料庫,API,電腦,應用程式,App,檔案,函式,變數,類別,物件,開發,編譯,部署,雲端,Git,npm,Linux,Windows,macOS,原始碼,備份,快照,磁碟",,,false
 migration,遷移,迁移,遷移,migration,0.85,mainland-term,台灣系統升級標準,tech,exact,,,,true
-clustering,叢集,集群,集群,clustering,0.90,mainland-term,台灣分散式系統,tech,exact,,,,true
+clustering,叢集,集群,集群,clustering,0.90,mainland-term,台灣分散式系統,tech,context_sensitive,"伺服器,節點,Kubernetes,K8s,容器,部署,雲端,運算,資料庫,Redis",,,false
 replication,複寫,复制,複製,replication,0.85,mainland-term,台灣資料同步標準,tech,context_sensitive,"程式,程式碼,軟體,系統,伺服器,資料庫,API,電腦,應用程式,App,檔案,函式,變數,類別,物件,開發,編譯,部署,雲端,Git,npm,Linux,Windows,macOS,原始碼,資料庫,節點,主從,備援",,複製品,false
 sharding,分片,分片,分片,sharding,0.85,mainland-term,台灣資料庫擴展,tech,exact,,,,true
 caching,快取機制,缓存机制,緩存機制,caching,0.90,mainland-term,台灣效能優化標準,tech,exact,,,,true

@@ -1208,32 +1208,92 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣電腦組件標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "電腦",
+          "主機",
+          "瓦數",
+          "供電",
+          "機殼",
+          "PSU"
+        ],
+        "exclude": [
+          "電源線",
+          "電源鍵",
+          "電源開關"
+        ]
+      }
     },
     "电源_power_supply": {
       "taiwan": "電源供應器",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣電腦組件標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "電腦",
+          "主機",
+          "瓦數",
+          "供電",
+          "機殼",
+          "PSU"
+        ],
+        "exclude": [
+          "電源線",
+          "電源鍵",
+          "電源開關"
+        ]
+      }
     },
     "電源": {
       "taiwan": "電源供應器",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣電腦組件標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "電腦",
+          "主機",
+          "瓦數",
+          "供電",
+          "機殼",
+          "PSU"
+        ],
+        "exclude": [
+          "電源線",
+          "電源鍵",
+          "電源開關"
+        ]
+      }
     },
     "電源_power_supply": {
       "taiwan": "電源供應器",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣電腦組件標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "電腦",
+          "主機",
+          "瓦數",
+          "供電",
+          "機殼",
+          "PSU"
+        ],
+        "exclude": [
+          "電源線",
+          "電源鍵",
+          "電源開關"
+        ]
+      }
     },
     "散热风扇": {
       "taiwan": "散熱風扇",
@@ -2648,32 +2708,80 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣數位科技標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "訊號",
+          "電子",
+          "相機",
+          "電視",
+          "音訊",
+          "影像",
+          "轉換",
+          "類比"
+        ]
+      }
     },
     "数字的_digital": {
       "taiwan": "數位的",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣數位科技標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "訊號",
+          "電子",
+          "相機",
+          "電視",
+          "音訊",
+          "影像",
+          "轉換",
+          "類比"
+        ]
+      }
     },
     "數字的": {
       "taiwan": "數位的",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣數位科技標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "訊號",
+          "電子",
+          "相機",
+          "電視",
+          "音訊",
+          "影像",
+          "轉換",
+          "類比"
+        ]
+      }
     },
     "數字的_digital": {
       "taiwan": "數位的",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣數位科技標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "訊號",
+          "電子",
+          "相機",
+          "電視",
+          "音訊",
+          "影像",
+          "轉換",
+          "類比"
+        ]
+      }
     },
     "智能手机": {
       "taiwan": "智慧型手機",
