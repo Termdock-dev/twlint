@@ -205,11 +205,11 @@ export default [
 ```
 
 檔案檢查流程：
-- `.env` → ❌ 系統鐵律阻擋
-- `test-example.md` → ❌ .twlintignore 阻擋
-- `temp/file.md` → ❌ 全域 ignores 阻擋
-- `draft.md` → ❌ 檔案級別 ignores 阻擋
-- `guide.md` → ✅ 通過，執行檢查
+- `.env` → 略過（系統鐵律）
+- `test-example.md` → 略過（.twlintignore）
+- `temp/file.md` → 略過（全域 ignores）
+- `draft.md` → 略過（檔案級別 ignores）
+- `guide.md` → 通過，執行檢查
 
 ---
 
@@ -263,7 +263,7 @@ TWLint 會自動讀取專案根目錄的 `.gitignore` 檔案，並在 glob 擴�
 3. **使用全域 + 檔案級別組合** - 清楚區分不同範圍的忽略規則
 4. **測試優先** - 對測試檔案使用更寬鬆的規則，而非完全忽略
 
-### ❌ 不推薦
+### 不推薦
 ```javascript
 {
   ignores: [
@@ -274,7 +274,7 @@ TWLint 會自動讀取專案根目錄的 `.gitignore` 檔案，並在 glob 擴�
 }
 ```
 
-### ✅ 推薦
+### 推薦
 ```javascript
 {
   ignores: [

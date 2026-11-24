@@ -2,7 +2,7 @@
 
 > **Linus Torvalds 品味標準**的專業技術文件 - 專為開發者、貢獻者、技術寫作者設計
 
-## 🎯 專案概覽
+## 專案概覽
 
 TWLint 是一款**去中國化專用工具**，採用 TypeScript + Node.js 架構，專門檢測並修正繁體中文文件中的簡體字和大陸用語，確保台灣技術文件的本土化和純正性。
 
@@ -12,7 +12,7 @@ TWLint 是一款**去中國化專用工具**，採用 TypeScript + Node.js 架�
 - **實用主義**：解決真實問題，不過度設計
 - **簡潔執念**：避免超過 3 層縮進的複雜邏輯
 
-## 🏗️ 技術架構
+## 技術架構
 
 ### 目錄結構
 ```
@@ -76,7 +76,7 @@ graph TD
     I --> B
 ```
 
-## 🚀 開發環境設定
+## 開發環境設定
 
 ### 環境需求
 - **Node.js 18+**
@@ -121,7 +121,7 @@ npm run dev -- check README.md
 npm run dev -- check README.md --fix
 ```
 
-## 🧠 核心模組解析
+## 核心模組解析
 
 ### 1. Linter 引擎 (`src/core/linter.ts`)
 
@@ -182,7 +182,7 @@ export interface Rule {
 - **mainland-terms**：大陸用語檢測，基於詞庫匹配
 - **context-sensitive**：語境敏感詞檢測（未來擴展）
 
-## 📚 詞庫系統
+## 詞庫系統
 
 ### 詞庫架構設計
 
@@ -239,7 +239,7 @@ npm test
 git add . && git commit -m "feat(dict): add new domain dictionary"
 ```
 
-## 🧪 測試策略
+## 測試策略
 
 ### 測試結構
 ```
@@ -276,7 +276,7 @@ npm test -- --watch
 npm test -- --coverage
 ```
 
-## 🔧 常用開發任務
+## 常用開發任務
 
 ### 新增檢測規則
 
@@ -359,7 +359,7 @@ const formatters = {
 }
 ```
 
-## 🐛 偵錯指南
+## 偵錯指南
 
 ### 常見問題與解決
 
@@ -402,7 +402,7 @@ node --prof dist/cli.js check large-file.md
 node --inspect dist/cli.js check large-file.md
 ```
 
-## 📦 發佈流程
+## 發佈流程
 
 ### 版本發佈檢查清單
 
@@ -452,13 +452,13 @@ jobs:
         run: npm run build
 ```
 
-## 🤝 貢獻指南
+## 貢獻指南
 
 ### 程式碼品質標準
 
 **遵循 Linus Torvalds 的"好品味"原則**：
 
-✅ **好品味範例**
+**好品味範例**
 ```typescript
 // 統一的錯誤處理
 const handlers = {
@@ -469,7 +469,7 @@ const handlers = {
 handlers[errorType]?.() || handleDefault()
 ```
 
-❌ **垃圾範例**
+**垃圾範例**
 ```typescript
 // 特殊情況處理
 if (errorType === 'file-not-found') {
@@ -494,13 +494,13 @@ if (errorType === 'file-not-found') {
 
 ### 程式碼審查標準
 
-- ✅ **類型安全**：禁用 `any`，明確類型定義
-- ✅ **錯誤處理**：統一的錯誤處理策略
-- ✅ **效能考量**：適當的快取和記憶體管理
-- ✅ **測試覆蓋**：新功能必須有對應測試
-- ✅ **文件更新**：API 變更需要更新文件
+- **類型安全**：禁用 `any`，明確類型定義
+- **錯誤處理**：統一的錯誤處理策略
+- **效能考量**：適當的快取和記憶體管理
+- **測試覆蓋**：新功能必須有對應測試
+- **文件更新**：API 變更需要更新文件
 
-## 📞 技術支援
+## 技術支援
 
 ### 開發者資源
 - **GitHub Issues**：https://github.com/Termdock-dev/twlint/issues
