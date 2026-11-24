@@ -27,6 +27,11 @@ interface CSVRow {
   autofix_safe?: string
 }
 
+// 詞庫版本跟著套件版本，發布時不用另外同步
+const PACKAGE_VERSION: string = JSON.parse(
+  await readFile(join(process.cwd(), 'package.json'), 'utf-8')
+).version
+
 async function readCSVRows(file: string): Promise<CSVRow[]> {
   const { data } = Papa.parse<CSVRow>(await readFile(file, 'utf-8'), {
     header: true,
@@ -213,7 +218,7 @@ class DictBuilder {
 
     const index = {
       dictionaries: builtDictionaries,
-      version: '1.3.0',
+      version: PACKAGE_VERSION,
       buildTime: new Date().toISOString()
     }
 
@@ -269,7 +274,7 @@ class DictBuilder {
     return {
       metadata: {
         name,
-        version: '1.3.0',
+        version: PACKAGE_VERSION,
         entries: entries.length
       },
       lookup: this.optimizeForLookup(entries)
