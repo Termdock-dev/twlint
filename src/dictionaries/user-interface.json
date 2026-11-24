@@ -568,32 +568,84 @@
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣多媒體標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "像素",
+          "解析度",
+          "格式",
+          "PNG",
+          "JPG",
+          "點陣",
+          "渲染",
+          "處理器",
+          "GPU"
+        ]
+      }
     },
     "图像_image": {
       "taiwan": "影像",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣多媒體標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "像素",
+          "解析度",
+          "格式",
+          "PNG",
+          "JPG",
+          "點陣",
+          "渲染",
+          "處理器",
+          "GPU"
+        ]
+      }
     },
     "圖像": {
       "taiwan": "影像",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣多媒體標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "像素",
+          "解析度",
+          "格式",
+          "PNG",
+          "JPG",
+          "點陣",
+          "渲染",
+          "處理器",
+          "GPU"
+        ]
+      }
     },
     "圖像_image": {
       "taiwan": "影像",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣多媒體標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "像素",
+          "解析度",
+          "格式",
+          "PNG",
+          "JPG",
+          "點陣",
+          "渲染",
+          "處理器",
+          "GPU"
+        ]
+      }
     },
     "光标": {
       "taiwan": "游標",
@@ -3504,32 +3556,68 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣螢幕操作標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "螢幕",
+          "快捷鍵",
+          "PrintScreen",
+          "視窗",
+          "工具"
+        ]
+      }
     },
     "截图_screenshot_ui": {
       "taiwan": "擷圖",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣螢幕操作標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "螢幕",
+          "快捷鍵",
+          "PrintScreen",
+          "視窗",
+          "工具"
+        ]
+      }
     },
     "截圖": {
       "taiwan": "擷圖",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣螢幕操作標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "螢幕",
+          "快捷鍵",
+          "PrintScreen",
+          "視窗",
+          "工具"
+        ]
+      }
     },
     "截圖_screenshot_ui": {
       "taiwan": "擷圖",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣螢幕操作標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "螢幕",
+          "快捷鍵",
+          "PrintScreen",
+          "視窗",
+          "工具"
+        ]
+      }
     }
   }
 }

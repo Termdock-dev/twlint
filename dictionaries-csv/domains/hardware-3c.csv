@@ -39,7 +39,7 @@ speaker,揚聲器,扬声器,揚聲器,speaker,0.85,mainland-term,台灣音訊裝
 headphone,耳機,耳机,耳機,headphone,0.80,mainland-term,台灣音訊裝置標準,tech,exact,,,,true
 printer,印表機,打印机,打印機,printer,0.90,mainland-term,台灣週邊裝置標準,tech,exact,,,,true
 scanner,掃描器,扫描仪,掃描儀,scanner,0.90,mainland-term,台灣週邊裝置標準,tech,exact,,,,true
-power-supply,電源供應器,电源,電源,power supply,0.90,mainland-term,台灣電腦組件標準,tech,exact,,,,true
+power-supply,電源供應器,电源,電源,power supply,0.90,mainland-term,台灣電腦組件標準,tech,context_sensitive,"電腦,主機,瓦數,供電,機殼,PSU",,"電源線,電源鍵,電源開關",false
 cooling-fan,散熱風扇,散热风扇,散熱風扇,cooling fan,0.85,mainland-term,台灣散熱系統標準,tech,exact,,,,true
 heat-sink,散熱片,散热片,散熱片,heat sink,0.85,mainland-term,台灣散熱系統標準,tech,exact,,,,true
 thermal-paste,散熱膏,导热硅脂,導熱硅脂,thermal paste,0.85,mainland-term,台灣散熱材料標準,tech,exact,,,,true
@@ -87,5 +87,5 @@ access-point,無線存取點,无线接入点,無線接入點,access point,0.90,m
 antenna,天線,天线,天線,antenna,0.85,mainland-term,台灣無線設備元件,tech,exact,,,,true
 amplifier,放大器,放大器,放大器,amplifier,0.85,mainland-term,台灣訊號處理設備,tech,exact,,,,true
 burn,燒錄,刻录,刻錄,burn,0.90,mainland-term,台灣儲存媒體標準,tech,exact,,,,true
-digital,數位的,数字的,數字的,digital,0.90,mainland-term,台灣數位科技標準,tech,exact,,,,true
+digital,數位的,数字的,數字的,digital,0.90,mainland-term,台灣數位科技標準,tech,context_sensitive,"訊號,電子,相機,電視,音訊,影像,轉換,類比",,,false
 smartphone,智慧型手機,智能手机,智能手機,smartphone,0.90,mainland-term,台灣行動裝置標準,tech,exact,,,,true

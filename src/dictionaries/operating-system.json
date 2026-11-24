@@ -466,32 +466,88 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣系統操作術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "after": [
+          "電腦",
+          "系統",
+          "伺服器",
+          "服務",
+          "應用程式",
+          "裝置",
+          "手機",
+          "路由器",
+          "容器",
+          "主機"
+        ]
+      }
     },
     "重启_restart": {
       "taiwan": "重新啟動",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣系統操作術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "after": [
+          "電腦",
+          "系統",
+          "伺服器",
+          "服務",
+          "應用程式",
+          "裝置",
+          "手機",
+          "路由器",
+          "容器",
+          "主機"
+        ]
+      }
     },
     "重啟": {
       "taiwan": "重新啟動",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣系統操作術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "after": [
+          "電腦",
+          "系統",
+          "伺服器",
+          "服務",
+          "應用程式",
+          "裝置",
+          "手機",
+          "路由器",
+          "容器",
+          "主機"
+        ]
+      }
     },
     "重啟_restart": {
       "taiwan": "重新啟動",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣系統操作術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "after": [
+          "電腦",
+          "系統",
+          "伺服器",
+          "服務",
+          "應用程式",
+          "裝置",
+          "手機",
+          "路由器",
+          "容器",
+          "主機"
+        ]
+      }
     },
     "睡眠": {
       "taiwan": "睡眠",
@@ -722,32 +778,80 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣系統資源分配",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "行程",
+          "執行緒",
+          "程序",
+          "排程",
+          "中斷",
+          "作業系統",
+          "佇列",
+          "CPU"
+        ]
+      }
     },
     "优先级_priority": {
       "taiwan": "優先權",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣系統資源分配",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "行程",
+          "執行緒",
+          "程序",
+          "排程",
+          "中斷",
+          "作業系統",
+          "佇列",
+          "CPU"
+        ]
+      }
     },
     "優先級": {
       "taiwan": "優先權",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣系統資源分配",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "行程",
+          "執行緒",
+          "程序",
+          "排程",
+          "中斷",
+          "作業系統",
+          "佇列",
+          "CPU"
+        ]
+      }
     },
     "優先級_priority": {
       "taiwan": "優先權",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣系統資源分配",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "行程",
+          "執行緒",
+          "程序",
+          "排程",
+          "中斷",
+          "作業系統",
+          "佇列",
+          "CPU"
+        ]
+      }
     },
     "资源": {
       "taiwan": "資源",
@@ -1426,32 +1530,108 @@
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣使用者介面標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "介面",
+          "帳號",
+          "登入",
+          "權限",
+          "App",
+          "應用程式",
+          "軟體",
+          "網站",
+          "系統",
+          "設定",
+          "註冊"
+        ],
+        "exclude": [
+          "電信用戶",
+          "用戶數"
+        ]
+      }
     },
     "用户_user": {
       "taiwan": "使用者",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣使用者介面標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "介面",
+          "帳號",
+          "登入",
+          "權限",
+          "App",
+          "應用程式",
+          "軟體",
+          "網站",
+          "系統",
+          "設定",
+          "註冊"
+        ],
+        "exclude": [
+          "電信用戶",
+          "用戶數"
+        ]
+      }
     },
     "用戶": {
       "taiwan": "使用者",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣使用者介面標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "介面",
+          "帳號",
+          "登入",
+          "權限",
+          "App",
+          "應用程式",
+          "軟體",
+          "網站",
+          "系統",
+          "設定",
+          "註冊"
+        ],
+        "exclude": [
+          "電信用戶",
+          "用戶數"
+        ]
+      }
     },
     "用戶_user": {
       "taiwan": "使用者",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣使用者介面標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "介面",
+          "帳號",
+          "登入",
+          "權限",
+          "App",
+          "應用程式",
+          "軟體",
+          "網站",
+          "系統",
+          "設定",
+          "註冊"
+        ],
+        "exclude": [
+          "電信用戶",
+          "用戶數"
+        ]
+      }
     },
     "挂载": {
       "taiwan": "掛載",

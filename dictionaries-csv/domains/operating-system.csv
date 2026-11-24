@@ -11,7 +11,7 @@ boot,開機,启动,啟動,boot,0.85,mainland-term,台灣系統啟動術語,tech,
 bootloader,開機載入器,引导程序,引導程序,bootloader,0.90,mainland-term,台灣系統啟動元件,tech,exact,,,,true
 startup,啟動,启动,啟動,startup,0.85,mainland-term,台灣系統操作術語,tech,exact,,,,true
 shutdown,關機,关机,關機,shutdown,0.90,mainland-term,台灣系統操作術語,tech,exact,,,,true
-restart,重新啟動,重启,重啟,restart,0.90,mainland-term,台灣系統操作術語,tech,exact,,,,true
+restart,重新啟動,重启,重啟,restart,0.90,mainland-term,台灣系統操作術語,tech,context_sensitive,,"電腦,系統,伺服器,服務,應用程式,裝置,手機,路由器,容器,主機",,false
 sleep,睡眠,睡眠,睡眠,sleep,0.85,mainland-term,台灣電源管理術語,tech,exact,,,,true
 hibernate,休眠,休眠,休眠,hibernate,0.85,mainland-term,台灣電源管理術語,tech,exact,,,,true
 standby,待命,待机,待機,standby,0.90,mainland-term,台灣電源管理術語,tech,exact,,,,true
@@ -20,7 +20,7 @@ thread-os,執行緒,线程,線程,thread,0.95,mainland-term,台灣程式執行�
 service,服務,服务,服務,service,0.85,mainland-term,台灣系統背景程序,tech,exact,,,,true
 daemon,常駐程式,守护进程,守護進程,daemon,0.90,mainland-term,台灣系統背景程序,tech,exact,,,,true
 scheduler-os,排程器,调度器,調度器,scheduler,0.90,mainland-term,台灣系統資源管理,tech,exact,,,,true
-priority,優先權,优先级,優先級,priority,0.90,mainland-term,台灣系統資源分配,tech,exact,,,,true
+priority,優先權,优先级,優先級,priority,0.90,mainland-term,台灣系統資源分配,tech,context_sensitive,"行程,執行緒,程序,排程,中斷,作業系統,佇列,CPU",,,false
 resource,資源,资源,資源,resource,0.85,mainland-term,台灣系統管理術語,tech,exact,,,,true
 allocation,配置,分配,分配,allocation,0.85,mainland-term,台灣資源管理術語,tech,context_sensitive,"記憶體,malloc,heap,堆積,緩衝區,buffer",,,false
 deallocation,釋放,释放,釋放,deallocation,0.85,mainland-term,台灣資源管理術語,tech,exact,,,,true
@@ -40,7 +40,7 @@ privilege,特權,特权,特權,privilege,0.85,mainland-term,台灣系統安全�
 administrator,系統管理員,管理员,管理員,administrator,0.90,mainland-term,台灣使用者權限,tech,exact,,,,true
 root,根使用者,根用户,根用戶,root,0.90,mainland-term,台灣系統最高權限,tech,exact,,,,true
 guest,訪客,访客,訪客,guest,0.85,mainland-term,台灣使用者權限,tech,exact,,,,true
-user,使用者,用户,用戶,user,0.85,mainland-term,台灣使用者介面標準,tech,exact,,,,true
+user,使用者,用户,用戶,user,0.85,mainland-term,台灣使用者介面標準,tech,context_sensitive,"介面,帳號,登入,權限,App,應用程式,軟體,網站,系統,設定,註冊",,"電信用戶,用戶數",false
 mount,掛載,挂载,掛載,mount,0.90,mainland-term,台灣系統操作術語,tech,exact,,,,true
 unmount,卸載,卸载,卸載,unmount,0.90,mainland-term,台灣系統操作術語,tech,exact,,,,true
 partition,分割區,分区,分區,partition,0.90,mainland-term,台灣磁碟管理術語,tech,context_sensitive,"磁碟,硬碟,SSD,分割,格式化,掛載,開機,MBR,GPT,fdisk",,,false

@@ -358,16 +358,44 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣系統操作標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "after": [
+          "Windows",
+          "Office",
+          "帳號",
+          "序號",
+          "授權",
+          "軟體",
+          "產品",
+          "License",
+          "license",
+          "金鑰"
+        ]
+      }
     },
     "激活_activate": {
       "taiwan": "啟用",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣系統操作標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "after": [
+          "Windows",
+          "Office",
+          "帳號",
+          "序號",
+          "授權",
+          "軟體",
+          "產品",
+          "License",
+          "license",
+          "金鑰"
+        ]
+      }
     },
     "添加": {
       "taiwan": "新增",
@@ -1938,32 +1966,168 @@
       "confidence": 0.95,
       "category": "mainland-term",
       "reason": "台灣資訊處理標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "程式",
+          "程式碼",
+          "函式",
+          "變數",
+          "API",
+          "JSON",
+          "SQL",
+          "資料庫",
+          "欄位",
+          "讀取",
+          "寫入",
+          "檔案",
+          "伺服器",
+          "陣列",
+          "物件",
+          "類別",
+          "執行",
+          "編譯",
+          "傳輸",
+          "儲存",
+          "格式",
+          "解析",
+          "匯入",
+          "匯出"
+        ],
+        "exclude": [
+          "研究數據",
+          "統計數據",
+          "實驗數據",
+          "數據顯示"
+        ]
+      }
     },
     "数据_data": {
       "taiwan": "資料",
       "confidence": 0.95,
       "category": "mainland-term",
       "reason": "台灣資訊處理標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "程式",
+          "程式碼",
+          "函式",
+          "變數",
+          "API",
+          "JSON",
+          "SQL",
+          "資料庫",
+          "欄位",
+          "讀取",
+          "寫入",
+          "檔案",
+          "伺服器",
+          "陣列",
+          "物件",
+          "類別",
+          "執行",
+          "編譯",
+          "傳輸",
+          "儲存",
+          "格式",
+          "解析",
+          "匯入",
+          "匯出"
+        ],
+        "exclude": [
+          "研究數據",
+          "統計數據",
+          "實驗數據",
+          "數據顯示"
+        ]
+      }
     },
     "數據": {
       "taiwan": "資料",
       "confidence": 0.95,
       "category": "mainland-term",
       "reason": "台灣資訊處理標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "程式",
+          "程式碼",
+          "函式",
+          "變數",
+          "API",
+          "JSON",
+          "SQL",
+          "資料庫",
+          "欄位",
+          "讀取",
+          "寫入",
+          "檔案",
+          "伺服器",
+          "陣列",
+          "物件",
+          "類別",
+          "執行",
+          "編譯",
+          "傳輸",
+          "儲存",
+          "格式",
+          "解析",
+          "匯入",
+          "匯出"
+        ],
+        "exclude": [
+          "研究數據",
+          "統計數據",
+          "實驗數據",
+          "數據顯示"
+        ]
+      }
     },
     "數據_data": {
       "taiwan": "資料",
       "confidence": 0.95,
       "category": "mainland-term",
       "reason": "台灣資訊處理標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "程式",
+          "程式碼",
+          "函式",
+          "變數",
+          "API",
+          "JSON",
+          "SQL",
+          "資料庫",
+          "欄位",
+          "讀取",
+          "寫入",
+          "檔案",
+          "伺服器",
+          "陣列",
+          "物件",
+          "類別",
+          "執行",
+          "編譯",
+          "傳輸",
+          "儲存",
+          "格式",
+          "解析",
+          "匯入",
+          "匯出"
+        ],
+        "exclude": [
+          "研究數據",
+          "統計數據",
+          "實驗數據",
+          "數據顯示"
+        ]
+      }
     },
     "数据库": {
       "taiwan": "資料庫",
@@ -2918,32 +3082,84 @@
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣多媒體標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "像素",
+          "解析度",
+          "格式",
+          "PNG",
+          "JPG",
+          "點陣",
+          "渲染",
+          "處理器",
+          "GPU"
+        ]
+      }
     },
     "图像_image": {
       "taiwan": "影像",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣多媒體標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "像素",
+          "解析度",
+          "格式",
+          "PNG",
+          "JPG",
+          "點陣",
+          "渲染",
+          "處理器",
+          "GPU"
+        ]
+      }
     },
     "圖像": {
       "taiwan": "影像",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣多媒體標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "像素",
+          "解析度",
+          "格式",
+          "PNG",
+          "JPG",
+          "點陣",
+          "渲染",
+          "處理器",
+          "GPU"
+        ]
+      }
     },
     "圖像_image": {
       "taiwan": "影像",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣多媒體標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "像素",
+          "解析度",
+          "格式",
+          "PNG",
+          "JPG",
+          "點陣",
+          "渲染",
+          "處理器",
+          "GPU"
+        ]
+      }
     },
     "实现": {
       "taiwan": "實作",
@@ -5126,32 +5342,64 @@
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣自動化標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "VBScript",
+          "JScript",
+          "ActionScript",
+          "AppleScript"
+        ]
+      }
     },
     "脚本_script": {
       "taiwan": "指令碼",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣自動化標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "VBScript",
+          "JScript",
+          "ActionScript",
+          "AppleScript"
+        ]
+      }
     },
     "腳本": {
       "taiwan": "指令碼",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣自動化標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "VBScript",
+          "JScript",
+          "ActionScript",
+          "AppleScript"
+        ]
+      }
     },
     "腳本_script": {
       "taiwan": "指令碼",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣自動化標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "VBScript",
+          "JScript",
+          "ActionScript",
+          "AppleScript"
+        ]
+      }
     },
     "搜索": {
       "taiwan": "搜尋",
@@ -5526,32 +5774,108 @@
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣使用者介面標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "介面",
+          "帳號",
+          "登入",
+          "權限",
+          "App",
+          "應用程式",
+          "軟體",
+          "網站",
+          "系統",
+          "設定",
+          "註冊"
+        ],
+        "exclude": [
+          "電信用戶",
+          "用戶數"
+        ]
+      }
     },
     "用户_user": {
       "taiwan": "使用者",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣使用者介面標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "介面",
+          "帳號",
+          "登入",
+          "權限",
+          "App",
+          "應用程式",
+          "軟體",
+          "網站",
+          "系統",
+          "設定",
+          "註冊"
+        ],
+        "exclude": [
+          "電信用戶",
+          "用戶數"
+        ]
+      }
     },
     "用戶": {
       "taiwan": "使用者",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣使用者介面標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "介面",
+          "帳號",
+          "登入",
+          "權限",
+          "App",
+          "應用程式",
+          "軟體",
+          "網站",
+          "系統",
+          "設定",
+          "註冊"
+        ],
+        "exclude": [
+          "電信用戶",
+          "用戶數"
+        ]
+      }
     },
     "用戶_user": {
       "taiwan": "使用者",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣使用者介面標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "介面",
+          "帳號",
+          "登入",
+          "權限",
+          "App",
+          "應用程式",
+          "軟體",
+          "網站",
+          "系統",
+          "設定",
+          "註冊"
+        ],
+        "exclude": [
+          "電信用戶",
+          "用戶數"
+        ]
+      }
     },
     "变量": {
       "taiwan": "變數",

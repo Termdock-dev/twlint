@@ -434,32 +434,104 @@
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣投資術語標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "投資",
+          "報酬率",
+          "收益",
+          "股東",
+          "資本",
+          "風險",
+          "ROI",
+          "年化",
+          "股票",
+          "基金"
+        ],
+        "exclude": [
+          "回報問題",
+          "回報錯誤"
+        ]
+      }
     },
     "回报_return": {
       "taiwan": "報酬",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣投資術語標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "投資",
+          "報酬率",
+          "收益",
+          "股東",
+          "資本",
+          "風險",
+          "ROI",
+          "年化",
+          "股票",
+          "基金"
+        ],
+        "exclude": [
+          "回報問題",
+          "回報錯誤"
+        ]
+      }
     },
     "回報": {
       "taiwan": "報酬",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣投資術語標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "投資",
+          "報酬率",
+          "收益",
+          "股東",
+          "資本",
+          "風險",
+          "ROI",
+          "年化",
+          "股票",
+          "基金"
+        ],
+        "exclude": [
+          "回報問題",
+          "回報錯誤"
+        ]
+      }
     },
     "回報_return": {
       "taiwan": "報酬",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣投資術語標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "投資",
+          "報酬率",
+          "收益",
+          "股東",
+          "資本",
+          "風險",
+          "ROI",
+          "年化",
+          "股票",
+          "基金"
+        ],
+        "exclude": [
+          "回報問題",
+          "回報錯誤"
+        ]
+      }
     },
     "股息": {
       "taiwan": "股利",
@@ -834,32 +906,92 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣企業治理術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "金融",
+          "銀行",
+          "法遵",
+          "監管",
+          "稽核",
+          "證券",
+          "洗錢",
+          "KYC"
+        ],
+        "exclude": [
+          "符合規"
+        ]
+      }
     },
     "合规_compliance": {
       "taiwan": "法規遵循",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣企業治理術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "金融",
+          "銀行",
+          "法遵",
+          "監管",
+          "稽核",
+          "證券",
+          "洗錢",
+          "KYC"
+        ],
+        "exclude": [
+          "符合規"
+        ]
+      }
     },
     "合規": {
       "taiwan": "法規遵循",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣企業治理術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "金融",
+          "銀行",
+          "法遵",
+          "監管",
+          "稽核",
+          "證券",
+          "洗錢",
+          "KYC"
+        ],
+        "exclude": [
+          "符合規"
+        ]
+      }
     },
     "合規_compliance": {
       "taiwan": "法規遵循",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣企業治理術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "金融",
+          "銀行",
+          "法遵",
+          "監管",
+          "稽核",
+          "證券",
+          "洗錢",
+          "KYC"
+        ],
+        "exclude": [
+          "符合規"
+        ]
+      }
     },
     "治理": {
       "taiwan": "公司治理",
@@ -1572,32 +1704,56 @@
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣商業模式術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "翻譯",
+          "中文名稱"
+        ]
+      }
     },
     "B2B_b2b": {
       "taiwan": "企業對企業",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣商業模式術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "翻譯",
+          "中文名稱"
+        ]
+      }
     },
     "B2C": {
       "taiwan": "企業對消費者",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣商業模式術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "翻譯",
+          "中文名稱"
+        ]
+      }
     },
     "B2C_b2c": {
       "taiwan": "企業對消費者",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣商業模式術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "翻譯",
+          "中文名稱"
+        ]
+      }
     },
     "C2C": {
       "taiwan": "消費者對消費者",

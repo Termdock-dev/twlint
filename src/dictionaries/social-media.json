@@ -298,32 +298,76 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣社群顯示術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "動態",
+          "Facebook",
+          "臉書",
+          "Twitter",
+          "推特",
+          "社群"
+        ]
+      }
     },
     "时间线_timeline": {
       "taiwan": "時間軸",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣社群顯示術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "動態",
+          "Facebook",
+          "臉書",
+          "Twitter",
+          "推特",
+          "社群"
+        ]
+      }
     },
     "時間線": {
       "taiwan": "時間軸",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣社群顯示術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "動態",
+          "Facebook",
+          "臉書",
+          "Twitter",
+          "推特",
+          "社群"
+        ]
+      }
     },
     "時間線_timeline": {
       "taiwan": "時間軸",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣社群顯示術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "動態",
+          "Facebook",
+          "臉書",
+          "Twitter",
+          "推特",
+          "社群"
+        ]
+      }
     },
     "个人资料": {
       "taiwan": "個人檔案",
@@ -918,32 +962,84 @@
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣社群互動術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "留言",
+          "訊息",
+          "郵件",
+          "評論",
+          "貼文",
+          "私訊"
+        ],
+        "exclude": [
+          "回復原狀"
+        ]
+      }
     },
     "回复_reply": {
       "taiwan": "回覆",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣社群互動術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "留言",
+          "訊息",
+          "郵件",
+          "評論",
+          "貼文",
+          "私訊"
+        ],
+        "exclude": [
+          "回復原狀"
+        ]
+      }
     },
     "回復": {
       "taiwan": "回覆",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣社群互動術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "留言",
+          "訊息",
+          "郵件",
+          "評論",
+          "貼文",
+          "私訊"
+        ],
+        "exclude": [
+          "回復原狀"
+        ]
+      }
     },
     "回復_reply": {
       "taiwan": "回覆",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣社群互動術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "留言",
+          "訊息",
+          "郵件",
+          "評論",
+          "貼文",
+          "私訊"
+        ],
+        "exclude": [
+          "回復原狀"
+        ]
+      }
     },
     "转发": {
       "taiwan": "轉發",
@@ -1550,16 +1646,28 @@
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣社群行銷術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "翻譯",
+          "中文名稱"
+        ]
+      }
     },
     "KOL_kol": {
       "taiwan": "意見領袖",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣社群行銷術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "翻譯",
+          "中文名稱"
+        ]
+      }
     },
     "博主": {
       "taiwan": "部落客",
@@ -1886,32 +1994,88 @@
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣社群分析術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "觸及",
+          "曝光",
+          "粉專",
+          "廣告",
+          "社群"
+        ],
+        "exclude": [
+          "測試覆蓋率",
+          "程式碼覆蓋率"
+        ]
+      }
     },
     "覆盖率_reach": {
       "taiwan": "觸及率",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣社群分析術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "觸及",
+          "曝光",
+          "粉專",
+          "廣告",
+          "社群"
+        ],
+        "exclude": [
+          "測試覆蓋率",
+          "程式碼覆蓋率"
+        ]
+      }
     },
     "覆蓋率": {
       "taiwan": "觸及率",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣社群分析術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "觸及",
+          "曝光",
+          "粉專",
+          "廣告",
+          "社群"
+        ],
+        "exclude": [
+          "測試覆蓋率",
+          "程式碼覆蓋率"
+        ]
+      }
     },
     "覆蓋率_reach": {
       "taiwan": "觸及率",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣社群分析術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "貼文",
+          "觸及",
+          "曝光",
+          "粉專",
+          "廣告",
+          "社群"
+        ],
+        "exclude": [
+          "測試覆蓋率",
+          "程式碼覆蓋率"
+        ]
+      }
     },
     "印象": {
       "taiwan": "曝光",
@@ -1998,16 +2162,42 @@
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣數據分析術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "報告",
+          "數據分析",
+          "粉專",
+          "後台",
+          "觸及",
+          "曝光"
+        ],
+        "exclude": [
+          "洞察力"
+        ]
+      }
     },
     "洞察_insights": {
       "taiwan": "洞察報告",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣數據分析術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "報告",
+          "數據分析",
+          "粉專",
+          "後台",
+          "觸及",
+          "曝光"
+        ],
+        "exclude": [
+          "洞察力"
+        ]
+      }
     },
     "指标": {
       "taiwan": "指標",
