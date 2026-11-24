@@ -58,6 +58,7 @@ export interface MatchResult {
   confidence: number
   rule: string
   autofix_safe?: boolean
+  custom?: boolean
 }
 
 export interface DictLookupEntry {
@@ -75,6 +76,7 @@ export interface CompiledDict {
     name: string
     version: string
     entries: number
+    custom?: boolean  // 使用者的自訂詞表：同長度的命中優先於內建詞庫
   }
   lookup: Record<string, DictLookupEntry>
 }

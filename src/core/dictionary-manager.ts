@@ -1,11 +1,24 @@
 import { readFile } from 'fs/promises'
-import { join, dirname } from 'path'
+import { join, dirname, resolve } from 'path'
 import { fileURLToPath } from 'url'
 import type { CompiledDict, MatchResult, DictLookupEntry } from '../types.js'
 import { formatError } from '../utils/error-utils.js'
 import { MatchStrategyRegistry } from './matching/match-strategies.js'
 import { LRUCache } from './lru-cache.js'
 import { isMatchableTerm } from './matchable-term.js'
+import { parseCSV, compileRows, buildDictionary, findCSVProblems } from './dictionary-compiler.js'
+
+// 中文沒有空格分詞，用 ICU 的詞語切分（Node 內建 Intl.Segmenter）找出詞邊界的位置
+const segmenter = new Intl.Segmenter('zh-Hant', { granularity: 'word' })
+
+function wordBoundaries(text: string): Set<number> {
+  const boundaries = new Set<number>([0, text.length])
+  for (const { index, segment } of segmenter.segment(text)) {
+    boundaries.add(index)
+    boundaries.add(index + segment.length)
+  }
+  return boundaries
+}
 
 // 建議詞包含原詞時（終端→終端機），命中位置周圍的文字可能已經是建議詞。
 // 原詞等於建議詞的保護詞條不在此列：它們要留下來，在去重時蓋掉較短的命中。
@@ -58,6 +71,33 @@ export class DictionaryManager {
     }
   }
 
+  /**
+   * 載入使用者的自訂詞表（CSV，格式同 dictionaries-csv/），執行時編譯。
+   * 讀不到或有任何格式問題直接丟錯：設定檔明確指定的詞表不能靜默略過或只載入一部分。
+   */
+  async loadCustomDictionary(path: string): Promise<CompiledDict> {
+    const absolutePath = resolve(path)
+    const key = `custom:${absolutePath}`
+    const cached = this.cache.get(key)
+    if (cached) return cached
+
+    try {
+      const content = await readFile(absolutePath, 'utf-8')
+      const problems = findCSVProblems(content)
+      if (problems.length > 0) {
+        const shown = problems.slice(0, 5).join('; ')
+        throw new Error(problems.length > 5 ? `${shown}; 另有 ${problems.length - 5} 個問題` : shown)
+      }
+      const entries = compileRows(parseCSV(content), path)
+      const dict = buildDictionary(entries, key, 'custom')
+      dict.metadata.custom = true
+      this.cache.set(key, dict)
+      return dict
+    } catch (error) {
+      throw new Error(`Failed to load custom dictionary "${path}": ${formatError(error)}`)
+    }
+  }
+
   private async readDictionaryFile(name: string): Promise<string> {
     try {
       return await readFile(join(this.dictionariesPath, `${name}.json`), 'utf-8')
@@ -94,7 +134,7 @@ export class DictionaryManager {
         const matches = strategy.match(text, term, entry.context)
 
         for (const match of matches) {
-          this.addMatch(text, allMatches, match, entry, dict.metadata.name)
+          this.addMatch(text, allMatches, match, entry, dict.metadata)
         }
 
         // 對於語境敏感詞彙，同時檢查其變體
@@ -111,12 +151,18 @@ export class DictionaryManager {
             const variantMatches = variantStrategy.match(text, term, variantEntry.context)
 
             for (const match of variantMatches) {
-              this.addMatch(text, allMatches, match, variantEntry, dict.metadata.name, true)
+              this.addMatch(text, allMatches, match, variantEntry, dict.metadata, true)
             }
           }
         }
       }
     }
+
+    // 0. 只留下頭尾都在詞邊界上的命中，避免「判斷點」裡的「斷點」這類跨詞命中
+    const boundaries = wordBoundaries(text)
+    const wholeWordMatches = allMatches.filter(match => boundaries.has(match.start) && boundaries.has(match.end))
+    allMatches.length = 0
+    allMatches.push(...wholeWordMatches)
 
     // 1. 排序：優先長度，其次信心度，最後位置
     // Sort logic: Longest length > Higher confidence > Earlier position
@@ -124,6 +170,9 @@ export class DictionaryManager {
       const lenA = a.end - a.start
       const lenB = b.end - b.start
       if (lenA !== lenB) return lenB - lenA // Longest first
+
+      // 同長度時自訂詞表優先：使用者的決定蓋過內建詞庫（自訂「腳本→腳本」就等於允許這個詞）
+      if (!!a.custom !== !!b.custom) return a.custom ? -1 : 1
 
       if (Math.abs(a.confidence - b.confidence) > 0.01) {
         return b.confidence - a.confidence // Higher confidence first
@@ -210,7 +259,7 @@ export class DictionaryManager {
     allMatches: MatchResult[],
     match: MatchResult,
     entry: DictLookupEntry,
-    dictName: string,
+    dict: CompiledDict['metadata'],
     isVariant = false
   ): void {
     if (readsAsReplacement(text, match.start, match.term, entry.taiwan)) return
@@ -219,8 +268,9 @@ export class DictionaryManager {
       ...match,
       replacement: entry.taiwan,
       confidence: entry.confidence,
-      rule: `${dictName}-${entry.match_type || 'exact'}${isVariant ? '-variant' : ''}`,
-      autofix_safe: entry.autofix_safe || false
+      rule: `${dict.name}-${entry.match_type || 'exact'}${isVariant ? '-variant' : ''}`,
+      autofix_safe: entry.autofix_safe || false,
+      custom: dict.custom || false
     })
   }
 

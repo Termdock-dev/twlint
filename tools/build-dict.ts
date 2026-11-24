@@ -5,27 +5,9 @@
 
 import { readFile, writeFile, readdir, mkdir, rm } from 'fs/promises'
 import { join, basename } from 'path'
-import Papa from 'papaparse'
-import type { DictEntry, CompiledDict, DictLookupEntry } from '../src/types.js'
-import { findUnmatchableRows, MIN_TERM_LENGTH } from '../src/core/matchable-term.js'
+import type { DictEntry, CompiledDict } from '../src/types.js'
+import { parseCSV, compileRows, buildDictionary, type CSVRow } from '../src/core/dictionary-compiler.js'
 import { findInconsistentEntries } from './dict-consistency.js'
-
-interface CSVRow {
-  id: string
-  taiwan: string
-  china_simplified: string
-  china_traditional: string
-  english?: string
-  confidence: string
-  category: string
-  reason: string
-  domain: string
-  match_type?: string
-  context_before?: string
-  context_after?: string
-  context_exclude?: string
-  autofix_safe?: string
-}
 
 // 詞庫版本跟著套件版本，發布時不用另外同步
 const PACKAGE_VERSION: string = JSON.parse(
@@ -33,11 +15,7 @@ const PACKAGE_VERSION: string = JSON.parse(
 ).version
 
 async function readCSVRows(file: string): Promise<CSVRow[]> {
-  const { data } = Papa.parse<CSVRow>(await readFile(file, 'utf-8'), {
-    header: true,
-    skipEmptyLines: true
-  })
-  return data
+  return parseCSV(await readFile(file, 'utf-8'))
 }
 
 class DictBuilder {
@@ -272,117 +250,10 @@ class DictBuilder {
 
   private async compileDict(csvFiles: string[], name: string): Promise<CompiledDict> {
     const entries: DictEntry[] = []
-
     for (const csvFile of csvFiles) {
-      const validRows = (await readCSVRows(csvFile)).filter(row => this.validateCSVRow(row))
-      const unmatchable = findUnmatchableRows(validRows)
-      if (unmatchable.length > 0) {
-        throw new Error(
-          `${csvFile} 含有單一個字的詞條（詞庫只收 ${MIN_TERM_LENGTH} 個字以上）: ${unmatchable.join(', ')}`
-        )
-      }
-      const processedEntries = validRows.map(row => this.createDictEntry(row))
-      entries.push(...processedEntries)
+      entries.push(...compileRows(await readCSVRows(csvFile), csvFile))
     }
-
-    return {
-      metadata: {
-        name,
-        version: PACKAGE_VERSION,
-        entries: entries.length
-      },
-      lookup: this.optimizeForLookup(entries)
-    }
-  }
-
-  private parseContext(row: CSVRow): { before?: string[], after?: string[], exclude?: string[] } {
-    const context: { before?: string[], after?: string[], exclude?: string[] } = {}
-
-    if (row.context_before && row.context_before.trim()) {
-      context.before = row.context_before.split(',').map(s => s.trim()).filter(Boolean)
-    }
-
-    if (row.context_after && row.context_after.trim()) {
-      context.after = row.context_after.split(',').map(s => s.trim()).filter(Boolean)
-    }
-
-    if (row.context_exclude && row.context_exclude.trim()) {
-      context.exclude = row.context_exclude.split(',').map(s => s.trim()).filter(Boolean)
-    }
-
-    return context
-  }
-
-  private validateCSVRow(row: CSVRow): boolean {
-    return !!(
-      row.id &&
-      row.taiwan &&
-      row.china_simplified &&
-      row.confidence &&
-      row.category
-    )
-  }
-
-  private createDictEntry(row: CSVRow): DictEntry {
-    const context = this.parseContext(row)
-    const matchType = (row.match_type || 'exact') as 'exact' | 'word_boundary' | 'context_sensitive'
-
-    return {
-      id: row.id,
-      taiwan: row.taiwan,
-      china_simplified: row.china_simplified,
-      china_traditional: row.china_traditional,
-      english: row.english,
-      confidence: parseFloat(row.confidence),
-      category: row.category,
-      reason: row.reason,
-      domain: row.domain,
-      match_type: matchType,
-      context: Object.keys(context).length > 0 ? context : undefined,
-      autofix_safe: row.autofix_safe === 'true'
-    }
-  }
-
-  private optimizeForLookup(entries: DictEntry[]): Record<string, DictLookupEntry> {
-    const lookup: Record<string, DictLookupEntry> = {}
-
-    for (const entry of entries) {
-      const entryData = {
-        taiwan: entry.taiwan,
-        confidence: entry.confidence,
-        category: entry.category,
-        reason: entry.reason,
-        match_type: entry.match_type || 'exact',
-        autofix_safe: entry.autofix_safe || false,
-        ...(entry.context && { context: entry.context })
-      }
-
-      // 使用 ID 作為唯一鍵來避免覆蓋，但保留原始詞彙作為主鍵
-      const mainKey = entry.china_simplified
-      const uniqueKey = `${mainKey}_${entry.id.replace(/[^a-zA-Z0-9]/g, '_')}`
-
-      // 主鍵：原始簡體字（保持向後相容）
-      if (!lookup[mainKey] || entry.match_type === 'exact') {
-        // exact 匹配優先，或者第一次出現
-        lookup[mainKey] = entryData
-      }
-
-      // 唯一鍵：用於語境特殊匹配
-      lookup[uniqueKey] = entryData
-
-      // 如果有不同的繁體寫法，也加入查找表
-      if (entry.china_traditional !== entry.china_simplified) {
-        const traditionalKey = entry.china_traditional
-        const traditionalUniqueKey = `${traditionalKey}_${entry.id.replace(/[^a-zA-Z0-9]/g, '_')}`
-
-        if (!lookup[traditionalKey] || entry.match_type === 'exact') {
-          lookup[traditionalKey] = entryData
-        }
-        lookup[traditionalUniqueKey] = entryData
-      }
-    }
-
-    return lookup
+    return buildDictionary(entries, name, PACKAGE_VERSION)
   }
 
   private async saveDict(dict: CompiledDict, name: string): Promise<void> {

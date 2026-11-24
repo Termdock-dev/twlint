@@ -5,6 +5,7 @@ export interface TWLintConfigRule {
   ignores?: string[]       // 忽略模式（glob patterns）
   dictionaries?: string[]  // 舊的詞庫設定方式（向後相容）
   domains?: string[]       // 新的領域設定方式
+  customDictionaries?: string[]  // 自訂詞表 CSV 路徑（相對於工作目錄），套用到所有檔案，只能寫在不帶 files 的區塊
   rules?: Record<string, 'error' | 'warning' | 'info' | 'off'>
 }
 

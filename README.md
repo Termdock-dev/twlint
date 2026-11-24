@@ -161,6 +161,31 @@ export default [
 ]
 ```
 
+### 自訂詞表
+
+團隊或個人的用語決定可以放在自己的 CSV，不用改內建詞庫。格式跟 `dictionaries-csv/` 相同（欄位見 [CONTRIBUTING.md](CONTRIBUTING.md)）。用 `customDictionaries` 指定，路徑相對於執行 twlint 的目錄。自訂詞表套用到所有檔案，要寫在不帶 `files` 的設定區塊：
+
+```javascript
+export default [
+  { customDictionaries: ["./twlint-terms.csv"] },
+  {
+    files: ["**/*.md"],
+    rules: { "simplified-chars": "error", "mainland-terms": "warning" }
+  }
+]
+```
+
+```csv
+id,taiwan,china_simplified,china_traditional,english,confidence,category,reason,domain,match_type,context_before,context_after,context_exclude,autofix_safe
+fetch,取得,获取,獲取,fetch,0.95,mainland-term,團隊用語,tech,exact,,,,true
+allow-script,腳本,脚本,腳本,script,0.5,allowed-term,團隊允許,tech,exact,,,,false
+```
+
+- 同一個詞在自訂詞表和內建詞庫都有時，以自訂詞表為準。
+- 對應到自己（`腳本→腳本`）等於允許這個詞，內建詞庫不會再對它提出建議。
+- 規則跟內建詞庫相同：詞條至少兩個字、必填欄位要齊、`confidence` 要是數字。詞表讀不到、有任何格式問題，或寫在帶 `files` 的區塊時，整個指令失敗並列出問題。
+- `--deep` 時也會載入。
+
 ### 忽略規則
 
 有三種方式：

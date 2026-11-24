@@ -144,35 +144,13 @@ export class ConfigMatcher {
    * 合併所有匹配設定區塊的規則，後面的覆寫前面的
    */
   getRulesForFile(filePath: string): Record<string, 'error' | 'warning' | 'info' | 'off'> {
-    if (this.isIgnored(filePath)) {
-      return {}
-    }
-
-    const configArray = Array.isArray(this.configs) ? this.configs : [this.configs]
     let mergedRules: Record<string, 'error' | 'warning' | 'info' | 'off'> = {}
-
-    for (const config of configArray) {
-      // 跳過 global ignore 區塊
-      if (config.ignores && !config.files && !config.rules) {
-        continue
-      }
-
-      // 檢查 files 模式
-      if (config.files && !this.matchesAnyPattern(filePath, config.files)) {
-        continue
-      }
-
-      // 檢查 ignores 模式
-      if (config.ignores && this.matchesAnyPattern(filePath, config.ignores)) {
-        continue
-      }
-
+    for (const config of this.blocksForFile(filePath)) {
       // 合併規則（後面的覆寫前面的）
       if (config.rules) {
         mergedRules = { ...mergedRules, ...config.rules }
       }
     }
-
     return mergedRules
   }
 
@@ -180,29 +158,8 @@ export class ConfigMatcher {
    * 取得檔案適用的詞庫/領域
    */
   getDomainsForFile(filePath: string): string[] {
-    if (this.isIgnored(filePath)) {
-      return []
-    }
-
-    const configArray = Array.isArray(this.configs) ? this.configs : [this.configs]
     const domains: string[] = []
-
-    for (const config of configArray) {
-      // 跳過 global ignore 區塊
-      if (config.ignores && !config.files && !config.rules) {
-        continue
-      }
-
-      // 檢查 files 模式
-      if (config.files && !this.matchesAnyPattern(filePath, config.files)) {
-        continue
-      }
-
-      // 檢查 ignores 模式
-      if (config.ignores && this.matchesAnyPattern(filePath, config.ignores)) {
-        continue
-      }
-
+    for (const config of this.blocksForFile(filePath)) {
       // 收集 domains（向後相容 dictionaries）
       if (config.domains) {
         domains.push(...config.domains)
@@ -210,8 +167,35 @@ export class ConfigMatcher {
         domains.push(...config.dictionaries)
       }
     }
-
     return [...new Set(domains)] // 去重
+  }
+
+  /**
+   * 自訂詞表套用到所有檔案（比對時用的是已載入的全部詞庫），所以只能寫在不帶 files 的區塊；
+   * 寫在帶 files 的區塊會讓人以為有範圍限制，直接報錯。
+   */
+  getCustomDictionaries(): string[] {
+    const configArray = Array.isArray(this.configs) ? this.configs : [this.configs]
+    if (configArray.some(config => config.files && config.customDictionaries)) {
+      throw new Error('customDictionaries 套用到所有檔案，請寫在不帶 files 的設定區塊')
+    }
+    return [...new Set(configArray.flatMap(config => config.customDictionaries ?? []))]
+  }
+
+  /**
+   * 適用於這個檔案的設定區塊：略過只有 ignores 的全域忽略區塊、files 不符合的區塊、
+   * 區塊自己的 ignores 排除的檔案；整個檔案被忽略時回傳空陣列。
+   */
+  private blocksForFile(filePath: string): TWLintConfigRule[] {
+    if (this.isIgnored(filePath)) return []
+
+    const configArray = Array.isArray(this.configs) ? this.configs : [this.configs]
+    return configArray.filter(config => {
+      if (config.ignores && !config.files && !config.rules) return false
+      if (config.files && !this.matchesAnyPattern(filePath, config.files)) return false
+      if (config.ignores && this.matchesAnyPattern(filePath, config.ignores)) return false
+      return true
+    })
   }
 
   /**

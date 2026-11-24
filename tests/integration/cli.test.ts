@@ -330,4 +330,110 @@ describe('CLI Integration Tests', () => {
       }
     })
   })
+
+  describe('custom dictionaries', () => {
+    const projectDir = join(testDir, 'custom-dict-project')
+    const HEADER = 'id,taiwan,china_simplified,china_traditional,english,confidence,category,reason,domain,match_type,context_before,context_after,context_exclude,autofix_safe'
+    // customDictionaries 套用到所有檔案，寫在不帶 files 的區塊
+    const writeConfig = (dictPath: string) => writeFile(join(projectDir, 'twlint.config.js'),
+      `export default [{ customDictionaries: ["${dictPath}"] }, { files: ["**/*.md"], rules: { "mainland-terms": "warning" } }]\n`, 'utf-8')
+    const expectRunToFail = async (stderrText: string) => {
+      try {
+        await execAsync(`node ${cliPath} check a.md`, { cwd: projectDir })
+        expect.fail('Should have exited with error code')
+      } catch (error: any) {
+        expect(error.code).toBe(1)
+        expect(error.stderr).toContain(stderrText)
+      }
+    }
+    const messages = async (file: string): Promise<Array<{ message: string; suggestions?: string[] }>> => {
+      try {
+        const { stdout } = await execAsync(`node ${cliPath} check ${file} --format json`, { cwd: projectDir })
+        return JSON.parse(stdout)[0].messages
+      } catch (error: any) {
+        return JSON.parse(error.stdout)[0].messages
+      }
+    }
+
+    beforeEach(async () => {
+      await mkdir(projectDir, { recursive: true })
+      await writeFile(join(projectDir, 'package.json'), '{ "type": "module" }\n', 'utf-8')
+      await writeFile(join(projectDir, 'terms.csv'), [
+        HEADER,
+        // 內建詞庫是「數據→資料」，自訂詞表改成「數值」
+        'data-override,數值,数据,數據,data,0.95,mainland-term,團隊用語,tech,exact,,,,true',
+        // 內建詞庫沒有的詞
+        'fetch,取得,获取,獲取,fetch,0.95,mainland-term,團隊用語,tech,exact,,,,true',
+        // 原詞→原詞：允許這個詞，蓋過內建的「腳本→指令碼」；信心度刻意低於內建詞條，只靠自訂優先
+        'allow-script,腳本,脚本,腳本,script,0.5,allowed-term,團隊允許,tech,exact,,,,false'
+      ].join('\n'), 'utf-8')
+      await writeConfig('terms.csv')
+    })
+
+    afterEach(async () => {
+      await rm(projectDir, { recursive: true, force: true })
+    })
+
+    it('uses the custom replacement over the built-in one for the same term', async () => {
+      await writeFile(join(projectDir, 'a.md'), '這份數據很完整', 'utf-8')
+      const suggestions = (await messages('a.md')).flatMap(m => m.suggestions ?? [])
+      expect(suggestions).toContain('數值')
+      expect(suggestions).not.toContain('資料')
+    })
+
+    it('adds terms the built-in dictionaries do not have', async () => {
+      await writeFile(join(projectDir, 'a.md'), '從伺服器獲取設定', 'utf-8')
+      expect((await messages('a.md')).flatMap(m => m.suggestions ?? [])).toContain('取得')
+    })
+
+    it('treats a term mapped to itself as allowed', async () => {
+      await writeFile(join(projectDir, 'a.md'), '執行部署腳本', 'utf-8')
+      expect((await messages('a.md')).filter(m => m.message.includes('腳本'))).toEqual([])
+    })
+
+    it('fails the whole run when a configured dictionary cannot be read', async () => {
+      await writeConfig('missing.csv')
+      await writeFile(join(projectDir, 'a.md'), '這份數據很完整', 'utf-8')
+      try {
+        await execAsync(`node ${cliPath} check a.md`, { cwd: projectDir })
+        expect.fail('Should have exited with error code')
+      } catch (error: any) {
+        expect(error.code).toBe(1)
+        expect(error.stderr).toContain('Failed to load custom dictionary "missing.csv"')
+        expect(error.stdout).not.toContain('file-read-error')
+      }
+    })
+
+    it('rejects customDictionaries in a block scoped by files', async () => {
+      await writeFile(join(projectDir, 'twlint.config.js'),
+        'export default [{ files: ["docs/**/*.md"], customDictionaries: ["terms.csv"], rules: { "mainland-terms": "warning" } }]\n', 'utf-8')
+      await writeFile(join(projectDir, 'a.md'), '這份數據很完整', 'utf-8')
+      await expectRunToFail('customDictionaries')
+    })
+
+    it.each([
+      ['a wrong header', 'id,taiwan\nx,y'],
+      ['a non-numeric confidence', `${HEADER}\nd,數值,数据,數據,data,high,mainland-term,x,tech,exact,,,,true`],
+      ['no entries', HEADER],
+      // 缺 china_traditional 欄位時曾建出 'undefined' 詞條，把程式碼裡的 undefined 改掉
+      ['no china_traditional column', 'id,taiwan,china_simplified,english,confidence,category,reason,domain\nfetch,取得,获取,fetch,0.95,mainland-term,x,tech'],
+      ['an empty reason', `${HEADER}\nfetch,取得,获取,獲取,fetch,0.95,mainland-term,,tech,exact,,,,true`]
+    ])('fails when the custom dictionary has %s', async (_label, csv) => {
+      await writeFile(join(projectDir, 'terms.csv'), csv, 'utf-8')
+      await writeFile(join(projectDir, 'a.md'), '這份數據很完整', 'utf-8')
+      await expectRunToFail('Failed to load custom dictionary')
+    })
+
+    it('rejects single-character terms in a custom dictionary', async () => {
+      await writeFile(join(projectDir, 'terms.csv'), [HEADER,
+        'pkg,套件,包,包,package,0.9,mainland-term,x,tech,exact,,,,true'].join('\n'), 'utf-8')
+      await writeFile(join(projectDir, 'a.md'), '安裝套件', 'utf-8')
+      try {
+        await execAsync(`node ${cliPath} check a.md`, { cwd: projectDir })
+        expect.fail('Should have exited with error code')
+      } catch (error: any) {
+        expect(error.stderr).toContain('單一個字')
+      }
+    })
+  })
 })

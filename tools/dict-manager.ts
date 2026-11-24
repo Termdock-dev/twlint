@@ -8,7 +8,7 @@ import { join, dirname, basename, extname } from 'path'
 import Papa from 'papaparse'
 import { Command } from 'commander'
 import chalk from 'chalk'
-import { findUnmatchableRows, MIN_TERM_LENGTH } from '../src/core/matchable-term.js'
+import { findCSVProblems, parseCSV } from '../src/core/dictionary-compiler.js'
 import { findInconsistentEntries, type ConsistencyRow } from './dict-consistency.js'
 
 interface DictEntry {
@@ -174,42 +174,14 @@ ${domain}-003,演算法,算法,算法,algorithm,0.95,mainland-term,台灣學術�
     console.log(chalk.blue(`🔍 驗證 CSV: ${filePath}`))
 
     try {
-      const content = await readFile(filePath, 'utf-8')
-      const { data, errors } = Papa.parse<CSVRow>(content, {
-        header: true,
-        skipEmptyLines: true
-      })
-
-      if (errors.length > 0) {
-        console.error(chalk.red('❌ CSV 格式錯誤:'))
-        errors.forEach(error => console.error(`  - ${error.message}`))
+      const problems = findCSVProblems(await readFile(filePath, 'utf-8'))
+      if (problems.length > 0) {
+        console.error(chalk.red(`❌ 發現 ${problems.length} 個問題:`))
+        problems.forEach(problem => console.error(`  - ${problem}`))
         return false
       }
 
-      const issues: string[] = []
-
-      data.forEach((row, index) => {
-        if (!row.id) issues.push(`第 ${index + 2} 行: 缺少 id`)
-        if (!row.taiwan) issues.push(`第 ${index + 2} 行: 缺少 taiwan`)
-        if (!row.china_simplified) issues.push(`第 ${index + 2} 行: 缺少 china_simplified`)
-        if (!row.confidence || isNaN(Number(row.confidence))) {
-          issues.push(`第 ${index + 2} 行: confidence 必須是數字`)
-        }
-        if (!row.category) issues.push(`第 ${index + 2} 行: 缺少 category`)
-        if (!row.domain) issues.push(`第 ${index + 2} 行: 缺少 domain`)
-      })
-
-      for (const id of findUnmatchableRows(data)) {
-        issues.push(`${id}: 單一個字的詞條不收（至少 ${MIN_TERM_LENGTH} 個字）`)
-      }
-
-      if (issues.length > 0) {
-        console.error(chalk.red(`❌ 發現 ${issues.length} 個問題:`))
-        issues.forEach(issue => console.error(`  - ${issue}`))
-        return false
-      }
-
-      console.log(chalk.green(`✅ 驗證通過: ${data.length} 條目`))
+      console.log(chalk.green('✅ 驗證通過'))
       return true
     } catch (error) {
       console.error(chalk.red(`❌ 檔案讀取錯誤: ${error}`))
@@ -318,8 +290,7 @@ async function main() {
       const rows: ConsistencyRow[] = []
       for (const file of files) {
         if (!(await dictManager.validateCSV(file))) process.exitCode = 1
-        const { data } = Papa.parse<CSVRow>(await readFile(file, 'utf-8'), { header: true, skipEmptyLines: true })
-        rows.push(...data.map(row => ({ ...row, file: basename(file) })))
+        rows.push(...parseCSV(await readFile(file, 'utf-8')).map(row => ({ ...row, file: basename(file) })))
       }
 
       const inconsistent = findInconsistentEntries(rows)
