@@ -70,7 +70,7 @@ npm run dict:build
 
 #### 建立新領域詞庫
 ```bash
-# 建立自定義領域
+# 建立自訂領域
 npm run dict:template domains my-domain
 
 # 建立傳統格式詞庫
