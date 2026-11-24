@@ -17,6 +17,12 @@ function readsAsReplacement(text: string, start: number, term: string, replaceme
   return false
 }
 
+// 舊詞庫名稱在沒有對應檔案時改載入的詞庫。extended 過去是 academic.csv 的舊版建置結果；
+// dictionaries-csv/extended/ 有其他 CSV 時會建出真正的 extended.json，這時照常載入它。
+const LEGACY_DICTIONARY_FALLBACKS: Record<string, string> = {
+  extended: 'academic'
+}
+
 export class DictionaryManager {
   private cache = new LRUCache<string, CompiledDict>(20) // 限制快取 20 個詞庫
   private readonly dictionariesPath: string
@@ -42,14 +48,23 @@ export class DictionaryManager {
     }
 
     try {
-      const dictPath = join(this.dictionariesPath, `${name}.json`)
-      const content = await readFile(dictPath, 'utf-8')
+      const content = await this.readDictionaryFile(name)
       const dict: CompiledDict = JSON.parse(content)
 
       this.cache.set(name, dict)
       return dict
     } catch (error) {
       throw new Error(`Failed to load dictionary "${name}": ${formatError(error)}`)
+    }
+  }
+
+  private async readDictionaryFile(name: string): Promise<string> {
+    try {
+      return await readFile(join(this.dictionariesPath, `${name}.json`), 'utf-8')
+    } catch (error) {
+      const fallback = LEGACY_DICTIONARY_FALLBACKS[name]
+      if (!fallback || (error as { code?: string }).code !== 'ENOENT') throw error
+      return readFile(join(this.dictionariesPath, `${fallback}.json`), 'utf-8')
     }
   }
 

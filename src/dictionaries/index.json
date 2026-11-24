@@ -29,13 +29,6 @@
       "entries": 139
     },
     {
-      "name": "extended",
-      "description": "擴展詞庫",
-      "type": "extended",
-      "required": false,
-      "entries": 12
-    },
-    {
       "name": "hardware-3c",
       "description": "硬體3C",
       "type": "domain",
@@ -78,6 +71,5 @@
       "entries": 99
     }
   ],
-  "version": "1.4.0",
-  "buildTime": "2026-11-24T04:14:20.424Z"
+  "version": "1.4.0"
 }
