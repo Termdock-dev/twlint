@@ -50,7 +50,8 @@ describe('Conservative context for general-usage terms (all built-in dictionarie
     ['講經前痘的臨床統計，不能斷言因果鏈', '宣告'],
     ['不擦防曬等於重啟黑色素訊號', '重新啟動'],
     ['判斷是否保留、微調或回復原狀', '回覆'],
-    ['因為靜電交互作用變強了', '互動'],
+    // 「交互」本身是一個詞（交互作用會被詞邊界擋掉，驗證不到語境規則）
+    ['兩種酸類可以交互使用', '互動'],
     ['我用螢幕截圖給你看', '擷圖'],
     ['電腦的電源要接好', '電源供應器']
   ])('does not flag general usage: %s', async (text, replacement) => {
