@@ -40,17 +40,21 @@ function parseArgs(argv: string[]): { tw: string[]; cn: string[]; deep: boolean;
   return args
 }
 
-async function lint(paths: string[], deep: boolean, custom: string[]): Promise<LintResult[]> {
+// 傳進來的每個檔案都套用 mainland-terms（不限副檔名），否則沒檢查的檔案會被算成 0 命中
+async function lint(side: string, paths: string[], deep: boolean, custom: string[]): Promise<LintResult[]> {
   const config: TWLintUserConfig = [
     { customDictionaries: custom },
-    { files: ['**/*.md', '**/*.txt'], rules: { 'simplified-chars': 'off', 'mainland-terms': 'warning' } }
+    { files: ['**/*'], rules: { 'simplified-chars': 'off', 'mainland-terms': 'warning' } }
   ]
-  return new TWLinter(config, { deep }).lintFiles(paths)
+  const results = await new TWLinter(config, { deep }).lintFiles(paths)
+  // 路徑打錯、glob 沒命中或全被 .twlintignore 排除時，0 命中沒有比較意義
+  if (results.length === 0) throw new Error(`${side} 語料沒有任何檔案可檢查: ${paths.join(' ')}`)
+  return results
 }
 
 function context(lines: string[], line: number, column: number): string {
   const text = lines[line - 1] ?? ''
-  return text.slice(Math.max(0, column - 13), column + 9).replace(/\s+/g, ' ')
+  return text.slice(Math.max(0, column - 13), column + 9).replace(/\s+/g, ' ').replace(/\|/g, '\\|')
 }
 
 async function collect(results: LintResult[], side: 'tw' | 'cn', stats: Map<string, TermStats>): Promise<void> {
@@ -77,9 +81,9 @@ async function main(): Promise<void> {
   const args = parseArgs(process.argv.slice(2))
   const stats = new Map<string, TermStats>()
 
-  const twResults = await lint(args.tw, args.deep, args.custom)
+  const twResults = await lint('--tw', args.tw, args.deep, args.custom)
   await collect(twResults, 'tw', stats)
-  const cnResults = args.cn.length > 0 ? await lint(args.cn, args.deep, args.custom) : []
+  const cnResults = args.cn.length > 0 ? await lint('--cn', args.cn, args.deep, args.custom) : []
   await collect(cnResults, 'cn', stats)
 
   const rows = [...stats.values()].sort((a, b) => b.tw - a.tw || a.cn - b.cn)
