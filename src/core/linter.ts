@@ -1,6 +1,6 @@
-import { glob } from 'glob'
+import { glob, escape } from 'glob'
 import { readFile, stat } from 'fs/promises'
-import { join } from 'path'
+import { join, relative } from 'path'
 import { DictionaryManager } from './dictionary-manager.js'
 import { SimplifiedCharsRule } from './rules/simplified-chars.js'
 import { MainlandTermsRule } from './rules/mainland-terms.js'
@@ -162,33 +162,29 @@ export class TWLinter {
           }
         }
       } else {
-        // 萬用字元模式：使用 glob 擴展
-        const matches = await glob(pattern, {
-          ignore: baseIgnorePatterns,
-          dot: false,
-          nodir: true // 只回傳檔案，避免目錄被當成輸入
-        })
-        // 過濾掉設定中 ignores 的檔案
-        const filtered = matches.filter(file => !this.configMatcher.isIgnored(file))
-        files.push(...filtered)
+        files.push(...await this.globFiles(pattern, baseIgnorePatterns))
       }
     }
 
     return [...new Set(files)] // Remove duplicates
   }
 
-  // 同 ESLint：資料夾只展開成有設定區塊涵蓋的檔案（預設是 *.md、*.txt）
-  private async expandDirectory(dir: string, baseIgnorePatterns: string[]): Promise<string[]> {
-    const matches = await glob('**/*', {
-      cwd: dir,
+  // 從工作目錄展開，讓 .gitignore 裡以根目錄為基準的規則（docs/generated/）照樣生效
+  private async globFiles(pattern: string, baseIgnorePatterns: string[]): Promise<string[]> {
+    const matches = await glob(pattern, {
       ignore: baseIgnorePatterns,
       dot: false,
-      nodir: true
+      nodir: true // 只回傳檔案，避免目錄被當成輸入
     })
+    return matches.filter(file => !this.configMatcher.isIgnored(file))
+  }
 
-    return matches
-      .map(file => join(dir, file))
-      .filter(file => Object.keys(this.configMatcher.getRulesForFile(file)).length > 0)
+  // 同 ESLint：資料夾只展開成有設定區塊涵蓋的檔案（預設是 *.md、*.txt）。
+  // 設定檔的 files 是相對路徑樣式，絕對路徑要先轉成相對於工作目錄才對得上 src/**/*.ts。
+  private async expandDirectory(dir: string, baseIgnorePatterns: string[]): Promise<string[]> {
+    const files = await this.globFiles(join(escape(dir), '**/*'), baseIgnorePatterns)
+    return files
+      .filter(file => Object.keys(this.configMatcher.getRulesForFile(relative(process.cwd(), file))).length > 0)
       .sort()
   }
 
