@@ -182,6 +182,29 @@ describe('SimplifiedCharsRule', () => {
     })
   })
 
+  describe('characters that are also valid traditional characters', () => {
+    // 這些句子取自 zh-tw 維基條目，全是正體字，舊版會逐字誤報
+    const traditionalLines = [
+      '他擔任該里的里長多年',
+      '北投區有大砲岩、丹鳳岩',
+      '交界的古德伯及契托爾',
+      '對泰國政府展開游擊戰',
+      '台灣占地最大的公園',
+      '這套家具在周年慶特價',
+      '收藏、蒐藏或搜集一般指'
+    ]
+
+    it.each(traditionalLines)('does not flag traditional text: %s', async (line) => {
+      expect(await rule.check(line)).toEqual([])
+      expect(await rule.fix(line)).toBe(line)
+    })
+
+    it('still flags them in a line that has definite simplified characters', async () => {
+      const issues = await rule.check('这里的岩石')
+      expect(issues.map(issue => issue.suggestions?.[0])).toEqual(['這', '裡'])
+    })
+  })
+
   describe('name property', () => {
     it('should have correct rule name', () => {
       expect(rule.name).toBe('simplified-chars')
