@@ -31,6 +31,11 @@ export default [
       // 基本規則
       'prefer-const': 'error',
       'no-var': 'error',
+      'no-restricted-properties': ['error', {
+        object: 'process',
+        property: 'exit',
+        message: '設定 process.exitCode 讓程序自然結束；process.exit 會丟掉還沒寫完的 stdout（issue #2）'
+      }],
 
       // TypeScript 規則
       '@typescript-eslint/no-explicit-any': 'error',
