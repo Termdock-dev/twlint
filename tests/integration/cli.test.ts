@@ -360,8 +360,8 @@ describe('CLI Integration Tests', () => {
       await writeFile(join(projectDir, 'package.json'), '{ "type": "module" }\n', 'utf-8')
       await writeFile(join(projectDir, 'terms.csv'), [
         HEADER,
-        // 內建詞庫是「軟件→軟體」（exact），自訂詞表改成「軟體程式」
-        'software-override,軟體程式,软件,軟件,software,0.95,mainland-term,團隊用語,tech,exact,,,,true',
+        // 內建詞庫是「軟件→軟體」（exact），自訂詞表改成「軟體程式」；信心度刻意低於內建詞條，只靠自訂優先
+        'software-override,軟體程式,软件,軟件,software,0.5,mainland-term,團隊用語,tech,exact,,,,true',
         // 內建詞庫沒有的詞
         'fetch,取得,获取,獲取,fetch,0.95,mainland-term,團隊用語,tech,exact,,,,true',
         // 原詞→原詞：允許這個詞，蓋過內建的「網絡→網路」（exact）；信心度刻意低於內建詞條，只靠自訂優先
