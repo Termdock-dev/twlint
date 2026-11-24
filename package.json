@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "npm run dict:build && tsx watch src/cli.ts",
-    "build": "npm run dict:build && tsc && cp -r src/dictionaries dist/",
+    "build": "rm -rf dist && npm run dict:build && tsc && cp -r src/dictionaries dist/",
     "test": "vitest",
     "dict:build": "tsx tools/build-dict.ts",
     "dict:validate": "tsx tools/dict-manager.ts validate dictionaries-csv/core/core.csv dictionaries-csv/domains/*.csv dictionaries-csv/extended/*.csv",
