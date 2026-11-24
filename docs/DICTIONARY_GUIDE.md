@@ -1,6 +1,6 @@
 # TWLint 詞庫架構指南
 
-## 📚 新架構設計
+## 新架構設計
 
 ### 實際目錄結構
 ```
@@ -37,7 +37,7 @@ src/dictionaries/
 └── extended.json
 ```
 
-## 📝 詞庫格式標準（新版）
+## 詞庫格式標準（新版）
 
 ### 完整 CSV 欄位定義
 ```csv
@@ -47,20 +47,20 @@ id,taiwan,china_simplified,china_traditional,english,confidence,category,reason,
 ### 欄位說明
 | 欄位 | 必填 | 說明 | 範例 |
 |------|------|------|------|
-| **id** | ✅ | 唯一識別碼 | `software-term-1` |
-| **taiwan** | ✅ | 台灣建議用語 | `軟體` |
-| **china_simplified** | ✅ | 大陸簡體用語 | `软件` |
-| **china_traditional** | ✅ | 大陸繁體用語 | `軟件` |
-| **english** | ❌ | 英文對照 | `software` |
-| **confidence** | ✅ | 信心度 (0.0-1.0) | `0.95` |
-| **category** | ✅ | 分類 | `mainland-term` |
-| **reason** | ✅ | 建議理由 | `台灣技術標準用語` |
-| **domain** | ✅ | 所屬領域 | `tech` |
-| **match_type** | ❌ | 匹配模式 | `exact`/`context_sensitive` |
-| **context_before** | ❌ | 前置語境 | `開發,設計` |
-| **context_after** | ❌ | 後置語境 | `工程師,架構` |
-| **context_exclude** | ❌ | 排除語境 | `硬體` |
-| **autofix_safe** | ❌ | 安全修復 | `true`/`false` |
+| **id** | 是 | 唯一識別碼 | `software-term-1` |
+| **taiwan** | 是 | 台灣建議用語 | `軟體` |
+| **china_simplified** | 是 | 大陸簡體用語 | `软件` |
+| **china_traditional** | 是 | 大陸繁體用語 | `軟件` |
+| **english** | 否 | 英文對照 | `software` |
+| **confidence** | 是 | 信心度 (0.0-1.0) | `0.95` |
+| **category** | 是 | 分類 | `mainland-term` |
+| **reason** | 是 | 建議理由 | `台灣技術標準用語` |
+| **domain** | 是 | 所屬領域 | `tech` |
+| **match_type** | 否 | 匹配模式 | `exact`/`context_sensitive` |
+| **context_before** | 否 | 前置語境 | `開發,設計` |
+| **context_after** | 否 | 後置語境 | `工程師,架構` |
+| **context_exclude** | 否 | 排除語境 | `硬體` |
+| **autofix_safe** | 否 | 安全修復 | `true`/`false` |
 
 ### 範例：軟體開發詞庫
 ```csv
@@ -76,7 +76,7 @@ quality-physics,質量,质量,質量,mass,0.95,mainland-term,物理學質量單�
 - **word_boundary**：詞邊界匹配，避免部分匹配
 - **context_sensitive**：語境感知，用於同形異義詞
 
-## 🔧 詞庫管理工具
+## 詞庫管理工具
 
 ### 新增領域詞庫
 ```bash
@@ -102,35 +102,35 @@ npm run dict:check-duplicates
 npm run dict:test 新領域名
 ```
 
-## 📊 詞庫分級系統
+## 詞庫分級系統
 
 ### 1. 核心詞庫 (Core)
 - **必備載入**：預設啟用
 - **內容**：最基本的簡繁轉換和常見大陸用語
-- **目標用戶**：所有使用者
+- **適用對象**：所有使用者
 
 ### 2. 專業詞庫 (Professional)
 - **選擇性載入**：`--dict` 參數指定
 - **內容**：特定領域專業術語
-- **目標用戶**：該領域專業人士
+- **適用對象**：該領域專業人士
 
 ### 3. 擴展詞庫 (Extended)
 - **深度模式**：`--deep` 參數啟用
 - **內容**：全面的詞彙對照
-- **目標用戶**：需要全面檢查的場景
+- **適用對象**：需要全面檢查的場景
 
-## 🚀 使用方式
+## 使用方式
 
-### 新版領域設定（推薦）
+### 指定領域詞庫
 ```bash
 # 軟體開發專案
-twlint check src/ --domains software-development user-interface
+twlint check src/ --dict core software-development user-interface
 
 # 商業文件
-twlint check docs/ --domains business-finance
+twlint check docs/ --dict core business-finance
 
 # AI 技術文檔
-twlint check papers/ --domains ai-emerging-tech network-cloud
+twlint check papers/ --dict core ai-emerging-tech network-cloud
 
 # 深度模式（載入所有詞庫）
 twlint check *.md --deep
@@ -175,7 +175,7 @@ export default [
 ]
 ```
 
-## 📈 詞庫貢獻流程
+## 詞庫貢獻流程
 
 ### 1. 準備階段
 - Fork TWLint 專案
@@ -204,46 +204,41 @@ npm run test
 - 內容包含：
   - 新增詞彙數量
   - 覆蓋領域說明
-  - 測試結果截圖
+  - 測試結果擷圖
 
-## 🎯 詞庫現狀與發展
+## 詞庫現狀與發展
 
-### 已完成詞庫 ✅
-- ✅ **core** (150) - 核心技術用語
-- ✅ **software-development** (139) - 軟體開發
-- ✅ **user-interface** (119) - 使用者介面
-- ✅ **network-cloud** (113) - 網路雲端
-- ✅ **social-media** (106) - 社群媒體
-- ✅ **operating-system** (101) - 作業系統
-- ✅ **hardware-3c** (91) - 硬體3C
-- ✅ **business-finance** (123) - 商業金融
-- ✅ **ai-emerging-tech** (108) - AI新興技術
-- ✅ **academic** (12) - 學術用語（傳統）
-- ✅ **extended** (12) - 擴展詞庫（傳統）
+### 已完成詞庫
+- **core** - 核心技術用語
+- **software-development** - 軟體開發
+- **user-interface** - 使用者介面
+- **network-cloud** - 網路雲端
+- **social-media** - 社群媒體
+- **operating-system** - 作業系統
+- **hardware-3c** - 硬體3C
+- **business-finance** - 商業金融
+- **ai-emerging-tech** - AI新興技術
+- **academic** - 學術用語（傳統）
+- **extended** - 擴展詞庫（傳統）
 
-### 進階功能 🚀
-- ✅ **語境感知檢測** - 同形異義詞精確識別
-- ✅ **智慧自動修復** - 安全修復 vs 建議修復
-- ✅ **領域專門化** - 按需載入特定領域詞庫
-- ✅ **向後相容** - 支援舊版設定格式
+### 進階功能
+- **語境感知檢測** - 同形異義詞精確識別
+- **智慧自動修復** - 安全修復 vs 建議修復
+- **領域專門化** - 按需載入特定領域詞庫
+- **向後相容** - 支援舊版設定格式
 
 ### 未來擴展方向
-- 📋 醫療健康領域
-- 📋 法律政策領域
-- 📋 教育學術擴展
-- 📋 文化創意領域
-- 📋 製造工業領域
+- 醫療健康領域
+- 法律政策領域
+- 教育學術擴展
+- 文化創意領域
+- 製造工業領域
 
-## 📊 詞庫統計
+## 詞庫統計
 
-| 類型 | 數量 | 總項目 | 平均信心度 |
-|------|------|---------|------------|
-| 核心詞庫 | 1 | 150 | 0.92 |
-| 領域詞庫 | 8 | 843 | 0.88 |
-| 傳統詞庫 | 2 | 24 | 0.85 |
-| **總計** | **11** | **1,017** | **0.89** |
+各詞庫的詞目數量由 `npm run dict:build` 寫進 `src/dictionaries/index.json`，以該檔為準。
 
-## 🔧 詞庫維護工具
+## 詞庫維護工具
 
 ```bash
 # 建構所有詞庫
@@ -261,4 +256,3 @@ npm run dict:list
 
 ---
 
-**採用新領域架構，詞庫管理更精確！** 🚀

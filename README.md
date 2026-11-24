@@ -1,125 +1,102 @@
 # TWLint
 
-> **你是否也有這樣的困擾？**  
-> AI 生成的文件裡，「软件」「軟件」「軟體」混在一起；技術文檔充滿「用戶」「使用者」不統一的用語；明明用繁體中文卻到處是大陸用語...
-> 
-> 因為 LLM 訓練語料中繁體中文資料極少，生成內容常混雜簡體字和大陸用語。**TWLint 就是為了解決這個痛點而生**，讓你的專案文件保持一致的台灣繁體中文，不再手動校對到崩潰。
+檢查中文文件和程式碼裡的簡體字與大陸用語，建議台灣用法，能安全替換的部分可以自動修復。
 
-## ✨ 核心特色
+LLM 的訓練語料裡繁體中文少，生成的文件常混著「软件」「軟件」「軟體」，或「用戶」「使用者」並存。TWLint 用來在 commit 前把這些找出來。
 
-### 統一中文用法
-- **簡體字清除**：自動檢測並轉換所有簡體字為繁體字
-- **大陸用語替換**：識別並建議台灣本土用語替代方案
-- **技術詞彙本土化**：軟件→軟體、網絡→網路、用戶→使用者
+## 功能
 
-### 檢索引擎
-- **語境偵測**：根據上下文精確識別同形異義詞
-- **領域專門詞庫**：多領域詞目涵蓋 AI、軟體開發、商業金融等
-- **程式碼檢查**：支援註解、字串、UI 文字等程式碼中的中文內容
+- **簡體字**：逐字比對，簡體字可自動轉成繁體字
+- **大陸用語**：比對詞庫，建議台灣用語（軟件→軟體、網絡→網路、用戶→使用者）
+- **語境判斷**：同形異義詞（例如「文件」可能是檔案或文件）依前後文判斷，只提示、不自動修改
+- **只比對兩個字以上的詞**：單一個字（包、流、類）脫離上下文判斷不了詞義，詞庫不收
+- **領域詞庫**：軟體開發、使用者介面、網路雲端、AI、商業金融等，可依檔案類型分別啟用
+- **ESLint 風格設定**：`files`、`ignores`、`rules`，另支援 `.twlintignore`
+- **輸出格式**：stylish、json
 
-### 🛠️ 開發者友善
-- **ESLint 風格設定**：支援 `ignores`、`files`、`rules` 彈性設定
-- **系統鐵律保護**：自動忽略 `.env`、`.gitignore` 等敏感檔案
-- **遵循 .gitignore**：智慧跳過不需要的檔案和目錄
-- **多種輸出格式**：stylish、json 格式滿足不同需求
-- **npm script 整合**：像使用 ESLint 一樣簡單
+## 快速開始
 
-## 🚀 快速開始
+### 安裝
 
-### 全域安裝
 ```bash
 npm install -g @termdock/twlint
 ```
 
 ### 基本使用
+
 ```bash
-# 檢查文件（ESLint 風格：預設只檢查不修復）
+# 檢查（預設只檢查，不修改檔案）
 twlint check README.md
 twlint check "docs/**/*.md"
 
-# 自動修復（需要明確指定 --fix）
+# 自動修復（需明確加 --fix）
 twlint check README.md --fix
 
-# 檢查程式碼中的中文（註解、字串等）
-twlint check "src/**/*.{js,ts,jsx,tsx,vue}"
-
-# 初始化專案設定
+# 產生設定檔
 twlint init
 ```
 
-### 整合到專案（推薦）
-```bash
-# 1. 初始化設定檔案
-twlint init
+### 整合到專案
 
-# 2. 編輯 twlint.config.js 自訂規則和忽略模式
-#    支援 global ignores 和 file-level ignores
-#    詳見「設定」章節
+1. 執行 `twlint init` 產生 `twlint.config.js`，再依專案調整（見「設定」）。
+2. 在 `package.json` 加入 scripts：
 
-# 3. 加入 package.json scripts
+```json
 {
   "scripts": {
     "twlint": "twlint check **/*.md **/*.txt",
     "twlint:fix": "twlint check **/*.md **/*.txt --fix",
-    "twlint:code": "twlint check 'src/**/*.{js,ts,jsx,tsx,vue}'",
-    "twlint:all": "twlint check **/*.md **/*.txt 'src/**/*.{js,ts,jsx,tsx,vue}'"
+    "twlint:code": "twlint check 'src/**/*.{js,ts,jsx,tsx,vue}'"
   }
 }
-
-# 4. 簡易的使用方式
-npm run twlint      # 檢查文件
-npm run twlint:fix  # 檢查並修復文件
-npm run twlint:all  # 檢查所有檔案
 ```
 
-## Demo
+## 範例
 
-###  文件檢查範例
-假設有以下包含大陸用語的檔案：
+### 文件檢查
+
+`example.md`：
+
 ```markdown
 <!-- 以下為示範用簡體字內容 -->
 # 软件开发项目
 这个软件的质量很好，我们使用了先进的算法。
 ```
 
-**第一步：檢查問題（ESLint 風格：預設只檢查）**
 ```bash
 $ twlint check example.md
 
 example.md
-  1:3   ✖ error    簡體字 '软' 建議使用繁體字 '軟'          simplified-chars
-  1:6   ✖ error    簡體字 '开' 建議使用繁體字 '開'          simplified-chars
-  1:8   ✖ error    簡體字 '项' 建議使用繁體字 '項'          simplified-chars
-  2:1   ✖ error    簡體字 '这' 建議使用繁體字 '這'          simplified-chars
-  2:2   ✖ error    簡體字 '个' 建議使用繁體字 '個'          simplified-chars
-  1:3   ⚠ warning  大陸用語 '軟件' 建議使用臺灣用語 '軟體'   mainland-terms
-  1:8   ⚠ warning  大陸用語 '項目' 建議使用臺灣用語 '專案'   mainland-terms
-  2:7   ⚠ warning  大陸用語 '質量' 建議使用臺灣用語 '品質'   mainland-terms
-  2:18  ⚠ warning  大陸用語 '算法' 建議使用臺灣用語 '演算法' mainland-terms
+    1:3   ✖ error  簡體字 '软' 建議使用繁體字 '軟'  simplified-chars
+    1:5   ✖ error  簡體字 '开' 建議使用繁體字 '開'  simplified-chars
+    1:6   ✖ error  簡體字 '发' 建議使用繁體字 '發'  simplified-chars
+    1:7   ✖ error  簡體字 '项' 建議使用繁體字 '項'  simplified-chars
+    2:1   ✖ error  簡體字 '这' 建議使用繁體字 '這'  simplified-chars
+    2:2   ✖ error  簡體字 '个' 建議使用繁體字 '個'  simplified-chars
+    2:3   ✖ error  簡體字 '软' 建議使用繁體字 '軟'  simplified-chars
+    2:6   ✖ error  簡體字 '质' 建議使用繁體字 '質'  simplified-chars
+    2:12  ✖ error  簡體字 '们' 建議使用繁體字 '們'  simplified-chars
+    2:17  ✖ error  簡體字 '进' 建議使用繁體字 '進'  simplified-chars
+    1:3   ⚠ warning  大陸用語 '軟件' 建議使用臺灣用語 '軟體'  mainland-terms
+    2:3   ⚠ warning  大陸用語 '軟件' 建議使用臺灣用語 '軟體'  mainland-terms
+    2:19  ⚠ warning  大陸用語 '算法' 建議使用臺灣用語 '演算法'  mainland-terms
 
-✖ 12 problems (8 errors, 4 warnings)
-
-  12 problems potentially fixable with the `--fix` option.
+✖ 13 problems (10 errors, 3 warnings)
 ```
 
-**第二步：自動修復（明確使用 --fix）**
-```bash
-$ twlint check example.md --fix
+`twlint check example.md --fix` 之後：
 
-🎉 Fixed 1 file(s)
-
---- Remaining issues after fix ---
-✓ No problems found!
-```
-
-**修復結果：完全台灣本土化**
 ```markdown
-# 軟體開發專案
-這個軟體的品質很好，我們使用了先進的演算法。
+# 軟體開發項目
+這個軟體的質量很好，我們使用了先進的演算法。
 ```
 
-### 💻 程式碼檢查範例
-對於程式碼中的註解和字串：
+「項目」「質量」在台灣也有正當用法，預設詞庫不會自動改；需要時用語境規則或領域詞庫處理。
+
+### 程式碼檢查
+
+預設設定只檢查 `*.md` 和 `*.txt`。要檢查程式碼裡的註解和字串，設定檔的 `files` 要包含對應路徑（`twlint init` 產生的設定已包含 `src/**/*.{js,ts,jsx,tsx,vue}`）。
+
 ```javascript
 /**
  * 这个软件用于处理用户数据
@@ -130,55 +107,47 @@ function processData(data) {
 }
 ```
 
-```bash
-$ twlint check src/utils.js --fix
+`twlint check src/utils.js --fix` 之後：
 
-# 自動修復為台灣用語
+```javascript
 /**
  * 這個軟體用於處理使用者資料
  */
 function processData(data) {
-  console.log("網路連線失敗");
-  throw new Error("檔案讀取失敗");
+  console.log("網路連接失敗");
+  throw new Error("文件讀取失敗");
 }
 ```
 
 ## 設定
 
-### 專案設定檔案
+### 設定檔
 
-建立 `twlint.config.js`：
+`twlint.config.js`：
 
 ```javascript
 export default [
-  // Global ignores - 全域忽略模式
+  // 只有 ignores 的物件是全域忽略
   {
     ignores: [
-      "**/test-*.md",      // 測試檔案
-      "**/draft-*.md",     // 草稿檔案
-      "**/legacy/**"       // 舊版程式碼
+      "**/test-*.md",
+      "**/draft-*.md",
+      "**/legacy/**"
     ]
   },
 
   {
-    // 檢查的檔案類型
     files: ["**/*.md", "**/*.txt"],
-
-    // 使用的領域詞庫（新架構）
+    // 要額外載入的領域詞庫（core 一律載入）
     domains: ["software-development", "user-interface"],
-
-    // 或使用舊的詞庫設定（向後相容）
-    // dictionaries: ["core", "academic"],
-
-    // 規則設定
+    // 舊寫法仍可用：dictionaries: ["core", "academic"]
     rules: {
-      "simplified-chars": "error",      // 簡體字檢測（自動修復）
-      "mainland-terms": "warning"       // 大陸用語檢測（提供建議）
+      "simplified-chars": "error",
+      "mainland-terms": "warning"
     }
   },
 
   {
-    // 程式碼檔案
     files: ["src/**/*.{js,ts,jsx,tsx,vue}"],
     domains: ["software-development"],
     rules: {
@@ -189,197 +158,146 @@ export default [
 ]
 ```
 
-### 自訂忽略規則
+### 忽略規則
 
-TWLint 提供三種方式設定忽略規則：
+有三種方式：
 
-#### 1. `.twlintignore` 檔案（推薦）
+1. **`.twlintignore`**（建議），寫法同 `.eslintignore`：
 
-類似 `.eslintignore`，在專案根目錄建立：
+   ```text
+   test-*.md
+   tests/
+   draft-*.md
+   temp/
+   ```
 
-```
-# .twlintignore
-
-# 測試文件
-test-*.md
-tests/
-
-# 草稿文件
-draft-*.md
-temp/
-```
-
-#### 2. 設定檔案 Global Ignores
-
-```javascript
-export default [
-  {
-    ignores: [
-      "**/test-*.md",
-      "**/draft-*.md"
-    ]
-  }
-]
-```
-
-#### 3. File-Level Ignores
+2. **設定檔全域忽略**：只有 `ignores` 屬性的設定物件。
+3. **個別區塊忽略**：在有 `files` 的區塊加 `ignores`，只影響該區塊。
 
 ```javascript
 export default [
   {
     files: ["**/*.md"],
-    ignores: ["**/README.md"],  // 排除所有 README.md
-    rules: {
-      "simplified-chars": "error"
-    }
+    ignores: ["**/README.md"],
+    rules: { "simplified-chars": "error" }
   }
 ]
 ```
 
-**忽略優先順序**
+優先順序由高到低：
 
-1. **系統鐵律** - 最高優先（不可覆寫）
-   - 設定檔案：`.gitignore`, `.dockerignore`, `.env*`, `.*ignore`
-   - 版本控制：`.git/`, `.svn/`, `node_modules/`
-   - 建構輸出：`dist/`, `build/`, `.next/`
-   - 日誌檔案：`*.log`, `*.tmp`
+1. **系統內建忽略**（不可覆寫）：`.gitignore`、`.dockerignore`、`.env*`、`.*ignore`、`.git/`、`.svn/`、`node_modules/`、`dist/`、`build/`、`.next/`、`*.log`、`*.tmp`
+2. `.twlintignore`
+3. 設定檔全域忽略
+4. 個別區塊忽略
 
-2. **`.twlintignore` 檔案** - TWLint 專用忽略規則
-3. **Global Ignores** - 設定檔案中的全域忽略
-4. **File-Level Ignores** - 特定設定區塊的忽略規則
-
-> 📖 完整說明請參考 [docs/configuration-ignores.md](docs/configuration-ignores.md)
+完整說明見 [docs/configuration-ignores.md](docs/configuration-ignores.md)。
 
 ### CLI 選項
 
-```bash
+```text
 twlint check <files...> [options]
 
-Options:
-  --fix                自動修復可修復的問題（僅安全修復）
-  --format <type>      輸出格式 (stylish, json)
-  --domains <names...> 指定使用的領域詞庫（推薦）
-  --dict <names...>    指定使用的詞庫（向後相容）
-  --config <path>      設定檔案路徑
-  --verbose           顯示詳細輸出
-  --deep              深度模式（載入所有詞庫）
+  --fix              自動修復（只修 autofix_safe 的詞條與簡體字）
+  --deep             載入所有詞庫
+  --format <type>    輸出格式：stylish（預設）、json
+  --dict <names...>  指定詞庫，例如 --dict core academic
+  --config <path>    設定檔路徑
+  --verbose          顯示詳細輸出
+
+twlint init [--force]  產生 twlint.config.js
 ```
 
-## 詞庫架構
+領域詞庫從設定檔的 `domains` 指定；CLI 上可用 `--dict` 指定詞庫名稱。
 
-### 領域專門詞庫（新架構）
+## 詞庫
 
-TWLint 採用領域導向的詞庫架構，提供更精確的用語檢測：
+`core` 一律載入，其他詞庫依設定檔的 `domains`、`--dict` 或 `--deep` 載入。各詞庫的詞目數量見建置產生的 `src/dictionaries/index.json`。
 
-| 領域 | 描述 | 詞目數量 |
-|------|------|----------|
-| core | 核心詞庫（必載） | 150 |
-| software-development | 軟體開發 | 139 |
-| user-interface | 使用者介面 | 119 |
-| network-cloud | 網路雲端 | 113 |
-| social-media | 社群媒體 | 106 |
-| operating-system | 作業系統 | 101 |
-| hardware-3c | 硬體3C | 91 |
-| business-finance | 商業金融 | 123 |
-| ai-emerging-tech | AI新興技術 | 108 |
+| 詞庫 | 內容 |
+|------|------|
+| core | 核心詞庫（必載） |
+| software-development | 軟體開發 |
+| user-interface | 使用者介面 |
+| network-cloud | 網路雲端 |
+| social-media | 社群媒體 |
+| operating-system | 作業系統 |
+| hardware-3c | 硬體 3C |
+| business-finance | 商業金融 |
+| ai-emerging-tech | AI 新興技術 |
+| academic | 學術用語（舊版詞庫） |
+| extended | 擴充用語（舊版詞庫） |
 
-### 設定範例
-
-**領域專門設定**（推薦）：
 ```bash
-# 軟體開發專案
-twlint check src/ --domains software-development user-interface
+# 指定詞庫
+twlint check docs/ --dict core business-finance
 
-# 商業文件
-twlint check docs/ --domains business-finance
-
-# AI 技術文檔
-twlint check papers/ --domains ai-emerging-tech network-cloud
-```
-
-**深度掃描**（載入所有詞庫）：
-```bash
+# 載入所有詞庫
 twlint check README.md --deep
 ```
 
-### 傳統詞庫（向後相容）
+## 規則
 
-仍支援舊的詞庫設定方式：
-- **core**：核心技術用語
-- **academic**：學術用語
-- **extended**：擴充功能用語集
+### simplified-chars
 
-```bash
-twlint check file.md --dict core academic
+逐字找出簡體字，建議對應的繁體字。
+
+本身也是正體字的字（公里的「里」、玄武岩的「岩」、契托爾的「托」），只有在同一行已有確定的簡體字時才回報，正體中文文章不會被誤報。詞組層級的用字差異（家具／傢俱、周年／週年）不算簡體字，不回報。
+
+- 嚴重度：error
+- 可自動修復：是
+
+### mainland-terms
+
+比對詞庫找出大陸用語，建議台灣用語。只比對兩個字以上的詞；文字已經是建議詞時（例如「終端機」）不回報。
+
+- 嚴重度：warning（`autofix_safe: true`，可自動修復）或 info（需人工確認，不自動修復）
+
+### 語境判斷
+
+同一個詞在不同語境意思不同時，詞條用 `context_sensitive`，並設定前後文關鍵字：
+
+```javascript
+{
+  taiwan: "品質",
+  china_simplified: "质量",
+  match_type: "context_sensitive",
+  context: {
+    before: ["產品", "服務", "商品"],  // 前文出現任一個
+    after: ["控制", "管理", "標準"],   // 且後文出現任一個
+    exclude: ["物理"]                  // 前後文出現就不比對
+  }
+}
 ```
+
+`before` 和 `after` 都設定時兩者都要符合；同一個清單內任一關鍵字出現即可。
+
+### 自動修復分級
+
+- `autofix_safe: true`：替換確定無誤（軟件→軟體、網絡→網路），`--fix` 會修改。
+- `autofix_safe: false`：需要人工判斷（語境敏感詞、有爭議的術語），只提示。
 
 ## 開發
 
-### 環境需求
-- Node.js 18+
-- TypeScript 5.0+
+需求：Node.js 18+、TypeScript 5.0+
 
-### 本機開發
 ```bash
 git clone https://github.com/Termdock-dev/twlint.git
 cd twlint
 npm install
 npm run build
-npm run test
+npx vitest run
 ```
 
-### 建構詞庫
+詞庫原始檔在 `dictionaries-csv/`，修改後執行：
+
 ```bash
-npm run dict:build
-npm run dict:validate
+npm run dict:validate   # 檢查所有 CSV 的欄位與詞條長度
+npm run dict:build      # CSV 轉 JSON；有單字詞條時建置失敗
 ```
 
-## 規則說明
-
-### simplified-chars
-檢測簡體字並自動轉換為繁體字。
-- **嚴重度**：error
-- **可修復**：是（完全自動）
-
-### mainland-terms
-檢測大陸特有用語並建議臺灣慣用詞彙。
-- **嚴重度**：warning（安全修復）/ info（需人工判斷）
-- **可修復**：智慧分級修復
-
-## 進階功能
-
-### 語境感知檢測
-
-TWLint 支援根據上下文精確檢測同形異義詞：
-
-```javascript
-// 範例：「質量」的語境檢測
-{
-  taiwan: "品質",        // 商業語境下的建議
-  china_simplified: "质量",
-  match_type: "context_sensitive",
-  context: {
-    before: ["產品", "服務", "商品"],
-    after: ["控制", "管理", "標準"],
-    exclude: ["物理"]     // 排除物理學語境
-  }
-}
-```
-
-### 自動修復分級
-
-- **安全修復**（`autofix_safe: true`）：確定無誤的用詞替換
-  - 例：「軟件」→「軟體」、「網絡」→「網路」
-  - 自動執行 `--fix` 時會修復
-
-- **建議修復**（`autofix_safe: false`）：需人工確認的替換
-  - 例：語境敏感詞、專業術語
-  - 僅提供建議，不會自動修復
+詞庫貢獻方式見 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 ## 授權
 
-Apache License 2.0
-
-詳見 [LICENSE](LICENSE) 檔案。
-
-**讓我們一起維護臺灣繁體中文的純正性！**
+Apache License 2.0，詳見 [LICENSE](LICENSE)。

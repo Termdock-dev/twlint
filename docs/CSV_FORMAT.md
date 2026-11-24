@@ -1,6 +1,6 @@
 # TWLint CSV 格式指南（新版）
 
-## 📋 完整欄位定義
+## 完整欄位定義
 
 TWLint 2.0 支援完整的 CSV 格式，包含語境感知和自動修復功能：
 
@@ -17,22 +17,22 @@ id,taiwan,china_simplified,china_traditional,english,confidence,category,reason,
 
 | 欄位 | 必填 | 說明 | 範例 |
 |------|------|------|------|
-| `id` | ✅ | 唯一識別碼 | `software-term-1` |
-| `taiwan` | ✅ | 台灣建議用語 | `軟體` |
-| `china_simplified` | ✅ | 大陸簡體用語 | `软件` |
-| `china_traditional` | ✅ | 大陸繁體用語 | `軟件` |
-| `english` | ❌ | 英文對照 | `software` |
-| `confidence` | ✅ | 信心度 (0.0-1.0) | `0.95` |
-| `category` | ✅ | 分類標籤 | `mainland-term` |
-| `reason` | ✅ | 建議理由 | `台灣技術標準用語` |
-| `domain` | ✅ | 領域標識 | `tech` |
-| `match_type` | ❌ | 匹配模式 | `exact`/`context_sensitive` |
-| `context_before` | ❌ | 前置語境（逗號分隔） | `開發,設計,系統` |
-| `context_after` | ❌ | 後置語境（逗號分隔） | `工程師,架構,管理` |
-| `context_exclude` | ❌ | 排除語境（逗號分隔） | `硬體,物理` |
-| `autofix_safe` | ❌ | 安全自動修復 | `true`/`false` |
+| `id` | 是 | 唯一識別碼 | `software-term-1` |
+| `taiwan` | 是 | 台灣建議用語 | `軟體` |
+| `china_simplified` | 是 | 大陸簡體用語 | `软件` |
+| `china_traditional` | 是 | 大陸繁體用語 | `軟件` |
+| `english` | 否 | 英文對照 | `software` |
+| `confidence` | 是 | 信心度 (0.0-1.0) | `0.95` |
+| `category` | 是 | 分類標籤 | `mainland-term` |
+| `reason` | 是 | 建議理由 | `台灣技術標準用語` |
+| `domain` | 是 | 領域標識 | `tech` |
+| `match_type` | 否 | 匹配模式 | `exact`/`context_sensitive` |
+| `context_before` | 否 | 前置語境（逗號分隔） | `開發,設計,系統` |
+| `context_after` | 否 | 後置語境（逗號分隔） | `工程師,架構,管理` |
+| `context_exclude` | 否 | 排除語境（逗號分隔） | `硬體,物理` |
+| `autofix_safe` | 否 | 安全自動修復 | `true`/`false` |
 
-## 🔧 轉換工具使用
+## 轉換工具使用
 
 ### 1. 建議使用新架構
 
@@ -107,7 +107,7 @@ npm run dict:list
 npm run dict:stats
 ```
 
-## 📝 新版格式範例
+## 新版格式範例
 
 ### 格式 1: 完整新版格式
 ```csv
@@ -140,7 +140,7 @@ quality-business,品質,质量,質量,quality,0.90,mainland-term,商業品質管
 演算法,算法,algorithm,學術標準
 ```
 
-## ⚙️ 智慧轉換特性
+## 智慧轉換特性
 
 ### 自動完成功能
 1. **欄位映射**: 智慧識別各種欄位名稱
@@ -160,7 +160,7 @@ quality-business,品質,质量,質量,quality,0.90,mainland-term,商業品質管
 - **安全等級評估**: 智慧判斷是否適合自動修復
 - **信心度調整**: 根據語境複雜度調整信心度
 
-## 🎯 新版最佳實踐
+## 新版最佳實踐
 
 ### 詞庫分類原則
 1. **領域專一性**: 一個詞目只屬於一個領域
@@ -187,7 +187,7 @@ quality-business,品質,质量,質量,quality,0.90,mainland-term,商業品質管
 2. **排除語境**: `context_exclude` 使用 AND 邏輯
 3. **簡繁並用**: 考慮簡體和繁體字形差異
 
-## 🚀 快速上手指南
+## 快速上手指南
 
 ### 方案 A: 建立新領域詞庫（推薦）
 ```bash
@@ -203,7 +203,7 @@ vim dictionaries-csv/domains/my-domain.csv
 # 4. 建構和測試
 npm run dict:build
 npm run dict:validate
-twlint check README.md --domains my-domain
+twlint check README.md --dict core my-domain
 ```
 
 ### 方案 B: 轉換現有資料
@@ -232,4 +232,3 @@ twlint check README.md --dict core my-category
 
 ---
 
-**讓詞庫管理變得簡單！** 🎉
