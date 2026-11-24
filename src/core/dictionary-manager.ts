@@ -1,11 +1,12 @@
 import { readFile } from 'fs/promises'
-import { join, dirname } from 'path'
+import { join, dirname, resolve } from 'path'
 import { fileURLToPath } from 'url'
 import type { CompiledDict, MatchResult, DictLookupEntry } from '../types.js'
 import { formatError } from '../utils/error-utils.js'
 import { MatchStrategyRegistry } from './matching/match-strategies.js'
 import { LRUCache } from './lru-cache.js'
 import { isMatchableTerm } from './matchable-term.js'
+import { parseCSV, compileRows, buildDictionary } from './dictionary-compiler.js'
 
 // 建議詞包含原詞時（終端→終端機），命中位置周圍的文字可能已經是建議詞。
 // 原詞等於建議詞的保護詞條不在此列：它們要留下來，在去重時蓋掉較短的命中。
@@ -58,6 +59,27 @@ export class DictionaryManager {
     }
   }
 
+  /**
+   * 載入使用者的自訂詞表（CSV，格式同 dictionaries-csv/），執行時編譯。
+   * 讀不到或格式錯誤直接丟錯：設定檔明確指定的詞表不能靜默略過。
+   */
+  async loadCustomDictionary(path: string): Promise<CompiledDict> {
+    const absolutePath = resolve(path)
+    const key = `custom:${absolutePath}`
+    const cached = this.cache.get(key)
+    if (cached) return cached
+
+    try {
+      const entries = compileRows(parseCSV(await readFile(absolutePath, 'utf-8')), path)
+      const dict = buildDictionary(entries, key, 'custom')
+      dict.metadata.custom = true
+      this.cache.set(key, dict)
+      return dict
+    } catch (error) {
+      throw new Error(`Failed to load custom dictionary "${path}": ${formatError(error)}`)
+    }
+  }
+
   private async readDictionaryFile(name: string): Promise<string> {
     try {
       return await readFile(join(this.dictionariesPath, `${name}.json`), 'utf-8')
@@ -94,7 +116,7 @@ export class DictionaryManager {
         const matches = strategy.match(text, term, entry.context)
 
         for (const match of matches) {
-          this.addMatch(text, allMatches, match, entry, dict.metadata.name)
+          this.addMatch(text, allMatches, match, entry, dict.metadata)
         }
 
         // 對於語境敏感詞彙，同時檢查其變體
@@ -111,7 +133,7 @@ export class DictionaryManager {
             const variantMatches = variantStrategy.match(text, term, variantEntry.context)
 
             for (const match of variantMatches) {
-              this.addMatch(text, allMatches, match, variantEntry, dict.metadata.name, true)
+              this.addMatch(text, allMatches, match, variantEntry, dict.metadata, true)
             }
           }
         }
@@ -124,6 +146,9 @@ export class DictionaryManager {
       const lenA = a.end - a.start
       const lenB = b.end - b.start
       if (lenA !== lenB) return lenB - lenA // Longest first
+
+      // 同長度時自訂詞表優先：使用者的決定蓋過內建詞庫（自訂「腳本→腳本」就等於允許這個詞）
+      if (!!a.custom !== !!b.custom) return a.custom ? -1 : 1
 
       if (Math.abs(a.confidence - b.confidence) > 0.01) {
         return b.confidence - a.confidence // Higher confidence first
@@ -210,7 +235,7 @@ export class DictionaryManager {
     allMatches: MatchResult[],
     match: MatchResult,
     entry: DictLookupEntry,
-    dictName: string,
+    dict: CompiledDict['metadata'],
     isVariant = false
   ): void {
     if (readsAsReplacement(text, match.start, match.term, entry.taiwan)) return
@@ -219,8 +244,9 @@ export class DictionaryManager {
       ...match,
       replacement: entry.taiwan,
       confidence: entry.confidence,
-      rule: `${dictName}-${entry.match_type || 'exact'}${isVariant ? '-variant' : ''}`,
-      autofix_safe: entry.autofix_safe || false
+      rule: `${dict.name}-${entry.match_type || 'exact'}${isVariant ? '-variant' : ''}`,
+      autofix_safe: entry.autofix_safe || false,
+      custom: dict.custom || false
     })
   }
 

@@ -170,6 +170,16 @@ export class ConfigMatcher {
     return [...new Set(domains)] // 去重
   }
 
+  getAllCustomDictionaries(): string[] {
+    const configArray = Array.isArray(this.configs) ? this.configs : [this.configs]
+    return [...new Set(configArray.flatMap(config => config.customDictionaries ?? []))]
+  }
+
+  getCustomDictionariesForFile(filePath: string): string[] {
+    const paths = this.blocksForFile(filePath).flatMap(config => config.customDictionaries ?? [])
+    return [...new Set(paths)]
+  }
+
   /**
    * 適用於這個檔案的設定區塊：略過只有 ignores 的全域忽略區塊、files 不符合的區塊、
    * 區塊自己的 ignores 排除的檔案；整個檔案被忽略時回傳空陣列。
