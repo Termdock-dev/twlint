@@ -2,7 +2,7 @@ id,taiwan,china_simplified,china_traditional,english,confidence,category,reason,
 access-visit,存取,访问,訪問,access,0.95,mainland-term,台灣技術標準用語,tech,context_sensitive,"程式,程式碼,軟體,系統,伺服器,資料庫,API,電腦,應用程式,App,檔案,函式,變數,類別,物件,開發,編譯,部署,雲端,Git,npm,Linux,Windows,macOS,原始碼,權限,讀寫,記憶體",,"訪問團,正式訪問,國事訪問",false
 quality-physics,質量,质量,質量,mass,0.95,mainland-term,物理學質量單位,physics,context_sensitive,"密度,重量,公斤,kg,物理,物体,物體,物質,質點","守恆,轉換,定律,公式,m/s,單位",,false
 quality-business,品質,质量,質量,quality,0.90,mainland-term,商業品質管理,business,context_sensitive,"產品,服務,商品,客戶","控制,管理,標準,檢驗,提升",物理,false
-activate,啟用,激活,激活,activate,0.90,mainland-term,台灣系統操作標準,tech,context_sensitive,,"Windows,Office,帳號,序號,授權,軟體,軟件,產品,License,license,金鑰",,false
+activate,啟用,激活,激活,activate,0.90,mainland-term,台灣系統操作標準,tech,context_sensitive,,"Windows,Office,帳號,序號,授權,軟體,軟件,產品金鑰,License,license,金鑰",,false
 add,新增,添加,添加,add,0.85,mainland-term,台灣介面操作慣用語,tech,context_sensitive,"按鈕,選項,欄位,使用者,帳號,介面,列表,元件,點擊",,"調味,食物,材料,成分,添加物,添加劑,無添加",false
 algorithm,演算法,算法,算法,algorithm,0.95,mainland-term,台灣學術標準用語,tech,exact,,,,true
 application,應用程式,应用程序,應用程序,application,0.90,mainland-term,台灣軟體開發標準,tech,exact,,,,true
@@ -35,7 +35,7 @@ copy,複製,拷贝,拷貝,copy,0.85,mainland-term,台灣檔案操作標準,tech,
 create,建立,创建,創建,create,0.85,mainland-term,台灣系統操作標準,tech,context_sensitive,"檔案,資料夾,帳號,專案,伺服器,資料庫,分支,容器,環境,實體",,"公司,品牌,企業,王朝",false
 cursor,游標,光标,光標,cursor,0.90,mainland-term,台灣介面操作標準,tech,exact,,,,true
 custom,自訂,自定义,自定義,custom,0.85,mainland-term,台灣客製化標準,tech,exact,,,,true
-data,資料,数据,數據,data,0.95,mainland-term,台灣資訊處理標準,tech,context_sensitive,"程式,程序,程式碼,代碼,函式,函數,變數,變量,API,JSON,SQL,資料庫,數據庫,欄位,字段,讀取,寫入,檔案,文件,伺服器,服務器,陣列,數組,物件,類別,執行,運行,編譯,軟件,用戶,傳輸,儲存,保存,格式,解析,匯入,導入,匯出,導出",,"研究數據,統計數據,實驗數據,數據顯示",false
+data,資料,数据,數據,data,0.95,mainland-term,台灣資訊處理標準,tech,context_sensitive,"程式,程序,程式碼,代碼,函式,函數,變數,變量,API,JSON,SQL,資料庫,數據庫,欄位,字段,讀取,寫入,檔案,伺服器,服務器,陣列,數組,物件,類別,執行,運行,編譯,軟件,用戶,傳輸,儲存,解析,匯入,導入,匯出,導出",,"研究數據,統計數據,實驗數據,數據顯示",false
 database,資料庫,数据库,數據庫,database,0.95,mainland-term,台灣資料管理標準,tech,exact,,,,true
 debug,除錯,调试,調試,debug,0.90,mainland-term,台灣程式開發標準 (工程師也常用 debug),tech,exact,,,,true
 default,預設,默认,默認,default,0.90,mainland-term,台灣系統設定標準,tech,exact,,,,true
