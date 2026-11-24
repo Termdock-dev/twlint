@@ -35,7 +35,7 @@ copy,複製,拷贝,拷貝,copy,0.85,mainland-term,台灣檔案操作標準,tech,
 create,建立,创建,創建,create,0.85,mainland-term,台灣系統操作標準,tech,context_sensitive,"檔案,資料夾,帳號,專案,伺服器,資料庫,分支,容器,環境,實體",,"公司,品牌,企業,王朝",false
 cursor,游標,光标,光標,cursor,0.90,mainland-term,台灣介面操作標準,tech,exact,,,,true
 custom,自訂,自定义,自定義,custom,0.85,mainland-term,台灣客製化標準,tech,exact,,,,true
-data,資料,数据,數據,data,0.95,mainland-term,台灣資訊處理標準,tech,context_sensitive,"程式,程式碼,函式,變數,API,JSON,SQL,資料庫,欄位,讀取,寫入,檔案,伺服器,陣列,物件,類別,執行,編譯,傳輸,儲存,格式,解析,匯入,匯出",,"研究數據,統計數據,實驗數據,數據顯示",false
+data,資料,数据,數據,data,0.95,mainland-term,台灣資訊處理標準,tech,context_sensitive,"程式,程式碼,函式,變數,API,JSON,SQL,資料庫,欄位,讀取,寫入,檔案,伺服器,陣列,物件,類別,執行,編譯,程序,代碼,軟件,數據庫,文件,用戶,傳輸,儲存,格式,解析,匯入,匯出",,"研究數據,統計數據,實驗數據,數據顯示",false
 database,資料庫,数据库,數據庫,database,0.95,mainland-term,台灣資料管理標準,tech,exact,,,,true
 debug,除錯,调试,調試,debug,0.90,mainland-term,台灣程式開發標準 (工程師也常用 debug),tech,exact,,,,true
 default,預設,默认,默認,default,0.90,mainland-term,台灣系統設定標準,tech,exact,,,,true
@@ -115,7 +115,7 @@ thread,執行緒,线程,線程,thread,0.95,mainland-term,台灣平行處理標�
 tutorial,教學,教程,教程,tutorial,0.85,mainland-term,台灣教育訓練標準,tech,exact,,,,true
 type,型別,类型,類型,type,0.90,mainland-term,台灣程式語言標準,tech,context_sensitive,"函式,参数,參數,變數,字面量,泛型,MIME,enum,列舉,回傳,返回,型別",,,true
 upload,上傳,上传,上傳,upload,0.80,mainland-term,台灣網路傳輸標準,tech,exact,,,,true
-user,使用者,用户,用戶,user,0.85,mainland-term,台灣使用者介面標準,tech,context_sensitive,"介面,帳號,登入,權限,App,應用程式,軟體,網站,系統,設定,註冊",,"電信用戶,用戶數",false
+user,使用者,用户,用戶,user,0.85,mainland-term,台灣使用者介面標準,tech,context_sensitive,"介面,帳號,登入,權限,App,應用程式,軟體,軟件,程序,網站,系統,設定,註冊,數據",,電信用戶,false
 variable,變數,变量,變量,variable,0.90,mainland-term,台灣程式設計標準,tech,exact,,,,true
 video,影片,视频,視頻,video,0.90,mainland-term,台灣多媒體標準,tech,exact,,,,true
 view,檢視,视图,視圖,view,0.85,mainland-term,台灣介面設計標準,tech,exact,,,,true

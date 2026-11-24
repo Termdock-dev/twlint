@@ -112,13 +112,15 @@ function processData(data) {
 
 ```javascript
 /**
- * 這個軟體用於處理使用者資料
+ * 這個軟體用於處理用戶數據
  */
 function processData(data) {
   console.log("網路連接失敗");
   throw new Error("文件讀取失敗");
 }
 ```
+
+「用戶」「數據」在台灣一般文章也常用，所以只以 info 提示（請確認語境），不會自動修改。團隊要一律改成「使用者」「資料」時，放進[自訂詞表](#自訂詞表)。
 
 ## 設定
 

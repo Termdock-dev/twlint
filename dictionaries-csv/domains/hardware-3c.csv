@@ -39,7 +39,7 @@ speaker,揚聲器,扬声器,揚聲器,speaker,0.85,mainland-term,台灣音訊裝
 headphone,耳機,耳机,耳機,headphone,0.80,mainland-term,台灣音訊裝置標準,tech,exact,,,,true
 printer,印表機,打印机,打印機,printer,0.90,mainland-term,台灣週邊裝置標準,tech,exact,,,,true
 scanner,掃描器,扫描仪,掃描儀,scanner,0.90,mainland-term,台灣週邊裝置標準,tech,exact,,,,true
-power-supply,電源供應器,电源,電源,power supply,0.90,mainland-term,台灣電腦組件標準,tech,context_sensitive,"電腦,主機,瓦數,供電,機殼,PSU",,"電源線,電源鍵,電源開關",false
+power-supply,電源供應器,电源,電源,power supply,0.90,mainland-term,台灣電腦組件標準,tech,context_sensitive,"瓦數,供電,機殼,PSU,80 PLUS,模組化",,"電源線,電源鍵,電源開關",false
 cooling-fan,散熱風扇,散热风扇,散熱風扇,cooling fan,0.85,mainland-term,台灣散熱系統標準,tech,exact,,,,true
 heat-sink,散熱片,散热片,散熱片,heat sink,0.85,mainland-term,台灣散熱系統標準,tech,exact,,,,true
 thermal-paste,散熱膏,导热硅脂,導熱硅脂,thermal paste,0.85,mainland-term,台灣散熱材料標準,tech,exact,,,,true

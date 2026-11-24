@@ -97,4 +97,4 @@ sidebar,側邊欄,侧边栏,側邊欄,sidebar,0.85,mainland-term,台灣介面元
 ribbon,功能區,功能区,功能區,ribbon,0.85,mainland-term,台灣Office介面術語,tech,exact,,,,true
 placeholder,預留位置,占位符,佔位符,placeholder,0.90,mainland-term,台灣介面設計術語,tech,exact,,,,true
 slider,滑桿,滑块,滑塊,slider,0.90,mainland-term,台灣介面元件術語,tech,exact,,,,true
-screenshot-ui,擷圖,截图,截圖,screenshot,0.90,mainland-term,台灣螢幕操作標準,tech,context_sensitive,"螢幕,快捷鍵,PrintScreen,視窗,工具",,,false
+screenshot-ui,擷圖,截图,截圖,screenshot,0.90,mainland-term,台灣螢幕操作標準,tech,context_sensitive,"快捷鍵,PrintScreen,屏幕,截屏",,螢幕截圖,false
