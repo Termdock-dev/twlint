@@ -362,16 +362,46 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣電腦組件標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "電腦",
+          "CPU",
+          "顯示卡",
+          "記憶體",
+          "插槽",
+          "BIOS",
+          "硬體"
+        ],
+        "exclude": [
+          "交易所主板",
+          "主板上市"
+        ]
+      }
     },
     "主板_motherboard": {
       "taiwan": "主機板",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣電腦組件標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "電腦",
+          "CPU",
+          "顯示卡",
+          "記憶體",
+          "插槽",
+          "BIOS",
+          "硬體"
+        ],
+        "exclude": [
+          "交易所主板",
+          "主板上市"
+        ]
+      }
     },
     "芯片组": {
       "taiwan": "晶片組",

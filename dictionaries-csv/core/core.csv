@@ -1,5 +1,5 @@
 id,taiwan,china_simplified,china_traditional,english,confidence,category,reason,domain,match_type,context_before,context_after,context_exclude,autofix_safe
-access-visit,存取,访问,訪問,access,0.95,mainland-term,台灣技術標準用語,tech,exact,,,,true
+access-visit,存取,访问,訪問,access,0.95,mainland-term,台灣技術標準用語,tech,context_sensitive,"程式,程式碼,軟體,系統,伺服器,資料庫,API,電腦,應用程式,App,檔案,函式,變數,類別,物件,開發,編譯,部署,雲端,Git,npm,Linux,Windows,macOS,原始碼,權限,讀寫,記憶體",,"訪問團,正式訪問,國事訪問",false
 quality-physics,質量,质量,質量,mass,0.95,mainland-term,物理學質量單位,physics,context_sensitive,"密度,重量,公斤,kg,物理,物体,物體,物質,質點","守恆,轉換,定律,公式,m/s,單位",,false
 quality-business,品質,质量,質量,quality,0.90,mainland-term,商業品質管理,business,context_sensitive,"產品,服務,商品,客戶","控制,管理,標準,檢驗,提升",物理,false
 activate,啟用,激活,激活,activate,0.90,mainland-term,台灣系統操作標準,tech,exact,,,,true
@@ -10,7 +10,7 @@ array,陣列,数组,數組,array,0.95,mainland-term,台灣程式設計標準,tec
 async,非同步,异步,異步,asynchronous,0.90,mainland-term,台灣程式設計標準 (工程師也常用 async),tech,exact,,,,true
 attribute,屬性,属性,屬性,attribute,0.80,mainland-term,台灣物件導向標準,tech,exact,,,,true
 audio,音訊,音频,音頻,audio,0.85,mainland-term,台灣多媒體標準,tech,exact,,,,true
-auth,驗證,认证,認證,authentication,0.90,mainland-term,台灣資安標準用語,tech,exact,,,,true
+auth,驗證,认证,認證,authentication,0.90,mainland-term,台灣資安標準用語,tech,context_sensitive,"程式,程式碼,軟體,系統,伺服器,資料庫,API,電腦,應用程式,App,檔案,函式,變數,類別,物件,開發,編譯,部署,雲端,Git,npm,Linux,Windows,macOS,原始碼,登入,密碼,OAuth,token,JWT",,"能力認證,認證考試",false
 authorization,授權,授权,授權,authorization,0.85,mainland-term,台灣權限管理標準,tech,exact,,,,true
 bandwidth,頻寬,带宽,帶寬,bandwidth,0.95,mainland-term,台灣網路技術標準,tech,exact,,,,true
 binary,二元,二进制,二進制,binary,0.90,mainland-term,台灣計算機科學標準,tech,exact,,,,true
@@ -19,16 +19,16 @@ byte,位元組,字节,字節,byte,0.95,mainland-term,台灣計算機硬體標準
 cache,快取,缓存,緩存,cache,0.90,mainland-term,台灣系統技術標準 (工程師也常用 cache),tech,exact,,,,true
 call,呼叫,调用,調用,call,0.90,mainland-term,台灣程式設計標準,tech,exact,,,,true
 callback,回呼,回调,回調,callback,0.85,mainland-term,台灣非同步程式設計 (工程師也常用 callback),tech,exact,,,,true
-certificate,憑證,证书,證書,certificate,0.90,mainland-term,台灣資安認證標準,tech,exact,,,,true
+certificate,憑證,证书,證書,certificate,0.90,mainland-term,台灣資安認證標準,tech,context_sensitive,"網路,IP,TCP,UDP,HTTP,路由,封包,連線,伺服器,VPC,CIDR,遮罩,SSL,TLS,HTTPS,加密",,,false
 character,字元,字符,字符,character,0.90,mainland-term,台灣文字處理標準,tech,exact,,,,true
 clone,複製,克隆,克隆,clone,0.85,mainland-term,台灣版本控制標準,tech,exact,,,,true
-code,程式碼,代码,代碼,code,0.95,mainland-term,台灣軟體開發標準,tech,exact,,,,true
+code,程式碼,代码,代碼,code,0.95,mainland-term,台灣軟體開發標準,tech,context_sensitive,"程式,程式碼,軟體,系統,伺服器,資料庫,API,電腦,應用程式,App,檔案,函式,變數,類別,物件,開發,編譯,部署,雲端,Git,npm,Linux,Windows,macOS,原始碼,寫,撰寫,編寫,提交",,"國家代碼,航空公司代碼,郵遞區號",false
 compile,編譯,编译,編譯,compile,0.95,mainland-term,台灣程式語言標準,tech,exact,,,,true
 compiler,編譯器,编译器,編譯器,compiler,0.95,mainland-term,台灣程式語言工具,tech,exact,,,,true
 component,組件,组件,組件,component,0.85,mainland-term,台灣軟體架構標準,tech,exact,,,,true
 compress,壓縮,压缩,壓縮,compress,0.90,mainland-term,台灣資料處理標準,tech,exact,,,,true
 concurrency,並行性,并发性,併發性,concurrency,0.85,mainland-term,台灣平行處理標準,tech,exact,,,,true
-connect,連線,连接,連接,connect,0.90,mainland-term,台灣網路連接標準,tech,context_sensitive,"網路,伺服器,資料庫,WiFi,藍牙,USB,VPN,SSH,遠端,TCP,socket",,"管,道路,橋,零件",false
+connect,連線,连接,連接,connect,0.90,mainland-term,台灣網路連接標準,tech,context_sensitive,"網路,IP,TCP,UDP,HTTP,路由,封包,連線,伺服器,VPC,CIDR,遮罩,資料庫,WiFi,藍牙,USB,VPN,SSH",,"管,道路,橋,零件",false
 constructor,建構子,构造函数,構造函數,constructor,0.90,mainland-term,台灣物件導向標準,tech,exact,,,,true
 control,控制項,控件,控件,control,0.90,mainland-term,台灣介面元件標準,tech,exact,,,,true
 copy,複製,拷贝,拷貝,copy,0.85,mainland-term,台灣檔案操作標準,tech,exact,,,,true
@@ -48,7 +48,7 @@ email,電子郵件,电子邮件,電子郵件,email,0.80,mainland-term,台灣網�
 enable,啟用,启用,啟用,enable,0.85,mainland-term,台灣系統操作標準,tech,exact,,,,true
 exception,例外,异常,異常,exception,0.90,mainland-term,台灣錯誤處理標準,tech,context_sensitive,"程式,錯誤,拋出,try,catch,throw,例外,處理,系統,日誌",,"出血,反應,症狀,細胞,檢查,體溫,醫學",false
 export,匯出,导出,導出,export,0.90,mainland-term,台灣資料處理標準,tech,exact,,,,true
-extension,擴充功能,扩展,擴展,extension,0.85,mainland-term,台灣軟體功能標準,tech,exact,,,,true
+extension,擴充功能,扩展,擴展,extension,0.85,mainland-term,台灣軟體功能標準,tech,context_sensitive,"瀏覽器,Chrome,Firefox,VS Code,外掛,安裝,插件,商店",,,false
 field,欄位,字段,字段,field,0.90,mainland-term,台灣資料庫標準,tech,exact,,,,true
 file,檔案,文件,文件,file,0.90,mainland-term,台灣檔案系統標準,tech,context_sensitive,"系統,程式,軟體,下載,上傳,刪除,複製,路徑,資料夾,副檔名,.json,.txt,.md,config,README",,"公文,正式",false
 filter,過濾器,过滤器,過濾器,filter,0.85,mainland-term,台灣資料處理標準,tech,exact,,,,true
@@ -57,7 +57,7 @@ folder,資料夾,文件夹,文件夾,folder,0.90,mainland-term,台灣檔案管�
 function,函式,函数,函數,function,0.95,mainland-term,台灣程式設計標準,tech,exact,,,,true
 handler,處理器,处理器,處理器,handler,0.85,mainland-term,台灣程式設計標準,tech,exact,,,,true
 hardware,硬體,硬件,硬件,hardware,0.95,mainland-term,台灣計算機硬體標準,tech,exact,,,,true
-hash,雜湊,哈希,哈希,hash,0.90,mainland-term,台灣密碼學標準,tech,exact,,,,true
+hash,雜湊,哈希,哈希,hash,0.90,mainland-term,台灣密碼學標準,tech,context_sensitive,"雜湊,MD5,SHA,演算法,函數,函式",,哈希姆,false
 header,標頭,头部,頭部,header,0.85,mainland-term,台灣網路協定標準,tech,context_sensitive,"HTTP,請求,回應,封包,Content,Accept,Authorization,header",,,false
 icon,圖示,图标,圖標,icon,0.85,mainland-term,台灣介面設計標準,tech,exact,,,,true
 image,影像,图像,圖像,image,0.85,mainland-term,台灣多媒體標準,tech,exact,,,,true
@@ -65,7 +65,7 @@ implement,實作,实现,實現,implement,0.90,mainland-term,台灣軟體開發�
 import,匯入,导入,導入,import,0.90,mainland-term,台灣程式開發標準,tech,context_sensitive,"程式,模組,套件,資料,檔案,函式,CSV,JSON,匯入,Excel",,"精華,離子,皮膚,導入儀,美容,保養",false
 info,資訊,信息,信息,information,0.85,mainland-term,台灣資訊處理標準,tech,exact,,,,true
 inheritance,繼承,继承,繼承,inheritance,0.85,mainland-term,台灣物件導向標準,tech,exact,,,,true
-instance,實體,实例,實例,instance,0.90,mainland-term,台灣物件導向標準,tech,exact,,,,true
+instance,實體,实例,實例,instance,0.90,mainland-term,台灣物件導向標準,tech,context_sensitive,"類別,物件,class,建立,new,建構子,虛擬機,EC2,容器,伺服器,資料庫",,"舉例,例如,案例,實例化,用實例",false
 integrate,整合,集成,集成,integrate,0.85,mainland-term,台灣系統整合標準,tech,exact,,,,true
 interface,介面,接口,接口,interface,0.95,mainland-term,台灣軟體設計標準,tech,exact,,,,true
 internet,網際網路,互联网,互聯網,internet,0.90,mainland-term,台灣網路技術標準,tech,exact,,,,true

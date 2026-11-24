@@ -1,11 +1,11 @@
 id,taiwan,china_simplified,china_traditional,english,confidence,category,reason,domain,match_type,context_before,context_after,context_exclude,autofix_safe
 project-manager,專案經理,项目经理,項目經理,project manager,0.90,mainland-term,台灣職位名稱標準,business,exact,,,,true
 project-management,專案管理,项目管理,項目管理,project management,0.90,mainland-term,台灣商業管理術語,business,exact,,,,true
-project,專案,项目,項目,project,0.95,mainland-term,台灣商業術語標準,business,exact,,,,true
+project,專案,项目,項目,project,0.95,mainland-term,台灣商業術語標準,business,context_sensitive,"程式,程式碼,軟體,系統,伺服器,資料庫,API,電腦,應用程式,App,檔案,函式,變數,類別,物件,開發,編譯,部署,雲端,Git,npm,Linux,Windows,macOS,原始碼",,,false
 deliverable,交付項目,可交付成果,可交付成果,deliverable,0.85,mainland-term,台灣專案管理術語,business,exact,,,,true
 stakeholder,利害關係人,利益相关者,利益相關者,stakeholder,0.90,mainland-term,台灣商業管理術語,business,exact,,,,true
 budget,預算,预算,預算,budget,0.85,mainland-term,台灣財務管理術語,business,exact,,,,true
-revenue,營收,收入,收入,revenue,0.85,mainland-term,台灣財務術語標準,business,exact,,,,true
+revenue,營收,收入,收入,revenue,0.85,mainland-term,台灣財務術語標準,business,context_sensitive,"財報,營業,季度,年度,EPS,毛利",,,false
 profit,利潤,利润,利潤,profit,0.85,mainland-term,台灣財務術語標準,business,exact,,,,true
 loss,虧損,亏损,虧損,loss,0.90,mainland-term,台灣財務術語標準,business,exact,,,,true
 investment,投資,投资,投資,investment,0.85,mainland-term,台灣金融術語標準,business,exact,,,,true
@@ -23,8 +23,8 @@ income-statement,損益表,损益表,損益表,income statement,0.90,mainland-te
 cash-flow,現金流量,现金流,現金流,cash flow,0.90,mainland-term,台灣財務管理術語,business,exact,,,,true
 audit,稽核,审计,審計,audit,0.90,mainland-term,台灣會計稽核術語,business,exact,,,,true
 compliance,法規遵循,合规,合規,compliance,0.90,mainland-term,台灣企業治理術語,business,exact,,,,true
-governance,公司治理,治理,治理,governance,0.85,mainland-term,台灣企業管理術語,business,exact,,,,true
-strategy,策略,战略,戰略,strategy,0.90,mainland-term,台灣企業規劃術語,business,exact,,,,true
+governance,公司治理,治理,治理,governance,0.85,mainland-term,台灣企業管理術語,business,context_sensitive,"企業,董事會,股東,ESG,上市",,"公司治理,政治理",false
+strategy,策略,战略,戰略,strategy,0.90,mainland-term,台灣企業規劃術語,business,context_sensitive,"企業,公司,商業,市場,行銷,品牌",,,false
 tactics,戰術,战术,戰術,tactics,0.85,mainland-term,台灣企業執行術語,business,exact,,,,true
 kpi,關鍵績效指標,关键绩效指标,關鍵績效指標,KPI,0.90,mainland-term,台灣績效管理術語,business,exact,,,,true
 roi,投資報酬率,投资回报率,投資回報率,ROI,0.90,mainland-term,台灣財務指標術語,business,exact,,,,true
@@ -60,12 +60,12 @@ cto,技術長,首席技术官,首席技術官,CTO,0.90,mainland-term,台灣企�
 coo,營運長,首席运营官,首席運營官,COO,0.90,mainland-term,台灣企業職位術語,business,exact,,,,true
 hr,人力資源,人力资源,人力資源,HR,0.85,mainland-term,台灣企業部門術語,business,exact,,,,true
 recruitment,招募,招聘,招聘,recruitment,0.90,mainland-term,台灣人資管理術語,business,exact,,,,true
-training,訓練,培训,培訓,training,0.90,mainland-term,台灣人資發展術語,business,exact,,,,true
+training,訓練,培训,培訓,training,0.90,mainland-term,台灣人資發展術語,business,context_sensitive,"員工,公司,企業,課程,講師",,,false
 performance-review,績效考核,绩效评估,績效評估,performance review,0.90,mainland-term,台灣人資管理術語,business,exact,,,,true
 bonus,獎金,奖金,獎金,bonus,0.85,mainland-term,台灣薪資福利術語,business,exact,,,,true
 incentive,激勵,激励,激勵,incentive,0.85,mainland-term,台灣人資管理術語,business,exact,,,,true
 leave,請假,请假,請假,leave,0.85,mainland-term,台灣勞動條件術語,business,exact,,,,true
-resignation,離職,辞职,辭職,resignation,0.90,mainland-term,台灣人事異動術語,business,exact,,,,true
+resignation,離職,辞职,辭職,resignation,0.90,mainland-term,台灣人事異動術語,business,context_sensitive,"員工,公司,企業,主管,人資",,,false
 termination,解僱,解雇,解雇,termination,0.85,mainland-term,台灣人事異動術語,business,exact,,,,true
 pension,退休金,养老金,養老金,pension,0.90,mainland-term,台灣勞工福利術語,business,exact,,,,true
 insurance,保險,保险,保險,insurance,0.85,mainland-term,台灣金融商品術語,business,exact,,,,true
@@ -87,7 +87,7 @@ fintech,金融科技,金融科技,金融科技,fintech,0.85,mainland-term,台灣
 digital-payment,數位支付,数字支付,數字支付,digital payment,0.90,mainland-term,台灣支付科技術語,business,exact,,,,true
 mobile-payment,行動支付,移动支付,移動支付,mobile payment,0.90,mainland-term,台灣支付科技術語,business,exact,,,,true
 e-wallet,電子錢包,电子钱包,電子錢包,e-wallet,0.90,mainland-term,台灣數位金融術語,business,exact,,,,true
-transaction,交易,事务,事務,transaction,0.85,mainland-term,台灣資料庫標準,business,exact,,,,true
+transaction,交易,事务,事務,transaction,0.85,mainland-term,台灣資料庫標準,business,context_sensitive,"資料庫,SQL,commit,rollback,回滾,鎖定,ACID,隔離等級",,"事務所,外交事務,日常事務,公共事務",false
 invoice,發票,发票,發票,invoice,0.85,mainland-term,台灣財務文件術語,business,exact,,,,true
 receipt,收據,收据,收據,receipt,0.85,mainland-term,台灣財務憑證術語,business,exact,,,,true
 refund,退款,退款,退款,refund,0.80,mainland-term,台灣交易處理術語,business,exact,,,,true
@@ -97,7 +97,7 @@ wishlist,願望清單,愿望单,願望單,wishlist,0.85,mainland-term,台灣電�
 review-product,評價,评价,評價,review,0.85,mainland-term,台灣產品回饋術語,business,exact,,,,true
 rating,評分,评分,評分,rating,0.85,mainland-term,台灣品質評估術語,business,exact,,,,true
 feedback,回饋,反馈,反饋,feedback,0.90,mainland-term,台灣意見收集術語,business,exact,,,,true
-survey,問卷,调查,調查,survey,0.85,mainland-term,台灣市場研究術語,business,exact,,,,true
+survey,問卷,调查,調查,survey,0.85,mainland-term,台灣市場研究術語,business,context_sensitive,"線上,填寫,表單,Google",,"問卷調查,調查局,調查人口",false
 presentation,簡報,演示,演示,presentation,0.90,mainland-term,台灣商務溝通術語,business,exact,,,,true
 report,報告,报告,報告,report,0.85,mainland-term,台灣商業文件術語,business,exact,,,,true
 contract,合約,合同,合同,contract,0.90,mainland-term,台灣法律文件術語,business,exact,,,,true

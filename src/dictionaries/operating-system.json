@@ -74,64 +74,184 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣系統介面術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "命令",
+          "指令",
+          "shell",
+          "bash",
+          "zsh",
+          "SSH",
+          "終端機",
+          "腳本",
+          "Linux",
+          "Unix",
+          "輸入"
+        ]
+      }
     },
     "外壳_shell": {
       "taiwan": "命令殼層",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣系統介面術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "命令",
+          "指令",
+          "shell",
+          "bash",
+          "zsh",
+          "SSH",
+          "終端機",
+          "腳本",
+          "Linux",
+          "Unix",
+          "輸入"
+        ]
+      }
     },
     "外殼": {
       "taiwan": "命令殼層",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣系統介面術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "命令",
+          "指令",
+          "shell",
+          "bash",
+          "zsh",
+          "SSH",
+          "終端機",
+          "腳本",
+          "Linux",
+          "Unix",
+          "輸入"
+        ]
+      }
     },
     "外殼_shell": {
       "taiwan": "命令殼層",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣系統介面術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "命令",
+          "指令",
+          "shell",
+          "bash",
+          "zsh",
+          "SSH",
+          "終端機",
+          "腳本",
+          "Linux",
+          "Unix",
+          "輸入"
+        ]
+      }
     },
     "终端": {
       "taiwan": "終端機",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣命令列介面",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "命令",
+          "指令",
+          "shell",
+          "bash",
+          "zsh",
+          "SSH",
+          "終端機",
+          "腳本",
+          "Linux",
+          "Unix",
+          "輸入"
+        ]
+      }
     },
     "终端_terminal": {
       "taiwan": "終端機",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣命令列介面",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "命令",
+          "指令",
+          "shell",
+          "bash",
+          "zsh",
+          "SSH",
+          "終端機",
+          "腳本",
+          "Linux",
+          "Unix",
+          "輸入"
+        ]
+      }
     },
     "終端": {
       "taiwan": "終端機",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣命令列介面",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "命令",
+          "指令",
+          "shell",
+          "bash",
+          "zsh",
+          "SSH",
+          "終端機",
+          "腳本",
+          "Linux",
+          "Unix",
+          "輸入"
+        ]
+      }
     },
     "終端_terminal": {
       "taiwan": "終端機",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣命令列介面",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "命令",
+          "指令",
+          "shell",
+          "bash",
+          "zsh",
+          "SSH",
+          "終端機",
+          "腳本",
+          "Linux",
+          "Unix",
+          "輸入"
+        ]
+      }
     },
     "控制台": {
       "taiwan": "主控台",
@@ -666,16 +786,36 @@
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣資源管理術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "記憶體",
+          "malloc",
+          "heap",
+          "堆積",
+          "緩衝區",
+          "buffer"
+        ]
+      }
     },
     "分配_allocation": {
       "taiwan": "配置",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣資源管理術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "記憶體",
+          "malloc",
+          "heap",
+          "堆積",
+          "緩衝區",
+          "buffer"
+        ]
+      }
     },
     "释放": {
       "taiwan": "釋放",
@@ -906,32 +1046,124 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣系統錯誤處理",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "程式",
+          "錯誤",
+          "拋出",
+          "try",
+          "catch",
+          "throw",
+          "例外",
+          "處理",
+          "系統",
+          "日誌"
+        ],
+        "exclude": [
+          "出血",
+          "反應",
+          "症狀",
+          "細胞",
+          "檢查",
+          "體溫",
+          "醫學"
+        ]
+      }
     },
     "异常_exception_os": {
       "taiwan": "例外",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣系統錯誤處理",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "程式",
+          "錯誤",
+          "拋出",
+          "try",
+          "catch",
+          "throw",
+          "例外",
+          "處理",
+          "系統",
+          "日誌"
+        ],
+        "exclude": [
+          "出血",
+          "反應",
+          "症狀",
+          "細胞",
+          "檢查",
+          "體溫",
+          "醫學"
+        ]
+      }
     },
     "異常": {
       "taiwan": "例外",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣系統錯誤處理",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "程式",
+          "錯誤",
+          "拋出",
+          "try",
+          "catch",
+          "throw",
+          "例外",
+          "處理",
+          "系統",
+          "日誌"
+        ],
+        "exclude": [
+          "出血",
+          "反應",
+          "症狀",
+          "細胞",
+          "檢查",
+          "體溫",
+          "醫學"
+        ]
+      }
     },
     "異常_exception_os": {
       "taiwan": "例外",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣系統錯誤處理",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "程式",
+          "錯誤",
+          "拋出",
+          "try",
+          "catch",
+          "throw",
+          "例外",
+          "處理",
+          "系統",
+          "日誌"
+        ],
+        "exclude": [
+          "出血",
+          "反應",
+          "症狀",
+          "細胞",
+          "檢查",
+          "體溫",
+          "醫學"
+        ]
+      }
     },
     "信号": {
       "taiwan": "信號",
@@ -1290,32 +1522,88 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣磁碟管理術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "磁碟",
+          "硬碟",
+          "SSD",
+          "分割",
+          "格式化",
+          "掛載",
+          "開機",
+          "MBR",
+          "GPT",
+          "fdisk"
+        ]
+      }
     },
     "分区_partition": {
       "taiwan": "分割區",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣磁碟管理術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "磁碟",
+          "硬碟",
+          "SSD",
+          "分割",
+          "格式化",
+          "掛載",
+          "開機",
+          "MBR",
+          "GPT",
+          "fdisk"
+        ]
+      }
     },
     "分區": {
       "taiwan": "分割區",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣磁碟管理術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "磁碟",
+          "硬碟",
+          "SSD",
+          "分割",
+          "格式化",
+          "掛載",
+          "開機",
+          "MBR",
+          "GPT",
+          "fdisk"
+        ]
+      }
     },
     "分區_partition": {
       "taiwan": "分割區",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣磁碟管理術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "磁碟",
+          "硬碟",
+          "SSD",
+          "分割",
+          "格式化",
+          "掛載",
+          "開機",
+          "MBR",
+          "GPT",
+          "fdisk"
+        ]
+      }
     },
     "格式化": {
       "taiwan": "格式化",
@@ -1610,32 +1898,152 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣系統錯誤類型",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "程式",
+          "程式碼",
+          "軟體",
+          "系統",
+          "伺服器",
+          "資料庫",
+          "API",
+          "電腦",
+          "應用程式",
+          "App",
+          "檔案",
+          "函式",
+          "變數",
+          "類別",
+          "物件",
+          "開發",
+          "編譯",
+          "部署",
+          "雲端",
+          "Git",
+          "npm",
+          "Linux",
+          "Windows",
+          "macOS",
+          "原始碼",
+          "閃退"
+        ]
+      }
     },
     "崩溃_crash": {
       "taiwan": "當機",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣系統錯誤類型",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "程式",
+          "程式碼",
+          "軟體",
+          "系統",
+          "伺服器",
+          "資料庫",
+          "API",
+          "電腦",
+          "應用程式",
+          "App",
+          "檔案",
+          "函式",
+          "變數",
+          "類別",
+          "物件",
+          "開發",
+          "編譯",
+          "部署",
+          "雲端",
+          "Git",
+          "npm",
+          "Linux",
+          "Windows",
+          "macOS",
+          "原始碼",
+          "閃退"
+        ]
+      }
     },
     "崩潰": {
       "taiwan": "當機",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣系統錯誤類型",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "程式",
+          "程式碼",
+          "軟體",
+          "系統",
+          "伺服器",
+          "資料庫",
+          "API",
+          "電腦",
+          "應用程式",
+          "App",
+          "檔案",
+          "函式",
+          "變數",
+          "類別",
+          "物件",
+          "開發",
+          "編譯",
+          "部署",
+          "雲端",
+          "Git",
+          "npm",
+          "Linux",
+          "Windows",
+          "macOS",
+          "原始碼",
+          "閃退"
+        ]
+      }
     },
     "崩潰_crash": {
       "taiwan": "當機",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣系統錯誤類型",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "程式",
+          "程式碼",
+          "軟體",
+          "系統",
+          "伺服器",
+          "資料庫",
+          "API",
+          "電腦",
+          "應用程式",
+          "App",
+          "檔案",
+          "函式",
+          "變數",
+          "類別",
+          "物件",
+          "開發",
+          "編譯",
+          "部署",
+          "雲端",
+          "Git",
+          "npm",
+          "Linux",
+          "Windows",
+          "macOS",
+          "原始碼",
+          "閃退"
+        ]
+      }
     },
     "挂起": {
       "taiwan": "停止回應",

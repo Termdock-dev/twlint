@@ -2,15 +2,15 @@ id,taiwan,china_simplified,china_traditional,english,confidence,category,reason,
 social-media,社群媒體,社交媒体,社交媒體,social media,0.90,mainland-term,台灣網路平台術語,tech,exact,,,,true
 social-network,社群網路,社交网络,社交網絡,social network,0.90,mainland-term,台灣網路平台術語,tech,exact,,,,true
 post,貼文,帖子,帖子,post,0.90,mainland-term,台灣社群內容術語,tech,exact,,,,true
-status,動態,状态,狀態,status,0.85,mainland-term,台灣社群內容術語,tech,exact,,,,true
-story,限時動態,故事,故事,story,0.85,mainland-term,台灣社群功能術語,tech,exact,,,,true
+status,動態,状态,狀態,status,0.85,mainland-term,台灣社群內容術語,tech,context_sensitive,"貼文,帳號,社群,Facebook,臉書,Instagram,IG,YouTube,Twitter,推特,Threads,TikTok,抖音,微博,按讚,追蹤,分享,直播,網紅,動態",,,false
+story,限時動態,故事,故事,story,0.85,mainland-term,台灣社群功能術語,tech,context_sensitive,"貼文,帳號,社群,Facebook,臉書,Instagram,IG,YouTube,Twitter,推特,Threads,TikTok,抖音,微博,按讚,追蹤,分享,直播,網紅,動態",,,false
 feed,動態消息,信息流,信息流,feed,0.85,mainland-term,台灣社群內容術語,tech,exact,,,,true
 timeline,時間軸,时间线,時間線,timeline,0.90,mainland-term,台灣社群顯示術語,tech,exact,,,,true
-profile,個人檔案,个人资料,個人資料,profile,0.85,mainland-term,台灣社群帳號術語,tech,exact,,,,true
-follower,追蹤者,粉丝,粉絲,follower,0.90,mainland-term,台灣社群媒體術語,tech,exact,,,,true
-following,追蹤中,关注,關注,following,0.90,mainland-term,台灣社群媒體術語,tech,exact,,,,true
+profile,個人檔案,个人资料,個人資料,profile,0.85,mainland-term,台灣社群帳號術語,tech,context_sensitive,"貼文,帳號,社群,Facebook,臉書,Instagram,IG,YouTube,Twitter,推特,Threads,TikTok,抖音,微博,按讚,追蹤,分享,直播,網紅,動態",,"個人資料保護,個資",false
+follower,追蹤者,粉丝,粉絲,follower,0.90,mainland-term,台灣社群媒體術語,tech,context_sensitive,"貼文,帳號,社群,Facebook,臉書,Instagram,IG,YouTube,Twitter,推特,Threads,TikTok,抖音,微博,按讚,追蹤,分享,直播,網紅,動態",,粉絲見面會,false
+following,追蹤中,关注,關注,following,0.90,mainland-term,台灣社群媒體術語,tech,context_sensitive,"貼文,帳號,社群,Facebook,臉書,Instagram,IG,YouTube,Twitter,推特,Threads,TikTok,抖音,微博,按讚,追蹤,分享,直播,網紅,動態",,,false
 like,按讚,点赞,點讚,like,0.90,mainland-term,台灣社群互動術語,tech,exact,,,,true
-comment,留言,评论,評論,comment,0.90,mainland-term,台灣社群互動術語,tech,exact,,,,true
+comment,留言,评论,評論,comment,0.90,mainland-term,台灣社群互動術語,tech,context_sensitive,"貼文,帳號,社群,Facebook,臉書,Instagram,IG,YouTube,Twitter,推特,Threads,TikTok,抖音,微博,按讚,追蹤,分享,直播,網紅,動態",,"評論家,評論界",false
 reply,回覆,回复,回復,reply,0.85,mainland-term,台灣社群互動術語,tech,exact,,,,true
 repost,轉發,转发,轉發,repost,0.85,mainland-term,台灣社群互動術語,tech,exact,,,,true
 retweet,轉推,转推,轉推,retweet,0.85,mainland-term,台灣Twitter術語,tech,exact,,,,true
@@ -23,7 +23,7 @@ streaming,串流,流媒体,流媒體,streaming,0.90,mainland-term,台灣數位�
 video-call,視訊通話,视频通话,視頻通話,video call,0.90,mainland-term,台灣通訊功能術語,tech,exact,,,,true
 voice-call,語音通話,语音通话,語音通話,voice call,0.85,mainland-term,台灣通訊功能術語,tech,exact,,,,true
 emoji,表情符號,表情符号,表情符號,emoji,0.85,mainland-term,台灣數位表達術語,tech,exact,,,,true
-emoticon,表情符號,表情,表情,emoticon,0.85,mainland-term,台灣數位表達術語,tech,exact,,,,true
+emoticon,表情符號,表情,表情,emoticon,0.85,mainland-term,台灣數位表達術語,tech,context_sensitive,"貼文,帳號,社群,Facebook,臉書,Instagram,IG,YouTube,Twitter,推特,Threads,TikTok,抖音,微博,按讚,追蹤,分享,直播,網紅,動態,訊息,聊天,LINE,輸入",,,false
 sticker,貼圖,贴纸,貼紙,sticker,0.90,mainland-term,台灣數位表達術語,tech,exact,,,,true
 gif,動圖,动图,動圖,GIF,0.85,mainland-term,台灣數位媒體術語,tech,exact,,,,true
 meme,迷因,表情包,表情包,meme,0.85,mainland-term,台灣網路文化術語,tech,exact,,,,true
@@ -45,7 +45,7 @@ bell-notification,小鈴鐺,小铃铛,小鈴鐺,bell notification,0.85,mainland-
 algorithm,演算法,算法,算法,algorithm,0.95,mainland-term,台灣技術術語標準,tech,exact,,,,true
 engagement,互動率,互动率,互動率,engagement,0.85,mainland-term,台灣社群分析術語,tech,exact,,,,true
 reach,觸及率,覆盖率,覆蓋率,reach,0.85,mainland-term,台灣社群分析術語,tech,exact,,,,true
-impression,曝光,印象,印象,impression,0.85,mainland-term,台灣廣告術語標準,tech,exact,,,,true
+impression,曝光,印象,印象,impression,0.85,mainland-term,台灣廣告術語標準,tech,context_sensitive,"貼文,帳號,社群,Facebook,臉書,Instagram,IG,YouTube,Twitter,推特,Threads,TikTok,抖音,微博,按讚,追蹤,分享,直播,網紅,動態,廣告,觸及,點擊",,"刻板印象,印象派,印象深刻",false
 insights,洞察報告,洞察,洞察,insights,0.85,mainland-term,台灣數據分析術語,tech,exact,,,,true
 metric,指標,指标,指標,metric,0.85,mainland-term,台灣數據分析術語,tech,exact,,,,true
 dashboard,儀表板,仪表盘,儀表盤,dashboard,0.85,mainland-term,台灣數據視覺化,tech,exact,,,,true
@@ -60,7 +60,7 @@ advertisement,廣告,广告,廣告,advertisement,0.85,mainland-term,台灣商業
 ad-campaign,廣告活動,广告活动,廣告活動,ad campaign,0.85,mainland-term,台灣廣告行銷術語,tech,exact,,,,true
 target-audience,目標受眾,目标受众,目標受眾,target audience,0.90,mainland-term,台灣行銷策略術語,tech,exact,,,,true
 demographic,人口統計,人口统计,人口統計,demographic,0.85,mainland-term,台灣市場分析術語,tech,exact,,,,true
-community,社群,社区,社區,community,0.90,mainland-term,台灣網路群體術語,tech,exact,,,,true
+community,社群,社区,社區,community,0.90,mainland-term,台灣網路群體術語,tech,context_sensitive,"貼文,帳號,社群,Facebook,臉書,Instagram,IG,YouTube,Twitter,推特,Threads,TikTok,抖音,微博,按讚,追蹤,分享,直播,網紅,動態,開源,GitHub,Discord,論壇,開發者",,"社區大學,社區營造",false
 group,群組,群组,群組,group,0.85,mainland-term,台灣社群組織術語,tech,exact,,,,true
 page,粉絲專頁,主页,主頁,page,0.90,mainland-term,台灣Facebook術語,tech,exact,,,,true
 event,活動,活动,活動,event,0.85,mainland-term,台灣社群活動術語,tech,exact,,,,true
@@ -73,7 +73,7 @@ reel,連續短片,短视频,短視頻,reel,0.90,mainland-term,台灣Instagram功
 shorts,短影音,短视频,短視頻,shorts,0.90,mainland-term,台灣YouTube功能,tech,exact,,,,true
 highlight,精選,高光,高光,highlight,0.85,mainland-term,台灣社群功能術語,tech,exact,,,,true
 archive,封存,归档,歸檔,archive,0.90,mainland-term,台灣社群功能術語,tech,exact,,,,true
-saved,已儲存,收藏,收藏,saved,0.85,mainland-term,台灣社群功能術語,tech,exact,,,,true
+saved,已儲存,收藏,收藏,saved,0.85,mainland-term,台灣社群功能術語,tech,context_sensitive,"貼文,帳號,社群,Facebook,臉書,Instagram,IG,YouTube,Twitter,推特,Threads,TikTok,抖音,微博,按讚,追蹤,分享,直播,網紅,動態,書籤,瀏覽器",,"收藏家,收藏品,典藏",false
 bookmark-social,書籤,书签,書籤,bookmark,0.85,mainland-term,台灣社群功能術語,tech,exact,,,,true
 explore,探索,发现,發現,explore,0.85,mainland-term,台灣社群功能術語,tech,exact,,,,true
 discover,發現,发现,發現,discover,0.85,mainland-term,台灣社群功能術語,tech,exact,,,,true

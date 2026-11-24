@@ -442,32 +442,160 @@
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣資料救援標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "程式",
+          "程式碼",
+          "軟體",
+          "系統",
+          "伺服器",
+          "資料庫",
+          "API",
+          "電腦",
+          "應用程式",
+          "App",
+          "檔案",
+          "函式",
+          "變數",
+          "類別",
+          "物件",
+          "開發",
+          "編譯",
+          "部署",
+          "雲端",
+          "Git",
+          "npm",
+          "Linux",
+          "Windows",
+          "macOS",
+          "原始碼",
+          "備份",
+          "快照",
+          "磁碟"
+        ]
+      }
     },
     "恢复_restore": {
       "taiwan": "復原",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣資料救援標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "程式",
+          "程式碼",
+          "軟體",
+          "系統",
+          "伺服器",
+          "資料庫",
+          "API",
+          "電腦",
+          "應用程式",
+          "App",
+          "檔案",
+          "函式",
+          "變數",
+          "類別",
+          "物件",
+          "開發",
+          "編譯",
+          "部署",
+          "雲端",
+          "Git",
+          "npm",
+          "Linux",
+          "Windows",
+          "macOS",
+          "原始碼",
+          "備份",
+          "快照",
+          "磁碟"
+        ]
+      }
     },
     "恢復": {
       "taiwan": "復原",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣資料救援標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "程式",
+          "程式碼",
+          "軟體",
+          "系統",
+          "伺服器",
+          "資料庫",
+          "API",
+          "電腦",
+          "應用程式",
+          "App",
+          "檔案",
+          "函式",
+          "變數",
+          "類別",
+          "物件",
+          "開發",
+          "編譯",
+          "部署",
+          "雲端",
+          "Git",
+          "npm",
+          "Linux",
+          "Windows",
+          "macOS",
+          "原始碼",
+          "備份",
+          "快照",
+          "磁碟"
+        ]
+      }
     },
     "恢復_restore": {
       "taiwan": "復原",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣資料救援標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "程式",
+          "程式碼",
+          "軟體",
+          "系統",
+          "伺服器",
+          "資料庫",
+          "API",
+          "電腦",
+          "應用程式",
+          "App",
+          "檔案",
+          "函式",
+          "變數",
+          "類別",
+          "物件",
+          "開發",
+          "編譯",
+          "部署",
+          "雲端",
+          "Git",
+          "npm",
+          "Linux",
+          "Windows",
+          "macOS",
+          "原始碼",
+          "備份",
+          "快照",
+          "磁碟"
+        ]
+      }
     },
     "迁移": {
       "taiwan": "遷移",
@@ -522,32 +650,176 @@
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣資料同步標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "程式",
+          "程式碼",
+          "軟體",
+          "系統",
+          "伺服器",
+          "資料庫",
+          "API",
+          "電腦",
+          "應用程式",
+          "App",
+          "檔案",
+          "函式",
+          "變數",
+          "類別",
+          "物件",
+          "開發",
+          "編譯",
+          "部署",
+          "雲端",
+          "Git",
+          "npm",
+          "Linux",
+          "Windows",
+          "macOS",
+          "原始碼",
+          "資料庫",
+          "節點",
+          "主從",
+          "備援"
+        ],
+        "exclude": [
+          "複製品"
+        ]
+      }
     },
     "复制_replication": {
       "taiwan": "複寫",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣資料同步標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "程式",
+          "程式碼",
+          "軟體",
+          "系統",
+          "伺服器",
+          "資料庫",
+          "API",
+          "電腦",
+          "應用程式",
+          "App",
+          "檔案",
+          "函式",
+          "變數",
+          "類別",
+          "物件",
+          "開發",
+          "編譯",
+          "部署",
+          "雲端",
+          "Git",
+          "npm",
+          "Linux",
+          "Windows",
+          "macOS",
+          "原始碼",
+          "資料庫",
+          "節點",
+          "主從",
+          "備援"
+        ],
+        "exclude": [
+          "複製品"
+        ]
+      }
     },
     "複製": {
       "taiwan": "複寫",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣資料同步標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "程式",
+          "程式碼",
+          "軟體",
+          "系統",
+          "伺服器",
+          "資料庫",
+          "API",
+          "電腦",
+          "應用程式",
+          "App",
+          "檔案",
+          "函式",
+          "變數",
+          "類別",
+          "物件",
+          "開發",
+          "編譯",
+          "部署",
+          "雲端",
+          "Git",
+          "npm",
+          "Linux",
+          "Windows",
+          "macOS",
+          "原始碼",
+          "資料庫",
+          "節點",
+          "主從",
+          "備援"
+        ],
+        "exclude": [
+          "複製品"
+        ]
+      }
     },
     "複製_replication": {
       "taiwan": "複寫",
       "confidence": 0.85,
       "category": "mainland-term",
       "reason": "台灣資料同步標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "程式",
+          "程式碼",
+          "軟體",
+          "系統",
+          "伺服器",
+          "資料庫",
+          "API",
+          "電腦",
+          "應用程式",
+          "App",
+          "檔案",
+          "函式",
+          "變數",
+          "類別",
+          "物件",
+          "開發",
+          "編譯",
+          "部署",
+          "雲端",
+          "Git",
+          "npm",
+          "Linux",
+          "Windows",
+          "macOS",
+          "原始碼",
+          "資料庫",
+          "節點",
+          "主從",
+          "備援"
+        ],
+        "exclude": [
+          "複製品"
+        ]
+      }
     },
     "分片": {
       "taiwan": "分片",
@@ -1882,32 +2154,128 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣網路通訊標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "HTTP",
+          "HTTPS",
+          "TCP",
+          "UDP",
+          "IP",
+          "file://",
+          "javascript:",
+          "URL",
+          "URI",
+          "MCP",
+          "DevTools",
+          "Chrome",
+          "通訊",
+          "網路",
+          "傳輸",
+          "主機",
+          "設定"
+        ],
+        "exclude": [
+          "條款"
+        ]
+      }
     },
     "协议_protocol": {
       "taiwan": "協定",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣網路通訊標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "HTTP",
+          "HTTPS",
+          "TCP",
+          "UDP",
+          "IP",
+          "file://",
+          "javascript:",
+          "URL",
+          "URI",
+          "MCP",
+          "DevTools",
+          "Chrome",
+          "通訊",
+          "網路",
+          "傳輸",
+          "主機",
+          "設定"
+        ],
+        "exclude": [
+          "條款"
+        ]
+      }
     },
     "協議": {
       "taiwan": "協定",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣網路通訊標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "HTTP",
+          "HTTPS",
+          "TCP",
+          "UDP",
+          "IP",
+          "file://",
+          "javascript:",
+          "URL",
+          "URI",
+          "MCP",
+          "DevTools",
+          "Chrome",
+          "通訊",
+          "網路",
+          "傳輸",
+          "主機",
+          "設定"
+        ],
+        "exclude": [
+          "條款"
+        ]
+      }
     },
     "協議_protocol": {
       "taiwan": "協定",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣網路通訊標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "HTTP",
+          "HTTPS",
+          "TCP",
+          "UDP",
+          "IP",
+          "file://",
+          "javascript:",
+          "URL",
+          "URI",
+          "MCP",
+          "DevTools",
+          "Chrome",
+          "通訊",
+          "網路",
+          "傳輸",
+          "主機",
+          "設定"
+        ],
+        "exclude": [
+          "條款"
+        ]
+      }
     },
     "数据包": {
       "taiwan": "封包",
@@ -2202,32 +2570,96 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣網路架構術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "網路",
+          "IP",
+          "TCP",
+          "UDP",
+          "HTTP",
+          "路由",
+          "封包",
+          "連線",
+          "伺服器",
+          "VPC",
+          "CIDR",
+          "遮罩"
+        ]
+      }
     },
     "子网_subnet": {
       "taiwan": "子網路",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣網路架構術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "網路",
+          "IP",
+          "TCP",
+          "UDP",
+          "HTTP",
+          "路由",
+          "封包",
+          "連線",
+          "伺服器",
+          "VPC",
+          "CIDR",
+          "遮罩"
+        ]
+      }
     },
     "子網": {
       "taiwan": "子網路",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣網路架構術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "網路",
+          "IP",
+          "TCP",
+          "UDP",
+          "HTTP",
+          "路由",
+          "封包",
+          "連線",
+          "伺服器",
+          "VPC",
+          "CIDR",
+          "遮罩"
+        ]
+      }
     },
     "子網_subnet": {
       "taiwan": "子網路",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣網路架構術語",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "網路",
+          "IP",
+          "TCP",
+          "UDP",
+          "HTTP",
+          "路由",
+          "封包",
+          "連線",
+          "伺服器",
+          "VPC",
+          "CIDR",
+          "遮罩"
+        ]
+      }
     },
     "虚拟局域网": {
       "taiwan": "虛擬區域網路",
@@ -2362,32 +2794,112 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣資安認證標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "網路",
+          "IP",
+          "TCP",
+          "UDP",
+          "HTTP",
+          "路由",
+          "封包",
+          "連線",
+          "伺服器",
+          "VPC",
+          "CIDR",
+          "遮罩",
+          "SSL",
+          "TLS",
+          "HTTPS",
+          "加密"
+        ]
+      }
     },
     "证书_certificate": {
       "taiwan": "憑證",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣資安認證標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "網路",
+          "IP",
+          "TCP",
+          "UDP",
+          "HTTP",
+          "路由",
+          "封包",
+          "連線",
+          "伺服器",
+          "VPC",
+          "CIDR",
+          "遮罩",
+          "SSL",
+          "TLS",
+          "HTTPS",
+          "加密"
+        ]
+      }
     },
     "證書": {
       "taiwan": "憑證",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣資安認證標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "網路",
+          "IP",
+          "TCP",
+          "UDP",
+          "HTTP",
+          "路由",
+          "封包",
+          "連線",
+          "伺服器",
+          "VPC",
+          "CIDR",
+          "遮罩",
+          "SSL",
+          "TLS",
+          "HTTPS",
+          "加密"
+        ]
+      }
     },
     "證書_certificate": {
       "taiwan": "憑證",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣資安認證標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "網路",
+          "IP",
+          "TCP",
+          "UDP",
+          "HTTP",
+          "路由",
+          "封包",
+          "連線",
+          "伺服器",
+          "VPC",
+          "CIDR",
+          "遮罩",
+          "SSL",
+          "TLS",
+          "HTTPS",
+          "加密"
+        ]
+      }
     },
     "SSL证书": {
       "taiwan": "SSL憑證",
@@ -2522,32 +3034,144 @@
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣網路連接標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "網路",
+          "IP",
+          "TCP",
+          "UDP",
+          "HTTP",
+          "路由",
+          "封包",
+          "連線",
+          "伺服器",
+          "VPC",
+          "CIDR",
+          "遮罩",
+          "資料庫",
+          "WiFi",
+          "藍牙",
+          "USB",
+          "VPN",
+          "SSH"
+        ],
+        "exclude": [
+          "管",
+          "道路",
+          "橋",
+          "零件"
+        ]
+      }
     },
     "连接_connect": {
       "taiwan": "連線",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣網路連接標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "網路",
+          "IP",
+          "TCP",
+          "UDP",
+          "HTTP",
+          "路由",
+          "封包",
+          "連線",
+          "伺服器",
+          "VPC",
+          "CIDR",
+          "遮罩",
+          "資料庫",
+          "WiFi",
+          "藍牙",
+          "USB",
+          "VPN",
+          "SSH"
+        ],
+        "exclude": [
+          "管",
+          "道路",
+          "橋",
+          "零件"
+        ]
+      }
     },
     "連接": {
       "taiwan": "連線",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣網路連接標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "網路",
+          "IP",
+          "TCP",
+          "UDP",
+          "HTTP",
+          "路由",
+          "封包",
+          "連線",
+          "伺服器",
+          "VPC",
+          "CIDR",
+          "遮罩",
+          "資料庫",
+          "WiFi",
+          "藍牙",
+          "USB",
+          "VPN",
+          "SSH"
+        ],
+        "exclude": [
+          "管",
+          "道路",
+          "橋",
+          "零件"
+        ]
+      }
     },
     "連接_connect": {
       "taiwan": "連線",
       "confidence": 0.9,
       "category": "mainland-term",
       "reason": "台灣網路連接標準",
-      "match_type": "exact",
-      "autofix_safe": true
+      "match_type": "context_sensitive",
+      "autofix_safe": false,
+      "context": {
+        "before": [
+          "網路",
+          "IP",
+          "TCP",
+          "UDP",
+          "HTTP",
+          "路由",
+          "封包",
+          "連線",
+          "伺服器",
+          "VPC",
+          "CIDR",
+          "遮罩",
+          "資料庫",
+          "WiFi",
+          "藍牙",
+          "USB",
+          "VPN",
+          "SSH"
+        ],
+        "exclude": [
+          "管",
+          "道路",
+          "橋",
+          "零件"
+        ]
+      }
     },
     "下载": {
       "taiwan": "下載",
