@@ -1,5 +1,6 @@
 import { glob } from 'glob'
 import { readFile, stat } from 'fs/promises'
+import { join } from 'path'
 import { DictionaryManager } from './dictionary-manager.js'
 import { SimplifiedCharsRule } from './rules/simplified-chars.js'
 import { MainlandTermsRule } from './rules/mainland-terms.js'
@@ -50,11 +51,17 @@ export class TWLinter {
     this.rules.set('mainland-terms', new MainlandTermsRule(this.dictManager))
   }
 
-  async lintFiles(patterns: string[]): Promise<LintResult[]> {
-    // 載入 .twlintignore（如果存在）
+  /**
+   * 把 CLI 參數（檔案、glob、資料夾）展開成要處理的檔案清單，套用所有忽略規則。
+   * 檢查與修復都從這裡取得檔案。
+   */
+  async resolveFiles(patterns: string[]): Promise<string[]> {
     await this.loadTwlintignore()
+    return this.expandFilePatterns(patterns)
+  }
 
-    const files = await this.expandFilePatterns(patterns)
+  async lintFiles(patterns: string[]): Promise<LintResult[]> {
+    const files = await this.resolveFiles(patterns)
     const results: LintResult[] = []
 
     for (const filePath of files) {
@@ -143,7 +150,9 @@ export class TWLinter {
       if (!hasWildcards) {
         try {
           const fileStats = await stat(pattern)
-          if (fileStats.isFile() && !this.configMatcher.isIgnored(pattern)) {
+          if (fileStats.isDirectory()) {
+            files.push(...await this.expandDirectory(pattern, baseIgnorePatterns))
+          } else if (fileStats.isFile() && !this.configMatcher.isIgnored(pattern)) {
             files.push(pattern)
           }
         } catch {
@@ -166,6 +175,21 @@ export class TWLinter {
     }
 
     return [...new Set(files)] // Remove duplicates
+  }
+
+  // 同 ESLint：資料夾只展開成有設定區塊涵蓋的檔案（預設是 *.md、*.txt）
+  private async expandDirectory(dir: string, baseIgnorePatterns: string[]): Promise<string[]> {
+    const matches = await glob('**/*', {
+      cwd: dir,
+      ignore: baseIgnorePatterns,
+      dot: false,
+      nodir: true
+    })
+
+    return matches
+      .map(file => join(dir, file))
+      .filter(file => Object.keys(this.configMatcher.getRulesForFile(file)).length > 0)
+      .sort()
   }
 
   /**
