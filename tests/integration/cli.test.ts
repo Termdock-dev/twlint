@@ -125,46 +125,6 @@ describe('CLI Integration Tests', () => {
     })
   })
 
-  describe('directory arguments (#3)', () => {
-    const docsDir = join(testDir, 'docs-dir')
-
-    beforeEach(async () => {
-      await mkdir(join(docsDir, 'sub'), { recursive: true })
-      await writeFile(join(docsDir, 'sub', 'guide.md'), '这是简体字', 'utf-8')
-      await writeFile(join(docsDir, 'script.sh'), 'echo 这是简体字', 'utf-8')
-    })
-
-    afterEach(async () => {
-      await rm(docsDir, { recursive: true, force: true })
-    })
-
-    it('checks the files under a directory that the config covers', async () => {
-      try {
-        await execAsync(`node ${cliPath} check ${docsDir} --format json`)
-        expect.fail('Should have exited with error code')
-      } catch (error: any) {
-        expect(error.code).toBe(1)
-        const results = JSON.parse(error.stdout)
-        expect(results.map((result: { filePath: string }) => result.filePath))
-          .toEqual([join(docsDir, 'sub', 'guide.md')])
-        expect(results[0].messages.length).toBeGreaterThan(0)
-      }
-    })
-
-    it('warns on stderr when nothing is left to check, keeping exit 0', async () => {
-      const { stdout, stderr } = await execAsync(`node ${cliPath} check "${docsDir}/**/*.none"`)
-      expect(stderr).toContain('No files to check')
-      expect(stdout).toContain('No problems found')
-    })
-
-    it('fixes the files under a directory', async () => {
-      await execAsync(`node ${cliPath} check ${docsDir} --fix`)
-
-      expect(await readFile(join(docsDir, 'sub', 'guide.md'), 'utf-8')).toBe('這是簡體字')
-      expect(await readFile(join(docsDir, 'script.sh'), 'utf-8')).toBe('echo 这是简体字')
-    })
-  })
-
   describe('directory arguments inside a project (#3)', () => {
     // 獨立專案：自己的 .gitignore 與設定檔，CLI 從專案根目錄執行
     const projectDir = join(testDir, 'project')
@@ -187,10 +147,37 @@ describe('CLI Integration Tests', () => {
       await writeFile(join(projectDir, 'docs', 'a.md'), '这是简体字', 'utf-8')
       await writeFile(join(projectDir, 'docs', 'generated', 'g.md'), '这是简体字', 'utf-8')
       await writeFile(join(projectDir, 'src', 'x.ts'), '// 这是简体字', 'utf-8')
+      await writeFile(join(projectDir, 'docs', 'script.sh'), 'echo 这是简体字', 'utf-8')
     })
 
     afterEach(async () => {
       await rm(projectDir, { recursive: true, force: true })
+    })
+
+    it('checks only the files under a directory that the config covers', async () => {
+      try {
+        await execAsync(`node ${cliPath} check docs --format json`, { cwd: projectDir })
+        expect.fail('Should have exited with error code')
+      } catch (error: any) {
+        expect(error.code).toBe(1)
+        const results = JSON.parse(error.stdout)
+        expect(results.map((result: { filePath: string }) => result.filePath)).toEqual(['docs/a.md'])
+        expect(results[0].messages.length).toBeGreaterThan(0)
+      }
+    })
+
+    it('fixes the files under a directory and leaves ignored or uncovered files alone', async () => {
+      await execAsync(`node ${cliPath} check docs --fix`, { cwd: projectDir })
+
+      expect(await readFile(join(projectDir, 'docs', 'a.md'), 'utf-8')).toBe('這是簡體字')
+      expect(await readFile(join(projectDir, 'docs', 'generated', 'g.md'), 'utf-8')).toBe('这是简体字')
+      expect(await readFile(join(projectDir, 'docs', 'script.sh'), 'utf-8')).toBe('echo 这是简体字')
+    })
+
+    it('warns on stderr when nothing is left to check, keeping exit 0', async () => {
+      const { stdout, stderr } = await execAsync(`node ${cliPath} check "docs/**/*.none"`, { cwd: projectDir })
+      expect(stderr).toContain('No files to check')
+      expect(stdout).toContain('No problems found')
     })
 
     it('applies path-prefixed .gitignore rules to a directory argument', async () => {
