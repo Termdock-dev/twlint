@@ -7,6 +7,16 @@ import { MatchStrategyRegistry } from './matching/match-strategies.js'
 import { LRUCache } from './lru-cache.js'
 import { isMatchableTerm } from './matchable-term.js'
 
+// 建議詞包含原詞時（終端→終端機），命中位置周圍的文字可能已經是建議詞。
+// 原詞等於建議詞的保護詞條不在此列：它們要留下來，在去重時蓋掉較短的命中。
+function readsAsReplacement(text: string, start: number, term: string, replacement: string): boolean {
+  if (term === replacement) return false
+  for (let offset = replacement.indexOf(term); offset !== -1; offset = replacement.indexOf(term, offset + 1)) {
+    if (start - offset >= 0 && text.startsWith(replacement, start - offset)) return true
+  }
+  return false
+}
+
 export class DictionaryManager {
   private cache = new LRUCache<string, CompiledDict>(20) // 限制快取 20 個詞庫
   private readonly dictionariesPath: string
@@ -69,7 +79,7 @@ export class DictionaryManager {
         const matches = strategy.match(text, term, entry.context)
 
         for (const match of matches) {
-          this.addMatch(allMatches, match, entry, dict.metadata.name)
+          this.addMatch(text, allMatches, match, entry, dict.metadata.name)
         }
 
         // 對於語境敏感詞彙，同時檢查其變體
@@ -86,7 +96,7 @@ export class DictionaryManager {
             const variantMatches = variantStrategy.match(text, term, variantEntry.context)
 
             for (const match of variantMatches) {
-              this.addMatch(allMatches, match, variantEntry, dict.metadata.name, true)
+              this.addMatch(text, allMatches, match, variantEntry, dict.metadata.name, true)
             }
           }
         }
@@ -181,12 +191,15 @@ export class DictionaryManager {
   }
 
   private addMatch(
+    text: string,
     allMatches: MatchResult[],
     match: MatchResult,
     entry: DictLookupEntry,
     dictName: string,
     isVariant = false
   ): void {
+    if (readsAsReplacement(text, match.start, match.term, entry.taiwan)) return
+
     allMatches.push({
       ...match,
       replacement: entry.taiwan,
