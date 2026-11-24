@@ -3,7 +3,7 @@
 // TWLint 詞庫建構工具
 // 將 CSV 詞庫轉換為優化的 JSON 格式供運行時使用
 
-import { readFile, writeFile, readdir, mkdir } from 'fs/promises'
+import { readFile, writeFile, readdir, mkdir, rm } from 'fs/promises'
 import { join, basename } from 'path'
 import Papa from 'papaparse'
 import type { DictEntry, CompiledDict, DictLookupEntry } from '../src/types.js'
@@ -44,6 +44,7 @@ class DictBuilder {
   private readonly csvDir = join(process.cwd(), 'dictionaries-csv')
   private readonly domainsDir = join(process.cwd(), 'dictionaries-csv', 'domains')
   private readonly outputDir = join(process.cwd(), 'src', 'dictionaries')
+  private readonly builtNames = new Set<string>()
 
   async buildAll(): Promise<void> {
     console.log('🔨 開始建構 TWLint 詞庫...')
@@ -64,6 +65,8 @@ class DictBuilder {
 
     // 建構擴展詞庫（保持向後相容）
     await this.buildExtendedDict()
+
+    await this.removeUnbuiltDictionaries()
 
     // 建構索引文件
     await this.generateIndex()
@@ -167,6 +170,18 @@ class DictBuilder {
     console.log(`✅ 擴展詞庫建構完成 (${dict.metadata.entries} 條目)`)
   }
 
+  // src/dictionaries/ 只放這次從 CSV 建出來的詞庫；CSV 刪掉後留下的舊 JSON 一併移除
+  private async removeUnbuiltDictionaries(): Promise<void> {
+    const stale = (await readdir(this.outputDir))
+      .filter(file => file.endsWith('.json') && file !== 'index.json')
+      .filter(file => !this.builtNames.has(basename(file, '.json')))
+
+    for (const file of stale) {
+      await rm(join(this.outputDir, file))
+      console.log(`🗑️  移除沒有來源 CSV 的詞庫: ${file}`)
+    }
+  }
+
   async generateIndex(): Promise<void> {
     console.log('📝 生成詞庫索引...')
 
@@ -218,8 +233,7 @@ class DictBuilder {
 
     const index = {
       dictionaries: builtDictionaries,
-      version: PACKAGE_VERSION,
-      buildTime: new Date().toISOString()
+      version: PACKAGE_VERSION
     }
 
     await writeFile(
@@ -372,6 +386,7 @@ class DictBuilder {
   }
 
   private async saveDict(dict: CompiledDict, name: string): Promise<void> {
+    this.builtNames.add(name)
     const filePath = join(this.outputDir, `${name}.json`)
     await writeFile(filePath, JSON.stringify(dict, null, 2), 'utf-8')
   }
