@@ -188,6 +188,19 @@ describe('CLI Integration Tests', () => {
       expect((await listFiles(projectDir)).map(file => file.replace(`${projectDir}/`, '')).sort())
         .toEqual(['docs/a.md', 'src/x.ts'])
     })
+
+    it('runs the configured rules on files reached through an absolute directory', async () => {
+      try {
+        await execAsync(`node ${cliPath} check ${projectDir} --format json`, { cwd: projectDir })
+        expect.fail('Should have exited with error code')
+      } catch (error: any) {
+        const results: Array<{ filePath: string; messages: unknown[] }> = JSON.parse(error.stdout)
+        expect(results.every(result => result.messages.length > 0)).toBe(true)
+      }
+
+      await execAsync(`node ${cliPath} check ${projectDir} --fix`, { cwd: projectDir })
+      expect(await readFile(join(projectDir, 'src', 'x.ts'), 'utf-8')).toBe('// 這是簡體字')
+    })
   })
 
   describe('fix command', () => {
