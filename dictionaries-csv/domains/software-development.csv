@@ -112,11 +112,11 @@ traverse,走訪,遍历,遍歷,traverse,0.90,mainland-term,台灣資料結構標�
 middleware,中介軟體,中间件,中間件,middleware,0.90,mainland-term,台灣軟體架構標準用語,tech,exact,,,,true
 project,專案,项目,項目,project,0.90,mainland-term,台灣專案管理標準用語,tech,context_sensitive,"程式,程式碼,軟體,系統,伺服器,資料庫,API,電腦,應用程式,App,檔案,函式,變數,類別,物件,開發,編譯,部署,雲端,Git,npm,Linux,Windows,macOS,原始碼",,,false
 assembly-language,組合語言,汇编语言,匯編語言,assembly language,0.90,mainland-term,台灣程式語言標準,tech,exact,,,,true
-assert,宣告,断言,斷言,assert,0.90,mainland-term,台灣程式設計標準,tech,context_sensitive,"測試,assert,單元測試,函式,程式,例外,條件",,,false
+assert,宣告,断言,斷言,assert,0.90,mainland-term,台灣程式設計標準,tech,context_sensitive,"測試,assert,單元測試,函式,函數,程式,程序,例外,異常,條件",,,false
 base-class,基底類別,基类,基類,base class,0.90,mainland-term,台灣物件導向標準,tech,exact,,,,true
 batch-processing,批次處理,批处理,批處理,batch processing,0.90,mainland-term,台灣資料處理標準,tech,exact,,,,true
 binary-operator,二元運算子,二元运算符,二元運算符,binary operator,0.90,mainland-term,台灣程式語言標準,tech,exact,,,,true
-bind,繫結,绑定,綁定,bind,0.90,mainland-term,台灣程式設計標準,tech,context_sensitive,"程式,資料,變數,元件,屬性,事件,框架",,,false
+bind,繫結,绑定,綁定,bind,0.90,mainland-term,台灣程式設計標準,tech,context_sensitive,"程式,程序,資料,數據,變數,變量,元件,屬性,事件,框架",,,false
 breakpoint,中斷點,断点,斷點,breakpoint,0.90,mainland-term,台灣除錯工具標準,tech,exact,,,,true
 built-in,內建,内置,內置,built-in,0.90,mainland-term,台灣程式語言標準,tech,exact,,,,true
 compatibility,相容性,兼容性,兼容性,compatibility,0.90,mainland-term,台灣軟體標準,tech,exact,,,,true
@@ -143,10 +143,10 @@ operator-symbol,運算子,运算符,運算符,operator,0.90,mainland-term,台灣
 overload,多載,重载,重載,overload,0.90,mainland-term,台灣物件導向標準,tech,exact,,,,true
 override,覆寫,覆盖,覆蓋,override,0.90,mainland-term,台灣物件導向標準,tech,context_sensitive,"方法,函式,類別,子類別,父類別,override,繼承",,,false
 pseudo-code,虛擬碼,伪代码,偽代碼,pseudo code,0.90,mainland-term,台灣程式設計標準,tech,exact,,,,true
-read-only,唯讀,只读,只讀,read-only,0.90,mainland-term,台灣系統標準,tech,context_sensitive,"檔案,權限,屬性,模式,記憶體,變數,磁碟,掛載",,,false
+read-only,唯讀,只读,只讀,read-only,0.90,mainland-term,台灣系統標準,tech,context_sensitive,"檔案,文件,權限,屬性,模式,記憶體,內存,變數,變量,磁碟,磁盤,掛載",,,false
 scope,有效範圍,作用域,作用域,scope,0.90,mainland-term,台灣程式設計標準,tech,exact,,,,true
 source-code,原始碼,源代码,源代碼,source code,0.90,mainland-term,台灣軟體開發標準,tech,exact,,,,true
-statement,敘述,语句,語句,statement,0.90,mainland-term,台灣程式語言標準,tech,context_sensitive,"SQL,程式,if,for,while,迴圈,條件,return,執行",,,false
+statement,敘述,语句,語句,statement,0.90,mainland-term,台灣程式語言標準,tech,context_sensitive,"SQL,程式,程序,if,for,while,迴圈,循環,條件,return,執行,運行",,,false
 subclass,子類別,子类,子類,subclass,0.90,mainland-term,台灣物件導向標準,tech,exact,,,,true
 subroutine,副程式,子例程,子例程,subroutine,0.90,mainland-term,台灣程式設計標準,tech,exact,,,,true
 superclass,父類別,超类,超類,superclass,0.90,mainland-term,台灣物件導向標準,tech,exact,,,,true
@@ -157,7 +157,7 @@ command-line,指令,命令,命令,command,0.85,mainland-term,台灣系統操作�
 communication-tech,通訊,通信,通信,communication,0.85,mainland-term,台灣網路通訊標準,tech,context_sensitive,"網路,協定,TCP,無線,API,socket,埠,傳輸",,"書信,地址,郵件,筆友",false
 detect,偵測,检测,檢測,detect,0.85,mainland-term,台灣程式設計標準,tech,context_sensitive,"程式,系統,錯誤,病毒,漏洞,掃描,防火牆,入侵",,"醫學,健康,食品,體檢,血液",false
 device,裝置,设备,設備,device,0.85,mainland-term,台灣硬體標準,tech,context_sensitive,"硬體,驅動,USB,藍牙,周邊,行動,連接,安裝",,"消防,健身,工廠,廚房,實驗室",false
-interact,互動,交互,交互,interact,0.90,mainland-term,台灣介面設計標準,tech,context_sensitive,"人機,程式,介面,使用者,元件,滑鼠,點擊",,交互作用,false
+interact,互動,交互,交互,interact,0.90,mainland-term,台灣介面設計標準,tech,context_sensitive,"人機,程式,程序,介面,接口,使用者,用戶,元件,滑鼠,鼠標,點擊",,交互作用,false
 navigate,導覽,导航,導航,navigate,0.85,mainland-term,台灣介面設計標準,tech,context_sensitive,"介面,頁面,路由,網站,選單,UI,列,元件",,"GPS,衛星,航海,地圖導航",false
 return-value,回傳,返回,返回,return,0.85,mainland-term,台灣程式設計標準,tech,context_sensitive,"函式,值,結果,型別,void,null,回傳,參數",,"原地,首頁,座位,出發點",false
 text-content,文字,文本,文本,text,0.85,mainland-term,台灣介面設計標準,tech,context_sensitive,"框,編輯,輸入,欄位,NLP,處理,分析,mining",,"課本,教材,文本分析",false

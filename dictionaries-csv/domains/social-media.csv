@@ -5,13 +5,13 @@ post,貼文,帖子,帖子,post,0.90,mainland-term,台灣社群內容術語,tech,
 status,動態,状态,狀態,status,0.85,mainland-term,台灣社群內容術語,tech,context_sensitive,"貼文,帳號,社群,Facebook,臉書,Instagram,IG,YouTube,Twitter,推特,Threads,TikTok,抖音,微博,按讚,追蹤,分享,直播,網紅,動態",,,false
 story,限時動態,故事,故事,story,0.85,mainland-term,台灣社群功能術語,tech,context_sensitive,"貼文,帳號,社群,Facebook,臉書,Instagram,IG,YouTube,Twitter,推特,Threads,TikTok,抖音,微博,按讚,追蹤,分享,直播,網紅,動態",,,false
 feed,動態消息,信息流,信息流,feed,0.85,mainland-term,台灣社群內容術語,tech,exact,,,,true
-timeline,時間軸,时间线,時間線,timeline,0.90,mainland-term,台灣社群顯示術語,tech,context_sensitive,"貼文,動態,Facebook,臉書,Twitter,推特,社群",,,false
+timeline,時間軸,时间线,時間線,timeline,0.90,mainland-term,台灣社群顯示術語,tech,context_sensitive,"貼文,帖子,動態,狀態,Facebook,臉書,Twitter,推特,社群,社區",,,false
 profile,個人檔案,个人资料,個人資料,profile,0.85,mainland-term,台灣社群帳號術語,tech,context_sensitive,"貼文,帳號,社群,Facebook,臉書,Instagram,IG,YouTube,Twitter,推特,Threads,TikTok,抖音,微博,按讚,追蹤,分享,直播,網紅,動態",,"個人資料保護,個資",false
 follower,追蹤者,粉丝,粉絲,follower,0.90,mainland-term,台灣社群媒體術語,tech,context_sensitive,"貼文,帳號,社群,Facebook,臉書,Instagram,IG,YouTube,Twitter,推特,Threads,TikTok,抖音,微博,按讚,追蹤,分享,直播,網紅,動態",,粉絲見面會,false
 following,追蹤中,关注,關注,following,0.90,mainland-term,台灣社群媒體術語,tech,context_sensitive,"貼文,帳號,社群,Facebook,臉書,Instagram,IG,YouTube,Twitter,推特,Threads,TikTok,抖音,微博,按讚,追蹤,分享,直播,網紅,動態",,,false
 like,按讚,点赞,點讚,like,0.90,mainland-term,台灣社群互動術語,tech,exact,,,,true
 comment,留言,评论,評論,comment,0.90,mainland-term,台灣社群互動術語,tech,context_sensitive,"貼文,帳號,社群,Facebook,臉書,Instagram,IG,YouTube,Twitter,推特,Threads,TikTok,抖音,微博,按讚,追蹤,分享,直播,網紅,動態",,"評論家,評論界",false
-reply,回覆,回复,回復,reply,0.85,mainland-term,台灣社群互動術語,tech,context_sensitive,"留言,訊息,郵件,評論,貼文,私訊",,回復原狀,false
+reply,回覆,回复,回復,reply,0.85,mainland-term,台灣社群互動術語,tech,context_sensitive,"留言,評論,訊息,郵件,貼文,帖子,私訊,私信",,回復原狀,false
 repost,轉發,转发,轉發,repost,0.85,mainland-term,台灣社群互動術語,tech,exact,,,,true
 retweet,轉推,转推,轉推,retweet,0.85,mainland-term,台灣Twitter術語,tech,exact,,,,true
 hashtag,標籤,话题标签,話題標籤,hashtag,0.85,mainland-term,台灣社群分類術語,tech,exact,,,,true
@@ -44,9 +44,9 @@ unsubscribe,取消訂閱,退订,退訂,unsubscribe,0.90,mainland-term,台灣媒�
 bell-notification,小鈴鐺,小铃铛,小鈴鐺,bell notification,0.85,mainland-term,台灣通知功能術語,tech,exact,,,,true
 algorithm,演算法,算法,算法,algorithm,0.95,mainland-term,台灣技術術語標準,tech,exact,,,,true
 engagement,互動率,互动率,互動率,engagement,0.85,mainland-term,台灣社群分析術語,tech,exact,,,,true
-reach,觸及率,覆盖率,覆蓋率,reach,0.85,mainland-term,台灣社群分析術語,tech,context_sensitive,"貼文,觸及,曝光,粉專,廣告,社群",,"測試覆蓋率,程式碼覆蓋率",false
+reach,觸及率,覆盖率,覆蓋率,reach,0.85,mainland-term,台灣社群分析術語,tech,context_sensitive,"貼文,帖子,觸及,曝光,印象,粉專,廣告,社群,社區",,"測試覆蓋率,程式碼覆蓋率",false
 impression,曝光,印象,印象,impression,0.85,mainland-term,台灣廣告術語標準,tech,context_sensitive,"貼文,帳號,社群,Facebook,臉書,Instagram,IG,YouTube,Twitter,推特,Threads,TikTok,抖音,微博,按讚,追蹤,分享,直播,網紅,動態,廣告,觸及,點擊",,"刻板印象,印象派,印象深刻",false
-insights,洞察報告,洞察,洞察,insights,0.85,mainland-term,台灣數據分析術語,tech,context_sensitive,"報告,數據分析,粉專,後台,觸及,曝光",,洞察力,false
+insights,洞察報告,洞察,洞察,insights,0.85,mainland-term,台灣數據分析術語,tech,context_sensitive,"報告,數據分析,粉專,後台,觸及,曝光,印象",,洞察力,false
 metric,指標,指标,指標,metric,0.85,mainland-term,台灣數據分析術語,tech,exact,,,,true
 dashboard,儀表板,仪表盘,儀表盤,dashboard,0.85,mainland-term,台灣數據視覺化,tech,exact,,,,true
 content-creator,內容創作者,内容创作者,內容創作者,content creator,0.90,mainland-term,台灣社群職業術語,tech,exact,,,,true

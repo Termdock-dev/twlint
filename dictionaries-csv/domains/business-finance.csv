@@ -22,7 +22,7 @@ balance-sheet,資產負債表,资产负债表,資產負債表,balance sheet,0.90
 income-statement,損益表,损益表,損益表,income statement,0.90,mainland-term,台灣財務報表術語,business,exact,,,,true
 cash-flow,現金流量,现金流,現金流,cash flow,0.90,mainland-term,台灣財務管理術語,business,exact,,,,true
 audit,稽核,审计,審計,audit,0.90,mainland-term,台灣會計稽核術語,business,exact,,,,true
-compliance,法規遵循,合规,合規,compliance,0.90,mainland-term,台灣企業治理術語,business,context_sensitive,"金融,銀行,法遵,監管,稽核,證券,洗錢,KYC",,符合規,false
+compliance,法規遵循,合规,合規,compliance,0.90,mainland-term,台灣企業治理術語,business,context_sensitive,"金融,銀行,法遵,監管,稽核,審計,證券,洗錢,KYC",,符合規,false
 governance,公司治理,治理,治理,governance,0.85,mainland-term,台灣企業管理術語,business,context_sensitive,"企業,董事會,股東,ESG,上市",,"公司治理,政治理",false
 strategy,策略,战略,戰略,strategy,0.90,mainland-term,台灣企業規劃術語,business,context_sensitive,"企業,公司,商業,市場,行銷,品牌",,,false
 tactics,戰術,战术,戰術,tactics,0.85,mainland-term,台灣企業執行術語,business,exact,,,,true

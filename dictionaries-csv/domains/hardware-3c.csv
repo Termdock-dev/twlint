@@ -87,5 +87,5 @@ access-point,無線存取點,无线接入点,無線接入點,access point,0.90,m
 antenna,天線,天线,天線,antenna,0.85,mainland-term,台灣無線設備元件,tech,exact,,,,true
 amplifier,放大器,放大器,放大器,amplifier,0.85,mainland-term,台灣訊號處理設備,tech,exact,,,,true
 burn,燒錄,刻录,刻錄,burn,0.90,mainland-term,台灣儲存媒體標準,tech,exact,,,,true
-digital,數位的,数字的,數字的,digital,0.90,mainland-term,台灣數位科技標準,tech,context_sensitive,"訊號,電子,相機,電視,音訊,影像,轉換,類比",,,false
+digital,數位的,数字的,數字的,digital,0.90,mainland-term,台灣數位科技標準,tech,context_sensitive,"訊號,電子,相機,電視,音訊,音頻,影像,圖像,轉換,類比",,,false
 smartphone,智慧型手機,智能手机,智能手機,smartphone,0.90,mainland-term,台灣行動裝置標準,tech,exact,,,,true

@@ -15,7 +15,7 @@ combobox,下拉式方塊,组合框,組合框,combobox,0.90,mainland-term,台灣�
 control,控制項,控件,控件,control,0.90,mainland-term,台灣介面元件標準,tech,exact,,,,true
 button,按鈕,按钮,按鈕,button,0.85,mainland-term,台灣介面元件標準,tech,exact,,,,true
 icon,圖示,图标,圖標,icon,0.85,mainland-term,台灣介面設計標準,tech,exact,,,,true
-image,影像,图像,圖像,image,0.85,mainland-term,台灣多媒體標準,tech,context_sensitive,"像素,解析度,格式,PNG,JPG,點陣,渲染,處理器,GPU",,,false
+image,影像,图像,圖像,image,0.85,mainland-term,台灣多媒體標準,tech,context_sensitive,"像素,解析度,分辨率,格式,PNG,JPG,點陣,渲染,處理器,GPU",,,false
 cursor,游標,光标,光標,cursor,0.90,mainland-term,台灣介面操作標準,tech,exact,,,,true
 pointer,指標,指针,指針,pointer,0.90,mainland-term,台灣介面元素標準,tech,exact,,,,true
 clipboard,剪貼簿,剪贴板,剪貼板,clipboard,0.90,mainland-term,台灣系統功能標準,tech,exact,,,,true
